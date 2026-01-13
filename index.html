@@ -3,6 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <title>GoNfly – Your Trusted Visa & Business Partner</title>
+  <div class="search-box">
+  <input type="text" placeholder="Search for a destination..." />
+</div>
+.search-box input {
+  width: 60%;
+  padding: 15px;
+  border-radius: 30px;
+  border: none;
+  font-size: 16px;
+}
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
@@ -185,7 +196,7 @@
 <body>
 
 <header>
-  <img src="logo.png" alt="GoNfly Logo" />
+<img src="logo.png" alt="GoNfly Logo" class="logo" />
   <nav>
     <a href="#home">Home</a>
     <a href="#services">Services</a>
@@ -205,12 +216,17 @@
       <input type="email" name="email" placeholder="Email Address" required>
 
       <select name="country" required>
-        <option value="">Select Country</option>
-        <option>UAE</option>
-        <option>USA</option>
-        <option>China</option>
-        <option>Georgia</option>
-      </select>
+  <option value="">Select Country</option>
+  <option value="UAE">UAE</option>
+  <option value="USA">USA</option>
+  <option value="China">China</option>
+  <option value="Georgia">Georgia</option>
+  <option value="Singapore">Singapore</option>
+  <option value="South Korea">South Korea</option>
+  <option value="Bangladesh">Bangladesh</option>
+  <option value="Egypt">Egypt</option>
+</select>
+
 
       <select name="visa" required>
         <option value="">Select Visa Type</option>
@@ -282,5 +298,6 @@ document.getElementById("visaForm").addEventListener("submit", function(e) {
   .catch(err => alert("Submission failed. Please try again."));
 });
 </script>
+
 
 
