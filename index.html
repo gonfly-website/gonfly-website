@@ -227,6 +227,32 @@
     <p id="successMsg" style="display:none;color:green;font-weight:bold;text-align:center;">
       ✅ Thank you! We will contact you shortly.
     </p>
+    <script>
+document.getElementById("visaForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  var formData = {
+    name: this.name.value,
+    phone: this.phone.value,
+    email: this.email.value,
+    country: this.country.value,
+    visa: this.visa.value,
+    message: this.message.value
+  };
+
+  fetch("https://script.google.com/macros/s/AKfycbxmGwtonKUd8xJtfrWJwvtpZq51knfREjvHeV8yTolDzQRZupblW55NyQgJlJmgRATwqw/exec", {
+    method: "POST",
+    body: JSON.stringify(formData)
+  })
+  .then(response => response.text())
+  .then(() => {
+    document.getElementById("successMsg").style.display = "block";
+    document.getElementById("visaForm").reset();
+  })
+  .catch(err => console.error(err));
+});
+</script>
+
   </div>
 </section>
 
@@ -247,7 +273,8 @@ document.getElementById("visaForm").addEventListener("submit", function(e) {
     method: "POST",
     body: JSON.stringify(formData)
   })
-  .then(res => res.json())
+  .then(response => response.text())
+
   .then(() => {
     document.getElementById("successMsg").style.display = "block";
     document.getElementById("visaForm").reset();
@@ -255,4 +282,5 @@ document.getElementById("visaForm").addEventListener("submit", function(e) {
   .catch(err => alert("Submission failed. Please try again."));
 });
 </script>
+
 
