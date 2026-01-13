@@ -1,47 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>GoNfly – Your Trusted Visa & Business Partner</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f7fb;
+      color: #222;
+    }
+
+    header {
+      background: #4b5cff;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+    }
+
+    header img {
+      height: 70px;
+      object-fit: contain;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 25px;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #4b5cff, #3f4fd8);
+      color: white;
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      opacity: 0.9;
+    }
+
+    .search-box {
+      margin-top: 25px;
+    }
+
+    .search-box input {
+      width: 80%;
+      max-width: 500px;
+      padding: 14px;
+      border-radius: 30px;
+      border: none;
+      font-size: 16px;
+      outline: none;
+    }
+
+    .section {
+      max-width: 1200px;
+      margin: auto;
+      padding: 60px 20px;
+    }
+
+    .section h2 {
+      text-align: center;
+      font-size: 30px;
+      margin-bottom: 30px;
+      color: #3f4fd8;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+      padding-bottom: 20px;
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card h3 {
+      margin: 15px 0 5px;
+      color: #3f4fd8;
+    }
+
+    .card p {
+      font-size: 15px;
+      padding: 0 15px;
+    }
+
+    .badge {
+      background: #3f4fd8;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    .form-box {
+      max-width: 600px;
+      margin: auto;
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .form-box input,
+    .form-box select,
+    .form-box textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 12px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 15px;
+    }
+
+    .form-box button {
+      width: 100%;
+      background: #3f4fd8;
+      color: #fff;
+      padding: 14px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .contact {
+      background: #3f4fd8;
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    footer {
+      background: #2e2e2e;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+    }
+
+    .whatsapp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25d366;
+      color: white;
+      padding: 15px 20px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <img src="logo.png" alt="GoNfly Logo" />
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#enquiry">Enquiry</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <h1>GoNfly – Your Trusted Visa & Business Partner</h1>
+  <p>Tourist & Business Visas Worldwide | UAE Company Formation Experts</p>
+
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search for a destination..." onkeyup="searchService()" />
+  </div>
+</section>
+
+<section class="section" id="services">
+  <h2>Our Key Services</h2>
+
+  <div class="cards">
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1504274066651-8d31a536b11a" />
+      <h3>UAE Visa Services</h3>
+      <p>Tourist, Business, 5-Year Multiple Entry & Golden Visa.</p>
+      <span class="badge">UAE Special</span>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c" />
+      <h3>UAE Company Formation</h3>
+      <p>Start your business in Dubai with full legal support.</p>
+      <span class="badge">Business Setup</span>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1549924231-f129b911e442" />
+      <h3>USA & Europe Visas</h3>
+      <p>Tourist & Business Visas for USA, Schengen & UK.</p>
+      <span class="badge">Visa Services</span>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1549692520-acc6669e2f0c" />
+      <h3>Asia & Africa Visas</h3>
+      <p>China, Georgia, Singapore, Korea, Bangladesh, Egypt.</p>
+      <span class="badge">Worldwide</span>
+    </div>
+
+  </div>
+</section>
+
 <section class="section" id="enquiry">
   <h2>Visa Enquiry Form</h2>
 
-  <form action="https://formsubmit.co/your-email@gmail.com" method="POST" 
-        style="max-width:600px; margin:auto; background:#fff; padding:25px; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
+  <div class="form-box">
+    <form action="https://forms.gle/YOUR_FORM_LINK" target="_blank">
+      <input type="text" placeholder="Full Name" required>
+      <input type="tel" placeholder="Phone / WhatsApp" required>
+      <input type="email" placeholder="Email Address" required>
 
-    <input type="text" name="name" placeholder="Full Name" required 
-           style="width:100%; padding:12px; margin-bottom:12px; border-radius:6px; border:1px solid #ccc;">
+      <select required>
+        <option value="">Select Country</option>
+        <option>UAE</option>
+        <option>USA</option>
+        <option>China</option>
+        <option>Georgia</option>
+        <option>Singapore</option>
+        <option>South Korea</option>
+        <option>Bangladesh</option>
+        <option>Egypt</option>
+      </select>
 
-    <input type="tel" name="phone" placeholder="Phone / WhatsApp" required 
-           style="width:100%; padding:12px; margin-bottom:12px; border-radius:6px; border:1px solid #ccc;">
+      <select required>
+        <option value="">Select Visa Type</option>
+        <option>Tourist Visa</option>
+        <option>Business Visa</option>
+        <option>5-Year UAE Visa</option>
+        <option>Golden Visa</option>
+        <option>UAE Company Formation</option>
+      </select>
 
-    <input type="email" name="email" placeholder="Email Address" required 
-           style="width:100%; padding:12px; margin-bottom:12px; border-radius:6px; border:1px solid #ccc;">
+      <textarea rows="4" placeholder="Your Message"></textarea>
 
-    <select name="country" required 
-            style="width:100%; padding:12px; margin-bottom:12px; border-radius:6px; border:1px solid #ccc;">
-      <option value="">Select Country</option>
-      <option>UAE</option>
-      <option>USA</option>
-      <option>China</option>
-      <option>Georgia</option>
-      <option>Singapore</option>
-      <option>South Korea</option>
-      <option>Bangladesh</option>
-      <option>Egypt</option>
-    </select>
-
-    <select name="visa_type" required 
-            style="width:100%; padding:12px; margin-bottom:12px; border-radius:6px; border:1px solid #ccc;">
-      <option value="">Select Visa Type</option>
-      <option>Tourist Visa</option>
-      <option>Business Visa</option>
-      <option>5-Year UAE Visa</option>
-      <option>Golden Visa</option>
-      <option>UAE Company Formation</option>
-    </select>
-
-    <textarea name="message" placeholder="Your Message" rows="4"
-              style="width:100%; padding:12px; margin-bottom:15px; border-radius:6px; border:1px solid #ccc;"></textarea>
-
-    <button type="submit" 
-            style="width:100%; background:#3f4fd8; color:#fff; padding:14px; border:none; border-radius:8px; font-size:16px; font-weight:bold;">
-      Submit Enquiry
-    </button>
-  </form>
+      <button type="submit">Submit Enquiry</button>
+    </form>
+  </div>
 </section>
+
+<section class="contact" id="contact">
+  <h2>Contact GoNfly</h2>
+  <p><strong>Phone / WhatsApp:</strong> 9999962722</p>
+  <p><strong>Address:</strong> E-21/119, Rohini Sector 3, Delhi – 110085</p>
+</section>
+
+<footer>
+  © 2026 GoNfly – Your Trusted Visa & Business Partner
+</footer>
+
+<a class="whatsapp" href="https://wa.me/919999962722" target="_blank">
+  Chat on WhatsApp
+</a>
+
+<script>
+function searchService() {
+  let input = document.getElementById("searchInput").value.toLowerCase();
+  let cards = document.getElementsByClassName("card");
+
+  for (let i = 0; i < cards.length; i++) {
+    let text = cards[i].innerText.toLowerCase();
+    cards[i].style.display = text.includes(input) ? "block" : "none";
+  }
+}
+</script>
+
+</body>
+</html>
