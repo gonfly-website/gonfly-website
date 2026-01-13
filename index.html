@@ -243,10 +243,13 @@
   <h2>Visa Enquiry Form</h2>
 
   <div class="form-box">
-    <form id="visaForm">
-  <input type="text" name="name" placeholder="Full Name" required>
-  <input type="tel" name="phone" placeholder="Phone / WhatsApp" required>
-  <input type="email" name="email" placeholder="Email Address" required>
+    <form id="visaForm" style="max-width:500px;margin:auto;">
+  
+  <input type="text" name="name" placeholder="Full Name" required><br><br>
+
+  <input type="tel" name="phone" placeholder="Phone / WhatsApp" required><br><br>
+
+  <input type="email" name="email" placeholder="Email Address" required><br><br>
 
   <select name="country" required>
     <option value="">Select Country</option>
@@ -254,19 +257,26 @@
     <option>USA</option>
     <option>China</option>
     <option>Georgia</option>
-  </select>
+  </select><br><br>
 
   <select name="visa" required>
     <option value="">Select Visa Type</option>
     <option>Tourist Visa</option>
     <option>Business Visa</option>
     <option>Golden Visa</option>
-  </select>
+  </select><br><br>
 
-  <textarea name="message" placeholder="Your Message"></textarea>
+  <textarea name="message" placeholder="Your Message"></textarea><br><br>
 
-  <button type="submit">Submit Enquiry</button>
+  <button type="submit" style="padding:12px 20px;background:#4a5cff;color:#fff;border:none;border-radius:6px;">
+    Submit Enquiry
+  </button>
+
 </form>
+
+<p id="successMsg" style="display:none;color:green;font-weight:bold;text-align:center;">
+  Thank you! We will contact you shortly.
+</p>
 
 <p id="successMsg" style="display:none;color:green;font-weight:bold;">
   Thank you! We will contact you shortly.
@@ -294,39 +304,32 @@ document.getElementById("visaForm").addEventListener("submit", function(e) {
     document.getElementById("visaForm").reset();
   });
 });
-</script>
-
-  </div>
-</section>
-
-<section class="contact" id="contact">
-  <h2>Contact GoNfly</h2>
-  <p><strong>Phone / WhatsApp:</strong> 9999962722</p>
-  <p><strong>Address:</strong> E-21/119, Rohini Sector 3, Delhi – 110085</p>
-</section>
-
-<footer>
-  © 2026 GoNfly – Your Trusted Visa & Business Partner
-</footer>
-
-<a class="whatsapp" href="https://wa.me/919999962722" target="_blank">
-  Chat on WhatsApp
-</a>
-
 <script>
-function searchService() {
-  let input = document.getElementById("searchInput").value.toLowerCase();
-  let cards = document.getElementsByClassName("card");
+document.getElementById("visaForm").addEventListener("submit", function(e) {
+  e.preventDefault();
 
-  for (let i = 0; i < cards.length; i++) {
-    let text = cards[i].innerText.toLowerCase();
-    cards[i].style.display = text.includes(input) ? "block" : "none";
-  }
-}
+  var formData = {
+    name: this.name.value,
+    phone: this.phone.value,
+    email: this.email.value,
+    country: this.country.value,
+    visa: this.visa.value,
+    message: this.message.value
+  };
+
+  fetch("https://script.google.com/macros/s/AKfycbxmGwtonKUd8xJtfrWJwvtpZq51knfREjvHeV8yTolDzQRZupblW55NyQgJlJmgRATwqw/exec", {
+    method: "POST",
+    body: JSON.stringify(formData)
+  })
+  .then(res => res.json())
+  .then(() => {
+    document.getElementById("successMsg").style.display = "block";
+    document.getElementById("visaForm").reset();
+  });
+});
 </script>
 
-</body>
-</html>
+
 
 
 
