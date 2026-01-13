@@ -194,116 +194,42 @@
   </nav>
 </header>
 
-<section class="hero" id="home">
-  <h1>GoNfly – Your Trusted Visa & Business Partner</h1>
-  <p>Tourist & Business Visas Worldwide | UAE Company Formation Experts</p>
-
-  <div class="search-box">
-    <input type="text" id="searchInput" placeholder="Search for a destination..." onkeyup="searchService()" />
-  </div>
-</section>
-
-<section class="section" id="services">
-  <h2>Our Key Services</h2>
-
-  <div class="cards">
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1504274066651-8d31a536b11a" />
-      <h3>UAE Visa Services</h3>
-      <p>Tourist, Business, 5-Year Multiple Entry & Golden Visa.</p>
-      <span class="badge">UAE Special</span>
-    </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c" />
-      <h3>UAE Company Formation</h3>
-      <p>Start your business in Dubai with full legal support.</p>
-      <span class="badge">Business Setup</span>
-    </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1549924231-f129b911e442" />
-      <h3>USA & Europe Visas</h3>
-      <p>Tourist & Business Visas for USA, Schengen & UK.</p>
-      <span class="badge">Visa Services</span>
-    </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1549692520-acc6669e2f0c" />
-      <h3>Asia & Africa Visas</h3>
-      <p>China, Georgia, Singapore, Korea, Bangladesh, Egypt.</p>
-      <span class="badge">Worldwide</span>
-    </div>
-
-  </div>
-</section>
-
 <section class="section" id="enquiry">
   <h2>Visa Enquiry Form</h2>
 
   <div class="form-box">
-    <form id="visaForm" style="max-width:500px;margin:auto;">
-  
-  <input type="text" name="name" placeholder="Full Name" required><br><br>
+    <form id="visaForm">
 
-  <input type="tel" name="phone" placeholder="Phone / WhatsApp" required><br><br>
+      <input type="text" name="name" placeholder="Full Name" required>
+      <input type="tel" name="phone" placeholder="Phone / WhatsApp" required>
+      <input type="email" name="email" placeholder="Email Address" required>
 
-  <input type="email" name="email" placeholder="Email Address" required><br><br>
+      <select name="country" required>
+        <option value="">Select Country</option>
+        <option>UAE</option>
+        <option>USA</option>
+        <option>China</option>
+        <option>Georgia</option>
+      </select>
 
-  <select name="country" required>
-    <option value="">Select Country</option>
-    <option>UAE</option>
-    <option>USA</option>
-    <option>China</option>
-    <option>Georgia</option>
-  </select><br><br>
+      <select name="visa" required>
+        <option value="">Select Visa Type</option>
+        <option>Tourist Visa</option>
+        <option>Business Visa</option>
+        <option>Golden Visa</option>
+      </select>
 
-  <select name="visa" required>
-    <option value="">Select Visa Type</option>
-    <option>Tourist Visa</option>
-    <option>Business Visa</option>
-    <option>Golden Visa</option>
-  </select><br><br>
+      <textarea name="message" placeholder="Your Message"></textarea>
 
-  <textarea name="message" placeholder="Your Message"></textarea><br><br>
+      <button type="submit">Submit Enquiry</button>
+    </form>
 
-  <button type="submit" style="padding:12px 20px;background:#4a5cff;color:#fff;border:none;border-radius:6px;">
-    Submit Enquiry
-  </button>
+    <p id="successMsg" style="display:none;color:green;font-weight:bold;text-align:center;">
+      ✅ Thank you! We will contact you shortly.
+    </p>
+  </div>
+</section>
 
-</form>
-
-<p id="successMsg" style="display:none;color:green;font-weight:bold;text-align:center;">
-  Thank you! We will contact you shortly.
-</p>
-
-<p id="successMsg" style="display:none;color:green;font-weight:bold;">
-  Thank you! We will contact you shortly.
-</p>
-<script>
-document.getElementById("visaForm").addEventListener("submit", function(e) {
-  e.preventDefault();
-
-  var formData = {
-    name: this.name.value,
-    phone: this.phone.value,
-    email: this.email.value,
-    country: this.country.value,
-    visa: this.visa.value,
-    message: this.message.value
-  };
-
-  fetch("https://script.google.com/macros/s/AKfycbxmGwtonKUd8xJtfrWJwvtpZq51knfREjvHeV8yTolDzQRZupblW55NyQgJlJmgRATwqw/exec", {
-    method: "POST",
-    body: JSON.stringify(formData)
-  })
-  .then(response => response.json())
-  .then(data => {
-    document.getElementById("successMsg").style.display = "block";
-    document.getElementById("visaForm").reset();
-  });
-});
 <script>
 document.getElementById("visaForm").addEventListener("submit", function(e) {
   e.preventDefault();
@@ -325,14 +251,8 @@ document.getElementById("visaForm").addEventListener("submit", function(e) {
   .then(() => {
     document.getElementById("successMsg").style.display = "block";
     document.getElementById("visaForm").reset();
-  });
+  })
+  .catch(err => alert("Submission failed. Please try again."));
 });
 </script>
-
-
-
-
-
-
-
 
