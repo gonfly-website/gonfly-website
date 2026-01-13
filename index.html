@@ -243,36 +243,59 @@
   <h2>Visa Enquiry Form</h2>
 
   <div class="form-box">
-    <form action="https://docs.google.com/forms/d/e/1FAIpQLScrMRTX-t_2V6W4PQa-aU4GuXJpCR5H_gzobC7vW216cA99hQ/viewform?usp=header" target="_blank">
-      <input type="text" placeholder="Full Name" required>
-      <input type="tel" placeholder="Phone / WhatsApp" required>
-      <input type="email" placeholder="Email Address" required>
+    <form id="visaForm">
+  <input type="text" name="name" placeholder="Full Name" required>
+  <input type="tel" name="phone" placeholder="Phone / WhatsApp" required>
+  <input type="email" name="email" placeholder="Email Address" required>
 
-      <select required>
-        <option value="">Select Country</option>
-        <option>UAE</option>
-        <option>USA</option>
-        <option>China</option>
-        <option>Georgia</option>
-        <option>Singapore</option>
-        <option>South Korea</option>
-        <option>Bangladesh</option>
-        <option>Egypt</option>
-      </select>
+  <select name="country" required>
+    <option value="">Select Country</option>
+    <option>UAE</option>
+    <option>USA</option>
+    <option>China</option>
+    <option>Georgia</option>
+  </select>
 
-      <select required>
-        <option value="">Select Visa Type</option>
-        <option>Tourist Visa</option>
-        <option>Business Visa</option>
-        <option>5-Year UAE Visa</option>
-        <option>Golden Visa</option>
-        <option>UAE Company Formation</option>
-      </select>
+  <select name="visa" required>
+    <option value="">Select Visa Type</option>
+    <option>Tourist Visa</option>
+    <option>Business Visa</option>
+    <option>Golden Visa</option>
+  </select>
 
-      <textarea rows="4" placeholder="Your Message"></textarea>
+  <textarea name="message" placeholder="Your Message"></textarea>
 
-      <button type="submit">Submit Enquiry</button>
-    </form>
+  <button type="submit">Submit Enquiry</button>
+</form>
+
+<p id="successMsg" style="display:none;color:green;font-weight:bold;">
+  Thank you! We will contact you shortly.
+</p>
+<script>
+document.getElementById("visaForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  var formData = {
+    name: this.name.value,
+    phone: this.phone.value,
+    email: this.email.value,
+    country: this.country.value,
+    visa: this.visa.value,
+    message: this.message.value
+  };
+
+  fetch("PASTE_YOUR_SCRIPT_URL_HERE", {
+    method: "POST",
+    body: JSON.stringify(formData)
+  })
+  .then(response => response.json())
+  .then(data => {
+    document.getElementById("successMsg").style.display = "block";
+    document.getElementById("visaForm").reset();
+  });
+});
+</script>
+
   </div>
 </section>
 
@@ -304,6 +327,7 @@ function searchService() {
 
 </body>
 </html>
+
 
 
 
