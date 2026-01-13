@@ -284,7 +284,7 @@ document.getElementById("visaForm").addEventListener("submit", function(e) {
     message: this.message.value
   };
 
-  fetch("PASTE_YOUR_SCRIPT_URL_HERE", {
+  fetch("https://script.google.com/macros/s/AKfycbxmGwtonKUd8xJtfrWJwvtpZq51knfREjvHeV8yTolDzQRZupblW55NyQgJlJmgRATwqw/exec", {
     method: "POST",
     body: JSON.stringify(formData)
   })
@@ -327,6 +327,7 @@ function searchService() {
 
 </body>
 </html>
+
 
 
 
