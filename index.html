@@ -8,57 +8,59 @@
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #f5f7fb;
-      color: #222;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #f6f8fb;
+      color: #111;
     }
 
     /* HEADER */
     header {
-      background: linear-gradient(90deg, #0b132b, #1c2541);
-      padding: 14px 40px;
+      background: linear-gradient(90deg, #0b1220, #111b2f);
+      padding: 12px 40px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
-    .logo img {
-      height: 110px;
+    header img {
+      height: 48px;
     }
 
     nav a {
       color: #fff;
-      text-decoration: none;
       margin-left: 25px;
+      text-decoration: none;
       font-weight: 500;
     }
 
     nav a:hover {
-      color: #fca311;
+      color: #ffd166;
     }
 
     /* HERO */
     .hero {
       background: linear-gradient(135deg, #1d2b64, #3f5efb);
       color: #fff;
-      padding: 80px 20px;
       text-align: center;
+      padding: 90px 20px;
     }
 
     .hero h1 {
-      font-size: 40px;
+      font-size: 38px;
       margin-bottom: 10px;
     }
 
     .hero p {
       opacity: 0.9;
+      margin-bottom: 30px;
     }
 
     .search-box {
-      margin-top: 25px;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
+      max-width: 520px;
+      margin: auto;
     }
 
     .search-box input {
@@ -76,22 +78,18 @@
       text-align: center;
     }
 
-    .section h2 {
-      font-size: 28px;
-      margin-bottom: 30px;
-    }
-
-    .grid {
+    .cards {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 25px;
+      margin-top: 40px;
     }
 
     .card {
       background: #fff;
       border-radius: 15px;
       overflow: hidden;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
       transition: 0.3s;
     }
 
@@ -101,7 +99,7 @@
 
     .card img {
       width: 100%;
-      height: 160px;
+      height: 150px;
       object-fit: cover;
     }
 
@@ -112,9 +110,9 @@
 
     /* FORM */
     .form-box {
-      max-width: 500px;
-      margin: auto;
+      max-width: 420px;
       background: #fff;
+      margin: auto;
       padding: 30px;
       border-radius: 15px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.08);
@@ -125,28 +123,50 @@
     .form-box textarea {
       width: 100%;
       padding: 12px;
-      margin-bottom: 15px;
+      margin-bottom: 12px;
       border-radius: 8px;
       border: 1px solid #ddd;
+      font-size: 14px;
     }
 
     .form-box button {
-      background: #3f5efb;
-      color: #fff;
-      padding: 12px;
-      border: none;
-      border-radius: 8px;
       width: 100%;
+      padding: 14px;
+      background: linear-gradient(135deg, #1d2b64, #3f5efb);
+      color: #fff;
+      border: none;
+      border-radius: 30px;
       font-size: 16px;
       cursor: pointer;
     }
 
-    .success {
+    .form-box button:hover {
+      opacity: 0.9;
+    }
+
+    /* POPUP */
+    .popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
       display: none;
-      color: green;
-      margin-top: 10px;
-      font-weight: bold;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .popup-box {
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
       text-align: center;
+      max-width: 300px;
+    }
+
+    .popup-box h2 {
+      color: #1d2b64;
     }
 
     /* WHATSAPP */
@@ -167,159 +187,109 @@
 <body>
 
 <header>
-  <div class="logo">
-    <img src="logo.png" alt="GoNfly Logo">
-  </div>
+  <img src="logo.png" alt="GoNfly Logo">
   <nav>
     <a href="#">Home</a>
-    <a href="#destinations">Services</a>
-    <a href="#enquiry">Enquiry</a>
-    <a href="#contact">Contact</a>
+    <a href="#">Services</a>
+    <a href="#form">Enquiry</a>
+    <a href="#">Contact</a>
   </nav>
 </header>
 
 <section class="hero">
   <h1>GoNfly – Your Trusted Visa & Business Partner</h1>
   <p>Luxury Tourist & Business Visa Services | UAE Company Formation Experts</p>
-
   <div class="search-box">
-    <input type="text" id="search" placeholder="Search visa (UAE, Japan, Russia, Indonesia...)">
+    <input id="search" type="text" placeholder="Search visa (UAE, Japan, Russia, Indonesia...)">
   </div>
 </section>
 
-<section class="section" id="destinations">
+<section class="section">
   <h2>Our Visa Destinations</h2>
-
-  <div class="grid" id="visaGrid">
-
-    <!-- UAE -->
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1504274066651-8d31a536b11a" />
-      <h3>UAE / Golden Visa / 5 Year</h3>
-    </div>
-
-    <!-- India -->
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1548013146-72479768bada" />
-      <h3>India Visa</h3>
-    </div>
-
-    <!-- USA -->
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29" />
-      <h3>USA Visa</h3>
-    </div>
-
-    <!-- China -->
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1549693578-d683be217e58" />
-      <h3>China Visa</h3>
-    </div>
-
-    <!-- Japan -->
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1549692520-acc6669e2f0c" />
-      <h3>Japan Visa</h3>
-    </div>
-
-    <!-- South Korea -->
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2" />
-      <h3>South Korea Visa</h3>
-    </div>
-
-    <!-- Russia -->
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1549880338-65ddcdfd017b" />
-      <h3>Russia Visa</h3>
-    </div>
-
-    <!-- Indonesia -->
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" />
-      <h3>Indonesia Visa</h3>
-    </div>
-
-    <!-- Australia -->
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1506976785307-8732e854ad89" />
-      <h3>Australia Visa</h3>
-    </div>
-
-    <!-- New Zealand -->
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1502786129293-79981df4e689" />
-      <h3>New Zealand Visa</h3>
-    </div>
-
-    <!-- Singapore -->
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1506806732259-39c2d0268443" />
-      <h3>Singapore Visa</h3>
-    </div>
-
-    <!-- Schengen -->
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34" />
-      <h3>Schengen Visa</h3>
-    </div>
-
-  </div>
+  <div class="cards" id="cards"></div>
 </section>
 
-<section class="section" id="enquiry">
+<section class="section" id="form">
   <h2>Visa Enquiry Form</h2>
 
   <div class="form-box">
-    <form id="visaForm">
-      <input type="text" placeholder="Full Name" required>
-      <input type="text" placeholder="Phone / WhatsApp" required>
-      <input type="email" placeholder="Email Address" required>
+    <input type="text" placeholder="Full Name" required>
+    <input type="text" placeholder="Phone / WhatsApp" required>
+    <input type="email" placeholder="Email Address" required>
 
-      <select required>
-        <option value="">Select Country</option>
-        <option>UAE</option>
-        <option>USA</option>
-        <option>India</option>
-        <option>Japan</option>
-        <option>Russia</option>
-      </select>
+    <select id="countrySelect">
+      <option>Select Country</option>
+    </select>
 
-      <textarea placeholder="Your Message"></textarea>
-
-      <button type="submit">Submit Enquiry</button>
-    </form>
-
-    <div class="success" id="successMsg">
-      ✅ Your request has been submitted. Our team will contact you shortly.
-    </div>
+    <textarea rows="4" placeholder="Your Message"></textarea>
+    <button onclick="submitForm()">Submit Enquiry</button>
   </div>
 </section>
 
-<a class="whatsapp" href="https://wa.me/919582828681" target="_blank">
+<div class="popup" id="popup">
+  <div class="popup-box">
+    <h2>Thank You!</h2>
+    <p>Your request has been submitted. Our team will contact you shortly.</p>
+    <button onclick="closePopup()">OK</button>
+  </div>
+</div>
+
+<a class="whatsapp" href="https://wa.me/919999999999" target="_blank">
   Chat on WhatsApp
 </a>
 
 <script>
-  // Form success message
-  document.getElementById("visaForm").addEventListener("submit", function(e) {
-    e.preventDefault();
-    document.getElementById("successMsg").style.display = "block";
-    this.reset();
-  });
+const destinations = [
+  {name:"UAE / Golden Visa / 5 Year", img:"https://images.unsplash.com/photo-1504274066651-8d31a536b11a"},
+  {name:"India", img:"https://images.unsplash.com/photo-1548013146-72479768bada"},
+  {name:"USA", img:"https://images.unsplash.com/photo-1501594907352-04cda38ebc29"},
+  {name:"China", img:"https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b"},
+  {name:"Japan", img:"https://images.unsplash.com/photo-1549692520-acc6669e2f0c"},
+  {name:"South Korea", img:"https://images.unsplash.com/photo-1526481280691-90629a0a6b9f"},
+  {name:"Vietnam", img:"https://images.unsplash.com/photo-1507525428034-b723cf961d3e"},
+  {name:"Egypt", img:"https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"},
+  {name:"Azerbaijan", img:"https://images.unsplash.com/photo-1558005530-a7958896ec60"},
+  {name:"Oman", img:"https://images.unsplash.com/photo-1588001400947-6385aef4ab0e"},
+  {name:"Russia", img:"https://images.unsplash.com/photo-1505843513577-22bb7d21e455"},
+  {name:"Indonesia", img:"https://images.unsplash.com/photo-1507525428034-b723cf961d3e"},
+  {name:"Australia", img:"https://images.unsplash.com/photo-1506973035872-a4f23fd0b1c2"},
+  {name:"New Zealand", img:"https://images.unsplash.com/photo-1502784444185-480c0c01b0bb"},
+  {name:"Singapore", img:"https://images.unsplash.com/photo-1504609813442-a8924e83f76e"},
+  {name:"Schengen", img:"https://images.unsplash.com/photo-1502602898657-3e91760cbb34"},
+  {name:"Georgia", img:"https://images.unsplash.com/photo-1557939020-9a5b3d8f3f6b"},
+  {name:"Bahrain", img:"https://images.unsplash.com/photo-1588357612139-50f41d10cbd3"},
+  {name:"Armenia", img:"https://images.unsplash.com/photo-1605706037224-93d3e8d8b15c"},
+  {name:"Uzbekistan", img:"https://images.unsplash.com/photo-1606914501449-3e9a3d4b52b6"}
+];
 
-  // Search filter
-  document.getElementById("search").addEventListener("keyup", function() {
-    let value = this.value.toLowerCase();
-    let cards = document.querySelectorAll(".card");
+const cards = document.getElementById("cards");
+const select = document.getElementById("countrySelect");
 
-    cards.forEach(card => {
-      let text = card.innerText.toLowerCase();
-      card.style.display = text.includes(value) ? "block" : "none";
-    });
+destinations.forEach(d => {
+  cards.innerHTML += `
+    <div class="card">
+      <img src="${d.img}">
+      <h3>${d.name} Visa</h3>
+    </div>
+  `;
+  select.innerHTML += `<option>${d.name}</option>`;
+});
+
+document.getElementById("search").addEventListener("keyup", function(){
+  let value = this.value.toLowerCase();
+  document.querySelectorAll(".card").forEach(card => {
+    card.style.display = card.innerText.toLowerCase().includes(value) ? "block" : "none";
   });
+});
+
+function submitForm(){
+  document.getElementById("popup").style.display = "flex";
+}
+
+function closePopup(){
+  document.getElementById("popup").style.display = "none";
+}
 </script>
 
 </body>
 </html>
-
