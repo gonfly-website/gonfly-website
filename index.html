@@ -1,160 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>GoNfly – Your Trusted Visa & Business Partner</title>
+  <meta charset="UTF-8">
+  <title>GoNfly – Your Trusted Visa & Business Partner</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f5f7fb;
-}
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f7fb;
+    }
 
-/* HEADER */
-header {
-  background: linear-gradient(90deg, #0f172a, #1e293b);
-  padding: 12px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+    /* HEADER */
+    header {
+      background: linear-gradient(135deg, #0b132b, #1c2541);
+      padding: 12px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-header img {
-  height: 70px;
-}
+    header img {
+      height: 45px; /* LOGO SIZE */
+    }
 
-nav a {
-  color: white;
-  margin-left: 25px;
-  text-decoration: none;
-  font-weight: 500;
-}
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 25px;
+      font-weight: 500;
+    }
 
-nav a:hover {
-  color: #fbbf24;
-}
+    nav a:hover {
+      text-decoration: underline;
+    }
 
-/* HERO */
-.hero {
-  background: linear-gradient(90deg, #2563eb, #4f46e5);
-  padding: 70px 20px;
-  text-align: center;
-  color: white;
-}
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, #3a5cff, #6a5cff);
+      color: white;
+      text-align: center;
+      padding: 80px 20px;
+    }
 
-.hero h1 {
-  font-size: 36px;
-  margin-bottom: 10px;
-}
+    .hero h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
 
-.hero p {
-  font-size: 16px;
-  opacity: 0.9;
-}
+    .hero p {
+      font-size: 16px;
+      opacity: 0.9;
+    }
 
-.search-box {
-  margin-top: 20px;
-}
+    .search-box {
+      margin-top: 25px;
+    }
 
-.search-box input {
-  width: 60%;
-  padding: 14px;
-  border-radius: 30px;
-  border: none;
-  font-size: 16px;
-}
+    .search-box input {
+      width: 60%;
+      max-width: 500px;
+      padding: 14px;
+      border-radius: 30px;
+      border: none;
+      outline: none;
+      font-size: 16px;
+    }
 
-/* DESTINATIONS */
-.destinations {
-  padding: 60px 40px;
-  text-align: center;
-}
+    /* DESTINATIONS */
+    .section {
+      padding: 60px 40px;
+      text-align: center;
+    }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 25px;
-  margin-top: 30px;
-}
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
 
-.card {
-  background: #fff;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-  transition: 0.3s;
-}
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+    }
 
-.card:hover {
-  transform: translateY(-6px);
-}
+    .card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
 
-.card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
+    .card h3 {
+      padding: 15px;
+      margin: 0;
+      font-size: 16px;
+    }
 
-.card p {
-  font-weight: 600;
-  padding: 15px;
-}
+    /* FORM */
+    .form-box {
+      max-width: 500px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    }
 
-/* FORM */
-.form-section {
-  padding: 60px 20px;
-  background: #ffffff;
-  text-align: center;
-}
+    .form-box input, 
+    .form-box select, 
+    .form-box textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
 
-.form-box {
-  max-width: 500px;
-  margin: auto;
-  background: #f9fafb;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-}
+    .form-box button {
+      background: #3a5cff;
+      color: white;
+      border: none;
+      padding: 12px;
+      width: 100%;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
 
-.form-box input,
-.form-box select,
-.form-box textarea {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 15px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-}
+    .form-box button:hover {
+      background: #2d47cc;
+    }
 
-.form-box button {
-  width: 100%;
-  background: #2563eb;
-  color: white;
-  padding: 12px;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  cursor: pointer;
-}
+    .success-msg {
+      display: none;
+      margin-top: 15px;
+      color: green;
+      font-weight: bold;
+      text-align: center;
+    }
 
-.form-box button:hover {
-  background: #1d4ed8;
-}
-
-/* WHATSAPP */
-.whatsapp {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #25D366;
-  color: white;
-  padding: 12px 18px;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: bold;
-}
-</style>
+    /* WHATSAPP */
+    .whatsapp {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      background: #25d366;
+      color: white;
+      padding: 12px 18px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
 </head>
 
 <body>
@@ -172,102 +174,85 @@ nav a:hover {
 <section class="hero" id="home">
   <h1>GoNfly – Your Trusted Visa & Business Partner</h1>
   <p>Tourist & Business Visas Worldwide | UAE Company Formation Experts</p>
+
   <div class="search-box">
-    <input type="text" placeholder="Search for a destination (UAE, USA, China...)">
+    <input id="searchInput" type="text" placeholder="Search for a destination (UAE, USA, Japan...)">
   </div>
 </section>
 
-<section class="destinations" id="services">
+<section class="section" id="services">
   <h2>Our Visa Destinations</h2>
 
-  <div class="grid">
+  <div class="cards" id="cards">
 
+    <!-- CARD TEMPLATE -->
     <div class="card">
-      <img src="https://source.unsplash.com/400x300/?dubai,uae">
-      <p>UAE Visa / Golden Visa / 5 Year Visa</p>
+      <img src="https://source.unsplash.com/400x300/?dubai,city" alt="UAE">
+      <h3>UAE Visa / Golden Visa / 5 Year Visa</h3>
     </div>
 
     <div class="card">
-      <img src="https://source.unsplash.com/400x300/?india,delhi">
-      <p>India Visa</p>
+      <img src="https://source.unsplash.com/400x300/?india,delhi" alt="India">
+      <h3>India Visa</h3>
     </div>
 
     <div class="card">
-      <img src="https://source.unsplash.com/400x300/?usa,newyork">
-      <p>USA Visa</p>
+      <img src="https://source.unsplash.com/400x300/?usa,newyork" alt="USA">
+      <h3>USA Visa</h3>
     </div>
 
     <div class="card">
-      <img src="https://source.unsplash.com/400x300/?china,beijing">
-      <p>China Visa</p>
+      <img src="https://source.unsplash.com/400x300/?china,beijing" alt="China">
+      <h3>China Visa</h3>
     </div>
 
     <div class="card">
-      <img src="https://source.unsplash.com/400x300/?japan,tokyo">
-      <p>Japan Visa</p>
+      <img src="https://source.unsplash.com/400x300/?japan,tokyo" alt="Japan">
+      <h3>Japan Visa</h3>
     </div>
 
     <div class="card">
-      <img src="https://source.unsplash.com/400x300/?south-korea,seoul">
-      <p>South Korea Visa</p>
+      <img src="https://source.unsplash.com/400x300/?korea,seoul" alt="South Korea">
+      <h3>South Korea Visa</h3>
     </div>
 
     <div class="card">
-      <img src="https://source.unsplash.com/400x300/?vietnam,hanoi">
-      <p>Vietnam Visa</p>
+      <img src="https://source.unsplash.com/400x300/?vietnam,hanoi" alt="Vietnam">
+      <h3>Vietnam Visa</h3>
     </div>
 
     <div class="card">
-      <img src="https://source.unsplash.com/400x300/?egypt,pyramids">
-      <p>Egypt Visa</p>
+      <img src="https://source.unsplash.com/400x300/?egypt,pyramids" alt="Egypt">
+      <h3>Egypt Visa</h3>
     </div>
 
     <div class="card">
-      <img src="https://source.unsplash.com/400x300/?azerbaijan,baku">
-      <p>Azerbaijan Visa</p>
+      <img src="https://source.unsplash.com/400x300/?azerbaijan,baku" alt="Azerbaijan">
+      <h3>Azerbaijan Visa</h3>
     </div>
 
     <div class="card">
-      <img src="https://source.unsplash.com/400x300/?oman,mosque">
-      <p>Oman Visa</p>
-    </div>
-
-    <div class="card">
-      <img src="https://source.unsplash.com/400x300/?russia,moscow">
-      <p>Russia Visa</p>
-    </div>
-
-    <div class="card">
-      <img src="https://source.unsplash.com/400x300/?south-africa,cape-town">
-      <p>South Africa Visa</p>
-    </div>
-
-    <div class="card">
-      <img src="https://source.unsplash.com/400x300/?indonesia,bali">
-      <p>Indonesia Visa</p>
-    </div>
-
-    <div class="card">
-      <img src="https://source.unsplash.com/400x300/?bangladesh,dhaka">
-      <p>Bangladesh Visa</p>
+      <img src="https://source.unsplash.com/400x300/?oman,mosque" alt="Oman">
+      <h3>Oman Visa</h3>
     </div>
 
   </div>
 </section>
 
-<section class="form-section" id="enquiry">
+<section class="section" id="enquiry">
   <h2>Visa Enquiry Form</h2>
 
   <div class="form-box">
-    <form>
-      <input type="text" placeholder="Full Name" required>
-      <input type="text" placeholder="Phone / WhatsApp" required>
-      <input type="email" placeholder="Email Address" required>
+    <form id="visaForm">
+      <input type="text" name="name" placeholder="Full Name" required>
+      <input type="text" name="phone" placeholder="Phone / WhatsApp" required>
+      <input type="email" name="email" placeholder="Email Address" required>
 
-      <select required>
+      <select name="country" required>
+        <option value="">Select Country</option>
         <option>UAE</option>
-        <option>USA</option>
         <option>India</option>
+        <option>USA</option>
         <option>China</option>
         <option>Japan</option>
         <option>South Korea</option>
@@ -275,22 +260,40 @@ nav a:hover {
         <option>Egypt</option>
         <option>Azerbaijan</option>
         <option>Oman</option>
-        <option>Russia</option>
-        <option>South Africa</option>
-        <option>Indonesia</option>
-        <option>Bangladesh</option>
       </select>
 
-      <textarea placeholder="Your Message"></textarea>
+      <textarea name="message" placeholder="Your Message" required></textarea>
 
       <button type="submit">Submit Enquiry</button>
     </form>
+
+    <div class="success-msg" id="successMsg">
+      ✅ Your request has been submitted. Our team will contact you shortly.
+    </div>
   </div>
 </section>
 
-<a class="whatsapp" href="https://wa.me/91XXXXXXXXXX" target="_blank">
-Chat on WhatsApp
-</a>
+<a class="whatsapp" href="https://wa.me/919582828681" target="_blank">Chat on WhatsApp</a>
+
+<script>
+  // SEARCH FILTER
+  const searchInput = document.getElementById("searchInput");
+  const cards = document.querySelectorAll(".card");
+
+  searchInput.addEventListener("keyup", function () {
+    const value = this.value.toLowerCase();
+    cards.forEach(card => {
+      card.style.display = card.innerText.toLowerCase().includes(value) ? "block" : "none";
+    });
+  });
+
+  // FORM SUBMISSION (DEMO)
+  document.getElementById("visaForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    document.getElementById("successMsg").style.display = "block";
+    this.reset();
+  });
+</script>
 
 </body>
 </html>
