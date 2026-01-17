@@ -1,187 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>GoNfly – Premium Visa Services</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<title>GoNfly – Premium Visa Services</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: "Segoe UI", Arial, sans-serif;
-      background: #f6f8fb;
-      color: #111;
-    }
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f7fb;
+}
 
-    /* HEADER */
-    header {
-      background: linear-gradient(90deg, #0b1220, #111b2f);
-      padding: 12px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
+/* HEADER */
+header {
+  background: linear-gradient(90deg, #020024, #090979, #000428);
+  padding: 12px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-    header img {
-      height: 90px;
-    }
+header img {
+  height: 90px;   /* Bigger Logo */
+}
 
-    nav a {
-      color: #fff;
-      margin-left: 25px;
-      text-decoration: none;
-      font-weight: 500;
-    }
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  font-weight: 500;
+}
 
-    nav a:hover {
-      color: #ffd166;
-    }
+/* HERO */
+.hero {
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  padding: 80px 20px;
+  text-align: center;
+  color: white;
+}
 
-    /* HERO */
-    .hero {
-      background: linear-gradient(135deg, #1d2b64, #3f5efb);
-      color: #fff;
-      text-align: center;
-      padding: 90px 20px;
-    }
+.hero h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
 
-    .hero h1 {
-      font-size: 38px;
-      margin-bottom: 10px;
-    }
+.hero p {
+  opacity: 0.9;
+}
 
-    .hero p {
-      opacity: 0.9;
-      margin-bottom: 30px;
-    }
+.search-box {
+  margin-top: 25px;
+}
 
-    .search-box {
-      max-width: 520px;
-      margin: auto;
-    }
+.search-box input {
+  width: 60%;
+  padding: 14px;
+  border-radius: 30px;
+  border: none;
+  font-size: 16px;
+}
 
-    .search-box input {
-      width: 100%;
-      padding: 14px 20px;
-      border-radius: 30px;
-      border: none;
-      font-size: 16px;
-      outline: none;
-    }
+/* DESTINATIONS */
+.section {
+  padding: 60px 40px;
+}
 
-    /* DESTINATIONS */
-    .section {
-      padding: 60px 40px;
-      text-align: center;
-    }
+.section h2 {
+  text-align: center;
+  margin-bottom: 40px;
+}
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 25px;
-      margin-top: 40px;
-    }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
 
-    .card {
-      background: #fff;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-      transition: 0.3s;
-    }
+.card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+  text-align: center;
+  transition: 0.3s;
+}
 
-    .card:hover {
-      transform: translateY(-6px);
-    }
+.card:hover {
+  transform: translateY(-5px);
+}
 
-    .card img {
-      width: 100%;
-      height: 150px;
-      object-fit: cover;
-    }
+.card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
 
-    .card h3 {
-      padding: 15px;
-      font-size: 16px;
-    }
+.card a {
+  display: block;
+  padding: 15px;
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+}
 
-    /* FORM */
-    .form-box {
-      max-width: 420px;
-      background: #fff;
-      margin: auto;
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    }
+/* FORM */
+.form-box {
+  max-width: 500px;
+  margin: auto;
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+}
 
-    .form-box input,
-    .form-box select,
-    .form-box textarea {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 12px;
-      border-radius: 8px;
-      border: 1px solid #ddd;
-      font-size: 14px;
-    }
+.form-box input, 
+.form-box select, 
+.form-box textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
 
-    .form-box button {
-      width: 100%;
-      padding: 14px;
-      background: linear-gradient(135deg, #1d2b64, #3f5efb);
-      color: #fff;
-      border: none;
-      border-radius: 30px;
-      font-size: 16px;
-      cursor: pointer;
-    }
+.form-box button {
+  width: 100%;
+  background: #2a5298;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+}
 
-    .form-box button:hover {
-      opacity: 0.9;
-    }
-
-    /* POPUP */
-    .popup {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.6);
-      display: none;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .popup-box {
-      background: #fff;
-      padding: 30px;
-      border-radius: 12px;
-      text-align: center;
-      max-width: 300px;
-    }
-
-    .popup-box h2 {
-      color: #1d2b64;
-    }
-
-    /* WHATSAPP */
-    .whatsapp {
-      position: fixed;
-      right: 20px;
-      bottom: 20px;
-      background: #25d366;
-      color: #fff;
-      padding: 12px 18px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-  </style>
+/* WHATSAPP */
+.whatsapp {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background: #25d366;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 30px;
+  text-decoration: none;
+}
+</style>
 </head>
 
 <body>
@@ -189,108 +151,115 @@
 <header>
   <img src="logo.png" alt="GoNfly Logo">
   <nav>
-    <a href="#">Home</a>
-    <a href="#">Services</a>
-    <a href="#form">Enquiry</a>
-    <a href="#">Contact</a>
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#enquiry">Enquiry</a>
+    <a href="#contact">Contact</a>
   </nav>
 </header>
 
-<section class="hero">
+<section class="hero" id="home">
   <h1>GoNfly – Your Trusted Visa & Business Partner</h1>
   <p>Luxury Tourist & Business Visa Services | UAE Company Formation Experts</p>
+
   <div class="search-box">
-    <input id="search" type="text" placeholder="Search visa (UAE, Japan, Russia, Indonesia...)">
+    <input type="text" placeholder="Search visa (UAE, Japan, Russia, Indonesia...)">
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="services">
   <h2>Our Visa Destinations</h2>
-  <div class="cards" id="cards"></div>
+
+  <div class="grid">
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1505761671935-60b3a7427bad">
+      <a href="uae.html">UAE / Golden Visa / 5 Year Visa</a>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da">
+      <a href="india.html">India Visa</a>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29">
+      <a href="usa.html">USA Visa</a>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1549893074-0a94b41f88a2">
+      <a href="china.html">China Visa</a>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1549692520-acc6669e2f0c">
+      <a href="japan.html">Japan Visa</a>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
+      <a href="russia.html">Russia Visa</a>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
+      <a href="indonesia.html">Indonesia Visa</a>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1502786129293-79981df4e689">
+      <a href="australia.html">Australia Visa</a>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1502786129293-79981df4e689">
+      <a href="newzealand.html">New Zealand Visa</a>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1508057198894-247b23fe5ade">
+      <a href="schengen.html">Schengen Visa</a>
+    </div>
+
+  </div>
 </section>
 
-<section class="section" id="form">
-  <h2>Visa Enquiry Form</h2>
+<section class="section" id="enquiry">
+  <h2 style="text-align:center;">Visa Enquiry Form</h2>
 
   <div class="form-box">
-    <input type="text" placeholder="Full Name" required>
-    <input type="text" placeholder="Phone / WhatsApp" required>
-    <input type="email" placeholder="Email Address" required>
+    <input type="text" placeholder="Full Name">
+    <input type="text" placeholder="Phone / WhatsApp">
+    <input type="email" placeholder="Email Address">
 
-    <select id="countrySelect">
+    <select>
       <option>Select Country</option>
+      <option>UAE</option>
+      <option>USA</option>
+      <option>India</option>
+      <option>Japan</option>
+      <option>Russia</option>
+      <option>Australia</option>
+      <option>New Zealand</option>
+      <option>Schengen</option>
+      <option>Singapore</option>
+      <option>Bahrain</option>
+      <option>Armenia</option>
+      <option>Uzbekistan</option>
     </select>
 
-    <textarea rows="4" placeholder="Your Message"></textarea>
-    <button onclick="submitForm()">Submit Enquiry</button>
+    <textarea placeholder="Your Message"></textarea>
+
+    <button onclick="alert('Thank you! Our team will contact you shortly.')">
+      Submit Enquiry
+    </button>
   </div>
 </section>
 
-<div class="popup" id="popup">
-  <div class="popup-box">
-    <h2>Thank You!</h2>
-    <p>Your request has been submitted. Our team will contact you shortly.</p>
-    <button onclick="closePopup()">OK</button>
-  </div>
-</div>
-
-<a class="whatsapp" href="https://wa.me/919999999999" target="_blank">
-  Chat on WhatsApp
+<a class="whatsapp" href="https://wa.me/919999962722" target="_blank">
+Chat on WhatsApp
 </a>
-
-<script>
-const destinations = [
-  {name:"UAE / Golden Visa / 5 Year", img:"https://images.unsplash.com/photo-1504274066651-8d31a536b11a"},
-  {name:"India", img:"https://images.unsplash.com/photo-1548013146-72479768bada"},
-  {name:"USA", img:"https://images.unsplash.com/photo-1501594907352-04cda38ebc29"},
-  {name:"China", img:"https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b"},
-  {name:"Japan", img:"https://images.unsplash.com/photo-1549692520-acc6669e2f0c"},
-  {name:"South Korea", img:"https://images.unsplash.com/photo-1526481280691-90629a0a6b9f"},
-  {name:"Vietnam", img:"https://images.unsplash.com/photo-1507525428034-b723cf961d3e"},
-  {name:"Egypt", img:"https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"},
-  {name:"Azerbaijan", img:"https://images.unsplash.com/photo-1558005530-a7958896ec60"},
-  {name:"Oman", img:"https://images.unsplash.com/photo-1588001400947-6385aef4ab0e"},
-  {name:"Russia", img:"https://images.unsplash.com/photo-1505843513577-22bb7d21e455"},
-  {name:"Indonesia", img:"https://images.unsplash.com/photo-1507525428034-b723cf961d3e"},
-  {name:"Australia", img:"https://images.unsplash.com/photo-1506973035872-a4f23fd0b1c2"},
-  {name:"New Zealand", img:"https://images.unsplash.com/photo-1502784444185-480c0c01b0bb"},
-  {name:"Singapore", img:"https://images.unsplash.com/photo-1504609813442-a8924e83f76e"},
-  {name:"Schengen", img:"https://images.unsplash.com/photo-1502602898657-3e91760cbb34"},
-  {name:"Georgia", img:"https://images.unsplash.com/photo-1557939020-9a5b3d8f3f6b"},
-  {name:"Bahrain", img:"https://images.unsplash.com/photo-1588357612139-50f41d10cbd3"},
-  {name:"Armenia", img:"https://images.unsplash.com/photo-1605706037224-93d3e8d8b15c"},
-  {name:"Uzbekistan", img:"https://images.unsplash.com/photo-1606914501449-3e9a3d4b52b6"}
-];
-
-const cards = document.getElementById("cards");
-const select = document.getElementById("countrySelect");
-
-destinations.forEach(d => {
-  cards.innerHTML += `
-    <div class="card">
-      <img src="${d.img}">
-      <h3>${d.name} Visa</h3>
-    </div>
-  `;
-  select.innerHTML += `<option>${d.name}</option>`;
-});
-
-document.getElementById("search").addEventListener("keyup", function(){
-  let value = this.value.toLowerCase();
-  document.querySelectorAll(".card").forEach(card => {
-    card.style.display = card.innerText.toLowerCase().includes(value) ? "block" : "none";
-  });
-});
-
-function submitForm(){
-  document.getElementById("popup").style.display = "flex";
-}
-
-function closePopup(){
-  document.getElementById("popup").style.display = "none";
-}
-</script>
 
 </body>
 </html>
-
