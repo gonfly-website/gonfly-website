@@ -1,274 +1,231 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>GoNfly – Premium Visa Services</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: #f5f7fb;
-      color: #111;
-    }
+<title>GoNfly – Premium Visa Services</title>
 
-    /* HEADER */
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #f7f9fc;
+    color: #1a1a1a;
+}
+
+/* HEADER */
+header {
+    background: linear-gradient(135deg, #0b1d3a, #122f66);
+    padding: 18px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: 700;
+    color: gold;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 30px;
+    font-weight: 500;
+}
+
+/* HERO */
+.hero {
+    background: linear-gradient(180deg, #122f66, #0b1d3a);
+    color: white;
+    padding: 100px 20px 80px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 18px;
+    opacity: 0.9;
+}
+
+.search-box {
+    margin-top: 30px;
+}
+
+.search-box input {
+    width: 90%;
+    max-width: 500px;
+    padding: 16px 20px;
+    border-radius: 40px;
+    border: none;
+    font-size: 16px;
+}
+
+/* DESTINATIONS */
+.section {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.section h2 {
+    text-align: center;
+    font-size: 34px;
+    margin-bottom: 40px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.card h3 {
+    padding: 15px;
+    font-size: 18px;
+    text-align: center;
+}
+
+/* CTA */
+.cta {
+    background: linear-gradient(135deg, #122f66, #0b1d3a);
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.cta h2 {
+    font-size: 32px;
+}
+
+.cta button {
+    margin-top: 20px;
+    padding: 14px 30px;
+    border: none;
+    border-radius: 30px;
+    background: gold;
+    color: black;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* FOOTER */
+footer {
+    background: #0b1d3a;
+    color: white;
+    padding: 30px;
+    text-align: center;
+    font-size: 14px;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
     header {
-      height: 70px;
-      background: linear-gradient(90deg, #0a0f2c, #121a3a);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 30px;
-      position: sticky;
-      top: 0;
-      z-index: 100;
+        flex-direction: column;
     }
-
-    header img {
-      height: 45px;
+    nav {
+        margin-top: 10px;
     }
-
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      margin-left: 25px;
-      font-weight: 500;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    /* HERO */
-    .hero {
-      padding: 80px 20px;
-      text-align: center;
-      background: linear-gradient(180deg, #1e3c72, #2a5298);
-      color: white;
-    }
-
     .hero h1 {
-      font-size: 36px;
-      margin-bottom: 10px;
+        font-size: 32px;
     }
-
-    .hero p {
-      opacity: 0.9;
-      margin-bottom: 25px;
-    }
-
-    .search-box {
-      max-width: 520px;
-      margin: auto;
-      background: white;
-      border-radius: 30px;
-      padding: 12px 20px;
-      display: flex;
-      align-items: center;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-    }
-
-    .search-box input {
-      border: none;
-      outline: none;
-      width: 100%;
-      font-size: 16px;
-    }
-
-    /* DESTINATIONS */
-    .section {
-      padding: 60px 20px;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    .section h2 {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
-    }
-
-    .card {
-      background: white;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      transition: 0.3s;
-      cursor: pointer;
-    }
-
-    .card:hover {
-      transform: translateY(-6px);
-    }
-
-    .card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
-
-    .card h3 {
-      padding: 15px;
-      text-align: center;
-    }
-
-    /* FORM */
-    .form-box {
-      max-width: 500px;
-      margin: auto;
-      background: white;
-      padding: 30px;
-      border-radius: 16px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    }
-
-    .form-box input, .form-box select, .form-box textarea {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 15px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-    }
-
-    .form-box button {
-      width: 100%;
-      background: #2a5298;
-      color: white;
-      border: none;
-      padding: 14px;
-      border-radius: 8px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-    .form-box button:hover {
-      background: #1e3c72;
-    }
-
-    /* WHATSAPP */
-    .whatsapp {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #25D366;
-      color: white;
-      padding: 12px 18px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    @media(max-width:768px){
-      .hero h1 { font-size: 26px; }
-    }
-  </style>
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <img src="logo.png" alt="GoNfly Logo">
-  <nav>
-    <a href="#">Home</a>
-    <a href="#destinations">Services</a>
-    <a href="#enquiry">Enquiry</a>
-    <a href="#contact">Contact</a>
-  </nav>
+    <div class="logo">GoNfly</div>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Services</a>
+        <a href="#enquiry">Enquiry</a>
+        <a href="#">Contact</a>
+    </nav>
 </header>
 
 <section class="hero">
-  <h1>GoNfly – Premium Visa Services</h1>
-  <p>Luxury Tourist & Business Visa Experts Worldwide</p>
+    <h1>GoNfly – Premium Visa Services</h1>
+    <p>Luxury Tourist & Business Visa Experts Worldwide</p>
 
-  <div class="search-box">
-    <input type="text" placeholder="Search visa (UAE, Japan, Australia...)">
-  </div>
+    <div class="search-box">
+        <input type="text" placeholder="Search visa (UAE, USA, Japan, Europe...)">
+    </div>
 </section>
 
-<section class="section" id="destinations">
-  <h2>Our Visa Destinations</h2>
+<section class="section">
+    <h2>Our Visa Destinations</h2>
 
-  <div class="cards">
-    <div class="card" onclick="location.href='uae.html'">
-      <img src="https://images.unsplash.com/photo-1504274066651-8d31a536b11a">
-      <h3>UAE / Golden Visa</h3>
-    </div>
+    <div class="grid">
+        <a href="uae.html" class="card">
+            <img src="https://images.unsplash.com/photo-1548013146-72479768bada">
+            <h3>UAE Visa</h3>
+        </a>
 
-    <div class="card" onclick="location.href='india.html'">
-      <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da">
-      <h3>India Visa</h3>
-    </div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da">
+            <h3>India Visa</h3>
+        </div>
 
-    <div class="card" onclick="location.href='usa.html'">
-      <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29">
-      <h3>USA Visa</h3>
-    </div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29">
+            <h3>USA Visa</h3>
+        </div>
 
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1549693578-d683be217e58">
-      <h3>Japan Visa</h3>
-    </div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1549692520-acc6669e2f0c">
+            <h3>Japan Visa</h3>
+        </div>
 
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
-      <h3>Australia Visa</h3>
-    </div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1505761671935-60b3a7427bad">
+            <h3>Schengen Visa</h3>
+        </div>
 
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1500835556837-99ac94a94552">
-      <h3>New Zealand Visa</h3>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
+            <h3>Indonesia Visa</h3>
+        </div>
     </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c">
-      <h3>Singapore Visa</h3>
-    </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34">
-      <h3>Schengen Visa</h3>
-    </div>
-  </div>
 </section>
 
-<section class="section" id="enquiry">
-  <h2>Visa Enquiry Form</h2>
-
-  <div class="form-box">
-    <input type="text" placeholder="Full Name">
-    <input type="text" placeholder="Phone / WhatsApp">
-    <input type="email" placeholder="Email">
-    
-    <select>
-      <option>Select Country</option>
-      <option>UAE</option>
-      <option>USA</option>
-      <option>India</option>
-      <option>Japan</option>
-      <option>Australia</option>
-      <option>New Zealand</option>
-      <option>Singapore</option>
-      <option>Schengen</option>
-    </select>
-
-    <textarea placeholder="Your Message"></textarea>
-
-    <button onclick="alert('Thank you! Our team will contact you shortly.')">
-      Submit Enquiry
-    </button>
-  </div>
+<section class="cta" id="enquiry">
+    <h2>Get Your Visa with Confidence</h2>
+    <p>Fast processing • Expert guidance • Global support</p>
+    <button>Enquire Now on WhatsApp</button>
 </section>
 
-<a class="whatsapp" href="https://wa.me/91XXXXXXXXXX" target="_blank">
-  Chat on WhatsApp
-</a>
+<footer>
+    © 2026 GoNfly Visa Services | Premium Global Visa Experts
+</footer>
 
 </body>
 </html>
