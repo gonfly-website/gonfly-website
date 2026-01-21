@@ -1,149 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>GoNfly – Premium Visa Services</title>
+  <meta charset="UTF-8">
+  <title>GoNfly – Premium Visa Services</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f5f7fb;
-}
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f5f7fb;
+      color: #111;
+    }
 
-/* HEADER */
-header {
-  background: linear-gradient(90deg, #020024, #090979, #000428);
-  padding: 12px 50px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+    /* HEADER */
+    header {
+      height: 70px;
+      background: linear-gradient(90deg, #0a0f2c, #121a3a);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 30px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
 
-header img {
-  height: 90px;   /* Bigger Logo */
-}
+    header img {
+      height: 45px;
+    }
 
-nav a {
-  color: white;
-  text-decoration: none;
-  margin-left: 20px;
-  font-weight: 500;
-}
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 25px;
+      font-weight: 500;
+    }
 
-/* HERO */
-.hero {
-  background: linear-gradient(135deg, #1e3c72, #2a5298);
-  padding: 80px 20px;
-  text-align: center;
-  color: white;
-}
+    nav a:hover {
+      text-decoration: underline;
+    }
 
-.hero h1 {
-  font-size: 36px;
-  margin-bottom: 10px;
-}
+    /* HERO */
+    .hero {
+      padding: 80px 20px;
+      text-align: center;
+      background: linear-gradient(180deg, #1e3c72, #2a5298);
+      color: white;
+    }
 
-.hero p {
-  opacity: 0.9;
-}
+    .hero h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
 
-.search-box {
-  margin-top: 25px;
-}
+    .hero p {
+      opacity: 0.9;
+      margin-bottom: 25px;
+    }
 
-.search-box input {
-  width: 60%;
-  padding: 14px;
-  border-radius: 30px;
-  border: none;
-  font-size: 16px;
-}
+    .search-box {
+      max-width: 520px;
+      margin: auto;
+      background: white;
+      border-radius: 30px;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    }
 
-/* DESTINATIONS */
-.section {
-  padding: 60px 40px;
-}
+    .search-box input {
+      border: none;
+      outline: none;
+      width: 100%;
+      font-size: 16px;
+    }
 
-.section h2 {
-  text-align: center;
-  margin-bottom: 40px;
-}
+    /* DESTINATIONS */
+    .section {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-}
+    .section h2 {
+      text-align: center;
+      margin-bottom: 40px;
+    }
 
-.card {
-  background: white;
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-  text-align: center;
-  transition: 0.3s;
-}
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
 
-.card:hover {
-  transform: translateY(-5px);
-}
+    .card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      transition: 0.3s;
+      cursor: pointer;
+    }
 
-.card img {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
-}
+    .card:hover {
+      transform: translateY(-6px);
+    }
 
-.card a {
-  display: block;
-  padding: 15px;
-  font-weight: bold;
-  color: #333;
-  text-decoration: none;
-}
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
 
-/* FORM */
-.form-box {
-  max-width: 500px;
-  margin: auto;
-  background: white;
-  padding: 30px;
-  border-radius: 15px;
-}
+    .card h3 {
+      padding: 15px;
+      text-align: center;
+    }
 
-.form-box input, 
-.form-box select, 
-.form-box textarea {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 15px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-}
+    /* FORM */
+    .form-box {
+      max-width: 500px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
 
-.form-box button {
-  width: 100%;
-  background: #2a5298;
-  color: white;
-  padding: 12px;
-  border: none;
-  border-radius: 30px;
-  font-size: 16px;
-}
+    .form-box input, .form-box select, .form-box textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
 
-/* WHATSAPP */
-.whatsapp {
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
-  background: #25d366;
-  color: white;
-  padding: 12px 18px;
-  border-radius: 30px;
-  text-decoration: none;
-}
-</style>
+    .form-box button {
+      width: 100%;
+      background: #2a5298;
+      color: white;
+      border: none;
+      padding: 14px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .form-box button:hover {
+      background: #1e3c72;
+    }
+
+    /* WHATSAPP */
+    .whatsapp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25D366;
+      color: white;
+      padding: 12px 18px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    @media(max-width:768px){
+      .hero h1 { font-size: 26px; }
+    }
+  </style>
 </head>
 
 <body>
@@ -151,102 +176,86 @@ nav a {
 <header>
   <img src="logo.png" alt="GoNfly Logo">
   <nav>
-    <a href="#home">Home</a>
-    <a href="#services">Services</a>
+    <a href="#">Home</a>
+    <a href="#destinations">Services</a>
     <a href="#enquiry">Enquiry</a>
     <a href="#contact">Contact</a>
   </nav>
 </header>
 
-<section class="hero" id="home">
-  <h1>GoNfly – Your Trusted Visa & Business Partner</h1>
-  <p>Luxury Tourist & Business Visa Services | UAE Company Formation Experts</p>
+<section class="hero">
+  <h1>GoNfly – Premium Visa Services</h1>
+  <p>Luxury Tourist & Business Visa Experts Worldwide</p>
 
   <div class="search-box">
-    <input type="text" placeholder="Search visa (UAE, Japan, Russia, Indonesia...)">
+    <input type="text" placeholder="Search visa (UAE, Japan, Australia...)">
   </div>
 </section>
 
-<section class="section" id="services">
+<section class="section" id="destinations">
   <h2>Our Visa Destinations</h2>
 
-  <div class="grid">
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1505761671935-60b3a7427bad">
-      <a href="uae.html">UAE / Golden Visa / 5 Year Visa</a>
+  <div class="cards">
+    <div class="card" onclick="location.href='uae.html'">
+      <img src="https://images.unsplash.com/photo-1504274066651-8d31a536b11a">
+      <h3>UAE / Golden Visa</h3>
     </div>
 
-    <div class="card">
+    <div class="card" onclick="location.href='india.html'">
       <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da">
-      <a href="india.html">India Visa</a>
+      <h3>India Visa</h3>
     </div>
 
-    <div class="card">
+    <div class="card" onclick="location.href='usa.html'">
       <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29">
-      <a href="usa.html">USA Visa</a>
+      <h3>USA Visa</h3>
     </div>
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1549893074-0a94b41f88a2">
-      <a href="china.html">China Visa</a>
-    </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1549692520-acc6669e2f0c">
-      <a href="japan.html">Japan Visa</a>
+      <img src="https://images.unsplash.com/photo-1549693578-d683be217e58">
+      <h3>Japan Visa</h3>
     </div>
 
     <div class="card">
       <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
-      <a href="russia.html">Russia Visa</a>
+      <h3>Australia Visa</h3>
     </div>
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
-      <a href="indonesia.html">Indonesia Visa</a>
+      <img src="https://images.unsplash.com/photo-1500835556837-99ac94a94552">
+      <h3>New Zealand Visa</h3>
     </div>
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1502786129293-79981df4e689">
-      <a href="australia.html">Australia Visa</a>
+      <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c">
+      <h3>Singapore Visa</h3>
     </div>
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1502786129293-79981df4e689">
-      <a href="newzealand.html">New Zealand Visa</a>
+      <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34">
+      <h3>Schengen Visa</h3>
     </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1508057198894-247b23fe5ade">
-      <a href="schengen.html">Schengen Visa</a>
-    </div>
-
   </div>
 </section>
 
 <section class="section" id="enquiry">
-  <h2 style="text-align:center;">Visa Enquiry Form</h2>
+  <h2>Visa Enquiry Form</h2>
 
   <div class="form-box">
     <input type="text" placeholder="Full Name">
     <input type="text" placeholder="Phone / WhatsApp">
-    <input type="email" placeholder="Email Address">
-
+    <input type="email" placeholder="Email">
+    
     <select>
       <option>Select Country</option>
       <option>UAE</option>
       <option>USA</option>
       <option>India</option>
       <option>Japan</option>
-      <option>Russia</option>
       <option>Australia</option>
       <option>New Zealand</option>
-      <option>Schengen</option>
       <option>Singapore</option>
-      <option>Bahrain</option>
-      <option>Armenia</option>
-      <option>Uzbekistan</option>
+      <option>Schengen</option>
     </select>
 
     <textarea placeholder="Your Message"></textarea>
@@ -257,8 +266,8 @@ nav a {
   </div>
 </section>
 
-<a class="whatsapp" href="https://wa.me/919999962722" target="_blank">
-Chat on WhatsApp
+<a class="whatsapp" href="https://wa.me/91XXXXXXXXXX" target="_blank">
+  Chat on WhatsApp
 </a>
 
 </body>
