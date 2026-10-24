@@ -1,223 +1,1101 @@
- <!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" class="dark">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GoNfly – Premium Visa Services</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoNFly - Fly Farther, Explore Boldly | Flights, Visas, Hotels & Packages</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            red: '#FF2D55',
+                            darkRed: '#D01739',
+                            bg: '#0B0F17',
+                            card: '#161F30',
+                            border: '#2A364F',
+                            accent: '#22D3EE'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #0B0F17;
+            color: #F3F4F6;
+            overflow-x: hidden;
+        }
+        
+        .glow-red {
+            box-shadow: 0 0 25px rgba(255, 45, 85, 0.25);
+        }
+        .glow-red-sm {
+            box-shadow: 0 0 12px rgba(255, 45, 85, 0.3);
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0B0F17;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2A364F;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #FF2D55;
+        }
 
-<style>
-body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: #f5f7fb;
-}
+        .hero-bg {
+            background: linear-gradient(180deg, rgba(11, 15, 23, 0.75) 0%, rgba(11, 15, 23, 0.95) 100%),
+                        url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+        }
 
-/* HEADER */
-.lux-header {
-  background: linear-gradient(135deg, #0b1d3a, #122f66);
-  padding: 14px 20px;
-}
+        .tab-btn.active {
+            color: #FFFFFF;
+            background-color: #FF2D55;
+            box-shadow: 0 4px 15px rgba(255, 45, 85, 0.4);
+        }
 
-.header-container {
-  max-width: 1200px;
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.brand-name {
-  font-size: 32px;
-  font-weight: 800;
-  color: gold;
-  letter-spacing: 1px;
-}
-
-.nav-links a {
-  color: #fff;
-  text-decoration: none;
-  margin-left: 20px;
-  font-weight: 500;
-}
-
-/* HERO */
-.hero {
-  background: linear-gradient(135deg, #122f66, #1b3f8b);
-  color: #fff;
-  text-align: center;
-  padding: 80px 20px;
-}
-
-.hero h1 {
-  font-size: 42px;
-  margin-bottom: 10px;
-}
-
-.hero p {
-  font-size: 18px;
-  opacity: 0.9;
-}
-
-#visaSearch {
-  margin-top: 25px;
-  width: 90%;
-  max-width: 500px;
-  padding: 14px 20px;
-  border-radius: 30px;
-  border: none;
-  font-size: 16px;
-}
-
-/* GRID */
-.section {
-  max-width: 1200px;
-  margin: auto;
-  padding: 60px 20px;
-}
-
-.section h2 {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 25px;
-}
-
-.card {
-  background: #fff;
-  border-radius: 20px;
-  overflow: hidden;
-  text-decoration: none;
-  color: #000;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-}
-
-.card img {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
-}
-
-.card h3 {
-  padding: 15px;
-  text-align: center;
-  font-weight: 600;
-}
-
-/* CTA */
-.cta {
-  background: linear-gradient(135deg, #0b1d3a, #122f66);
-  color: #fff;
-  text-align: center;
-  padding: 70px 20px;
-}
-
-.cta h2 {
-  font-size: 36px;
-}
-
-.cta p {
-  opacity: 0.9;
-}
-
-.cta button {
-  margin-top: 25px;
-  padding: 16px 40px;
-  font-size: 18px;
-  border-radius: 40px;
-  border: none;
-  background: gold;
-  color: #000;
-  font-weight: bold;
-  cursor: pointer;
-  box-shadow: 0 8px 20px rgba(255,215,0,0.4);
-}
-
-/* MOBILE */
-@media(max-width:600px){
-  .header-container {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .hero h1 {
-    font-size: 30px;
-  }
-}
-</style>
+        .glass-card {
+            background: rgba(22, 31, 48, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+    </style>
 </head>
+<body class="min-h-screen flex flex-col justify-between">
 
-<body>
+    <!-- Top Announcement Bar -->
+    <div class="bg-gradient-to-r from-brand-red via-purple-600 to-indigo-600 text-white text-xs py-2 px-4 text-center font-medium flex items-center justify-center gap-3">
+        <span class="bg-white/20 px-2 py-0.5 rounded-full text-[10px] uppercase tracking-wider font-bold">Gen Z Special</span>
+        <span>🎉 Get up to 25% off on student & nomad international flights with code: <strong class="underline cursor-pointer" onclick="copyPromo('YOUTHFLY20')">YOUTHFLY20</strong></span>
+    </div>
 
-<header class="lux-header">
-  <div class="header-container">
-    <div class="brand-name">GoNfly</div>
-    <nav class="nav-links">
-      <a href="#">Home</a>
-      <a href="#">Services</a>
-      <a href="#enquiry">Enquiry</a>
-      <a href="#">Contact</a>
+    <!-- Navigation Bar -->
+    <nav class="sticky top-0 z-40 glass-card border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Brand Logo -->
+                <div class="flex items-center gap-3 cursor-pointer" onclick="switchTab('flights')">
+                    <!-- SVG logo matching user's image -->
+                    <div class="relative flex items-center">
+                        <span class="text-3xl font-extrabold tracking-tight text-white">Go<span class="text-gray-300 font-normal">n</span>Fly</span>
+                        <!-- Upward arrow over the 'n' -->
+                        <div class="absolute -top-1 left-[2.35rem] transform -rotate-12">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 12L21 3L12 21L10 14L3 12Z" fill="#FF2D55" stroke="#FF2D55" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation Links -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <button onclick="switchTab('flights')" class="text-sm font-semibold hover:text-brand-red transition flex items-center gap-2 text-gray-200">
+                        <i class="fa-solid fa-plane-departure text-brand-red"></i> Flights
+                    </button>
+                    <button onclick="switchTab('visas')" class="text-sm font-semibold hover:text-brand-red transition flex items-center gap-2 text-gray-200">
+                        <i class="fa-solid fa-passport text-amber-400"></i> Express Visas
+                    </button>
+                    <button onclick="switchTab('hotels')" class="text-sm font-semibold hover:text-brand-red transition flex items-center gap-2 text-gray-200">
+                        <i class="fa-solid fa-hotel text-emerald-400"></i> Stays & Hostels
+                    </button>
+                    <button onclick="switchTab('packages')" class="text-sm font-semibold hover:text-brand-red transition flex items-center gap-2 text-gray-200">
+                        <i class="fa-solid fa-umbrella-beach text-cyan-400"></i> Trips & Packages
+                    </button>
+                    <button onclick="switchTab('insurance')" class="text-sm font-semibold hover:text-brand-red transition flex items-center gap-2 text-gray-200">
+                        <i class="fa-solid fa-shield-halved text-purple-400"></i> Insurance
+                    </button>
+                </div>
+
+                <!-- Right Actions -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <select class="bg-gray-900 text-gray-300 text-xs rounded-lg px-3 py-2 border border-gray-700 focus:outline-none focus:border-brand-red">
+                        <option>USD ($)</option>
+                        <option selected>INR (₹)</option>
+                        <option>EUR (€)</option>
+                        <option>AED (AED)</option>
+                    </select>
+
+                    <button onclick="openModal('trackVisaModal')" class="text-xs font-semibold px-3 py-2 rounded-lg bg-gray-800 text-gray-200 border border-gray-700 hover:border-gray-500 transition flex items-center gap-1.5">
+                        <i class="fa-solid fa-magnifying-glass text-brand-red"></i> Track Visa
+                    </button>
+
+                    <button onclick="openModal('authModal')" class="bg-brand-red hover:bg-brand-darkRed text-white text-sm font-bold px-5 py-2.5 rounded-xl transition glow-red-sm flex items-center gap-2">
+                        <i class="fa-regular fa-user"></i> Login / Register
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center gap-2">
+                    <button id="mobileMenuBtn" class="text-gray-300 hover:text-white p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div id="mobileMenu" class="hidden md:hidden glass-card border-t border-gray-800 px-4 pt-2 pb-6 space-y-3">
+            <button onclick="switchTab('flights'); toggleMobileMenu()" class="block w-full text-left py-2 font-medium text-gray-200 border-b border-gray-800">✈️ Flights</button>
+            <button onclick="switchTab('visas'); toggleMobileMenu()" class="block w-full text-left py-2 font-medium text-gray-200 border-b border-gray-800">🛂 Express Visas</button>
+            <button onclick="switchTab('hotels'); toggleMobileMenu()" class="block w-full text-left py-2 font-medium text-gray-200 border-b border-gray-800">🏨 Stays & Hostels</button>
+            <button onclick="switchTab('packages'); toggleMobileMenu()" class="block w-full text-left py-2 font-medium text-gray-200 border-b border-gray-800">🏝️ Holidays & Packages</button>
+            <button onclick="switchTab('insurance'); toggleMobileMenu()" class="block w-full text-left py-2 font-medium text-gray-200 border-b border-gray-800">🛡️ Travel Insurance</button>
+            <div class="pt-2 flex flex-col gap-2">
+                <button onclick="openModal('authModal'); toggleMobileMenu()" class="w-full bg-brand-red text-white py-3 rounded-xl font-bold">Sign In / Register</button>
+                <button onclick="openModal('trackVisaModal'); toggleMobileMenu()" class="w-full bg-gray-800 text-gray-200 py-3 rounded-xl font-bold border border-gray-700">Track Visa Application</button>
+            </div>
+        </div>
     </nav>
-  </div>
-</header>
 
-<section class="hero">
-  <h1>GoNfly – Premium Visa Services</h1>
-  <p>Luxury Tourist & Business Visa Experts Worldwide</p>
-  <input type="text" id="visaSearch" placeholder="Search visa (UAE, Japan, Europe...)">
-</section>
+    <!-- Main Hero Container -->
+    <header class="hero-bg relative pt-12 pb-24 px-4 sm:px-6 lg:px-8 flex-1">
+        <div class="max-w-6xl mx-auto text-center space-y-4 mb-10">
+            <div class="inline-flex items-center gap-2 bg-brand-red/10 border border-brand-red/30 px-4 py-1.5 rounded-full text-brand-red text-xs font-bold uppercase tracking-wider">
+                <i class="fa-solid fa-bolt"></i> Travel Made Easy for Gen-Z & Digital Nomads
+            </div>
+            <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-white leading-tight">
+                Explore the World. <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-red via-pink-500 to-amber-400">Zero Friction.</span>
+            </h1>
+            <p class="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto font-light">
+                Instant visas, budget flights, boutique hostels, and curated group trips designed for modern explorers.
+            </p>
+        </div>
 
-<section class="section">
-  <h2>Our Visa Destinations</h2>
+        <!-- Main Booking Widget Centerpiece -->
+        <div class="max-w-6xl mx-auto glass-card rounded-3xl p-4 sm:p-8 shadow-2xl border border-gray-700/60 relative">
+            
+            <!-- Navigation Tabs (5 Core Services) -->
+            <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 bg-gray-900/80 p-2 rounded-2xl mb-8 border border-gray-800">
+                <button onclick="switchTab('flights')" id="tab-flights" class="tab-btn active px-5 py-3 rounded-xl text-sm font-bold transition flex items-center gap-2.5 text-gray-400 hover:text-white">
+                    <i class="fa-solid fa-plane"></i>
+                    <span>Flights</span>
+                </button>
+                <button onclick="switchTab('visas')" id="tab-visas" class="tab-btn px-5 py-3 rounded-xl text-sm font-bold transition flex items-center gap-2.5 text-gray-400 hover:text-white">
+                    <i class="fa-solid fa-passport"></i>
+                    <span>Visas</span>
+                    <span class="bg-amber-500/20 text-amber-400 text-[10px] px-1.5 py-0.5 rounded font-mono">DU-Fast</span>
+                </button>
+                <button onclick="switchTab('hotels')" id="tab-hotels" class="tab-btn px-5 py-3 rounded-xl text-sm font-bold transition flex items-center gap-2.5 text-gray-400 hover:text-white">
+                    <i class="fa-solid fa-hotel"></i>
+                    <span>Hotels</span>
+                </button>
+                <button onclick="switchTab('packages')" id="tab-packages" class="tab-btn px-5 py-3 rounded-xl text-sm font-bold transition flex items-center gap-2.5 text-gray-400 hover:text-white">
+                    <i class="fa-solid fa-compass"></i>
+                    <span>Packages</span>
+                </button>
+                <button onclick="switchTab('insurance')" id="tab-insurance" class="tab-btn px-5 py-3 rounded-xl text-sm font-bold transition flex items-center gap-2.5 text-gray-400 hover:text-white">
+                    <i class="fa-solid fa-shield-cat"></i>
+                    <span>Insurance</span>
+                </button>
+            </div>
 
-  <div class="grid" id="visaGrid">
+            <!-- Tab Content 1: FLIGHTS -->
+            <div id="content-flights" class="tab-content space-y-6">
+                <!-- Trip Type & Class selection -->
+                <div class="flex flex-wrap items-center justify-between gap-4 pb-2 border-b border-gray-800 text-xs sm:text-sm font-medium">
+                    <div class="flex items-center gap-6">
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="radio" name="flightType" checked class="accent-brand-red w-4 h-4" onchange="toggleReturnDate(false)">
+                            <span>One Way</span>
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="radio" name="flightType" class="accent-brand-red w-4 h-4" onchange="toggleReturnDate(true)">
+                            <span>Round Trip</span>
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer text-gray-400">
+                            <input type="radio" name="flightType" class="accent-brand-red w-4 h-4">
+                            <span>Multi-City</span>
+                        </label>
+                    </div>
+                    <div class="flex items-center gap-4 text-gray-300">
+                        <select class="bg-gray-900 border border-gray-700 rounded-lg px-2.5 py-1 text-xs focus:outline-none focus:border-brand-red">
+                            <option>1 Passenger, Economy</option>
+                            <option>2 Passengers, Premium Eco</option>
+                            <option>1 Passenger, Business</option>
+                        </select>
+                        <label class="flex items-center gap-2 cursor-pointer text-xs">
+                            <input type="checkbox" class="accent-brand-red rounded">
+                            <span class="text-gray-400">Student Fare (+ Extra Baggage)</span>
+                        </label>
+                    </div>
+                </div>
 
-<a href="uae.html" class="card"><img src="https://images.unsplash.com/photo-1548013146-72479768bada"><h3>UAE Visa</h3></a>
-<a href="india.html" class="card"><img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da"><h3>India Visa</h3></a>
-<a href="usa.html" class="card"><img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29"><h3>USA Visa</h3></a>
-<a href="japan.html" class="card"><img src="https://images.unsplash.com/photo-1549692520-acc6669e2f0c"><h3>Japan Visa</h3></a>
-<a href="china.html" class="card"><img src="https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b"><h3>China Visa</h3></a>
-<a href="russia.html" class="card"><img src="https://images.unsplash.com/photo-1529429611277-4c28f98b4c2d"><h3>Russia Visa</h3></a>
-<a href="indonesia.html" class="card"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e"><h3>Indonesia Visa</h3></a>
-<a href="australia.html" class="card"><img src="https://images.unsplash.com/photo-1506976785307-8732e854ad03"><h3>Australia Visa</h3></a>
-<a href="newzealand.html" class="card"><img src="https://images.unsplash.com/photo-1502784444185-4802a8e88c57"><h3>New Zealand Visa</h3></a>
-<a href="singapore.html" class="card"><img src="https://images.unsplash.com/photo-1508964942454-1a56651d54ac"><h3>Singapore Visa</h3></a>
-<a href="schengen.html" class="card"><img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34"><h3>Schengen Visa</h3></a>
-<a href="georgia.html" class="card"><img src="https://images.unsplash.com/photo-1567006585290-bd43cbbd0f9b"><h3>Georgia Visa</h3></a>
-<a href="bahrain.html" class="card"><img src="https://images.unsplash.com/photo-1588912914078-2fe5224fd8b8"><h3>Bahrain Visa</h3></a>
-<a href="armenia.html" class="card"><img src="https://images.unsplash.com/photo-1600532598473-ef56b28cbb5d"><h3>Armenia Visa</h3></a>
-<a href="uzbekistan.html" class="card"><img src="https://images.unsplash.com/photo-1581251813004-3c5e6b7df2f5"><h3>Uzbekistan Visa</h3></a>
+                <!-- Input Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-3 relative">
+                    <!-- From -->
+                    <div class="bg-gray-900/90 border border-gray-700/80 p-3.5 rounded-2xl hover:border-brand-red transition cursor-pointer">
+                        <span class="text-[11px] uppercase tracking-wider text-gray-400 font-bold block mb-1">From</span>
+                        <input type="text" value="New Delhi (DEL)" class="bg-transparent font-bold text-white text-lg w-full focus:outline-none" placeholder="Departure City">
+                        <span class="text-xs text-gray-500 block truncate">Indira Gandhi Intl Airport</span>
+                    </div>
 
-  </div>
-</section>
+                    <!-- Swap Button -->
+                    <div class="hidden md:flex absolute left-[24%] top-1/2 -translate-y-1/2 -translate-x-1/2 z-10">
+                        <button class="bg-gray-800 border border-gray-600 hover:border-brand-red text-brand-red p-2.5 rounded-full shadow-lg hover:rotate-180 transition-all duration-300">
+                            <i class="fa-solid fa-arrows-rotate text-xs"></i>
+                        </button>
+                    </div>
 
-<section class="cta" id="enquiry">
-  <h2>Get Your Visa with Confidence</h2>
-  <p>Fast processing • Expert guidance • Global support</p>
-  <button onclick="window.open('https://wa.me/91XXXXXXXXXX','_blank')">
-    Enquire Now on WhatsApp
-  </button>
-</section>
+                    <!-- To -->
+                    <div class="bg-gray-900/90 border border-gray-700/80 p-3.5 rounded-2xl hover:border-brand-red transition cursor-pointer">
+                        <span class="text-[11px] uppercase tracking-wider text-gray-400 font-bold block mb-1">To</span>
+                        <input type="text" value="Bali, Indonesia (DPS)" class="bg-transparent font-bold text-white text-lg w-full focus:outline-none" placeholder="Destination City">
+                        <span class="text-xs text-gray-500 block truncate">Ngurah Rai Intl Airport</span>
+                    </div>
 
-<script>
-document.getElementById("visaSearch").addEventListener("keyup", function() {
-  let value = this.value.toLowerCase();
-  let cards = document.querySelectorAll(".card h3");
+                    <!-- Departure Date -->
+                    <div class="bg-gray-900/90 border border-gray-700/80 p-3.5 rounded-2xl hover:border-brand-red transition cursor-pointer">
+                        <span class="text-[11px] uppercase tracking-wider text-gray-400 font-bold block mb-1">Departure</span>
+                        <input type="date" value="2026-11-15" class="bg-transparent font-bold text-white text-base w-full focus:outline-none color-scheme-dark">
+                        <span class="text-xs text-brand-red font-medium">Lowest Fares on Sunday</span>
+                    </div>
 
-  cards.forEach(card => {
-    let text = card.innerText.toLowerCase();
-    card.parentElement.style.display = text.includes(value) ? "block" : "none";
-  });
-});
-</script>
+                    <!-- Return Date -->
+                    <div id="returnDateBox" class="bg-gray-900/90 border border-gray-700/80 p-3.5 rounded-2xl opacity-50 transition cursor-pointer">
+                        <span class="text-[11px] uppercase tracking-wider text-gray-400 font-bold block mb-1">Return</span>
+                        <input type="date" id="returnInput" disabled class="bg-transparent font-bold text-white text-base w-full focus:outline-none">
+                        <span class="text-xs text-gray-500">Save up to ₹4,500 on return</span>
+                    </div>
+                </div>
 
+                <!-- Submit Button -->
+                <div class="pt-2 text-center">
+                    <button onclick="simulateSearch('flights')" class="w-full sm:w-auto px-12 py-4 bg-brand-red hover:bg-brand-darkRed text-white text-lg font-extrabold rounded-2xl shadow-xl transition transform hover:-translate-y-0.5 active:translate-y-0 glow-red flex items-center justify-center gap-3 mx-auto">
+                        <i class="fa-solid fa-magnifying-glass"></i> Search Flights
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tab Content 2: VISAS (DuVisas inspired specialized tool) -->
+            <div id="content-visas" class="tab-content hidden space-y-6">
+                <div class="bg-gradient-to-r from-amber-500/10 via-brand-red/10 to-transparent p-4 rounded-2xl border border-amber-500/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                    <div class="flex items-center gap-3">
+                        <div class="p-3 bg-amber-500/20 text-amber-400 rounded-xl">
+                            <i class="fa-solid fa-passport text-2xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white text-base">GoNFly Express Visa Portal</h4>
+                            <p class="text-xs text-gray-300">99.2% Approval Rate • Visa on Time Guarantee • Zero Paperwork Hassle</p>
+                        </div>
+                    </div>
+                    <button onclick="openModal('trackVisaModal')" class="text-xs font-bold text-amber-400 hover:text-amber-300 underline">Existing Application? Track Here &rarr;</button>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <!-- Destination Country Select -->
+                    <div class="bg-gray-900/90 border border-gray-700/80 p-3.5 rounded-2xl hover:border-brand-red transition">
+                        <label class="text-[11px] uppercase tracking-wider text-gray-400 font-bold block mb-1">Select Destination</label>
+                        <select id="visaCountrySelect" onchange="updateVisaDetails()" class="bg-transparent font-bold text-white text-lg w-full focus:outline-none cursor-pointer">
+                            <option value="dubai" class="bg-gray-900">United Arab Emirates (Dubai)</option>
+                            <option value="thailand" class="bg-gray-900">Thailand (E-Visa)</option>
+                            <option value="singapore" class="bg-gray-900">Singapore</option>
+                            <option value="vietnam" class="bg-gray-900" selected>Vietnam (E-Visa)</option>
+                            <option value="shengen" class="bg-gray-900">Schengen Europe</option>
+                            <option value="japan" class="bg-gray-900">Japan</option>
+                        </select>
+                    </div>
+
+                    <!-- Visa Type -->
+                    <div class="bg-gray-900/90 border border-gray-700/80 p-3.5 rounded-2xl hover:border-brand-red transition">
+                        <label class="text-[11px] uppercase tracking-wider text-gray-400 font-bold block mb-1">Visa Category</label>
+                        <select class="bg-transparent font-bold text-white text-base w-full focus:outline-none cursor-pointer">
+                            <option class="bg-gray-900">Tourist Visa (30 Days Single Entry)</option>
+                            <option class="bg-gray-900">Digital Nomad / Business Visa</option>
+                            <option class="bg-gray-900">Multiple Entry (90 Days)</option>
+                        </select>
+                    </div>
+
+                    <!-- Processing Speed -->
+                    <div class="bg-gray-900/90 border border-gray-700/80 p-3.5 rounded-2xl hover:border-brand-red transition">
+                        <label class="text-[11px] uppercase tracking-wider text-gray-400 font-bold block mb-1">Processing Speed</label>
+                        <select class="bg-transparent font-bold text-white text-base w-full focus:outline-none cursor-pointer">
+                            <option class="bg-gray-900">Express (24 - 48 Hours)</option>
+                            <option class="bg-gray-900">Standard (3 - 5 Business Days)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Visa Info Preview Widget -->
+                <div id="visaInfoCard" class="bg-gray-900/60 p-4 rounded-2xl border border-gray-800 text-sm flex flex-wrap items-center justify-between gap-4">
+                    <div class="flex items-center gap-6">
+                        <div>
+                            <span class="text-xs text-gray-400 block">Govt. + Service Fee</span>
+                            <span class="text-xl font-black text-brand-red">₹2,499 <span class="text-xs font-normal text-gray-400">/ person</span></span>
+                        </div>
+                        <div>
+                            <span class="text-xs text-gray-400 block">Processing Time</span>
+                            <span class="text-sm font-semibold text-emerald-400">⚡ 3 Business Days</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <button onclick="openModal('visaChecklistModal')" class="px-4 py-2 bg-gray-800 hover:bg-gray-700 text-xs font-bold rounded-xl border border-gray-700 transition">
+                            <i class="fa-solid fa-list-check text-amber-400 mr-1"></i> Document Checklist
+                        </button>
+                        <button onclick="simulateSearch('visas')" class="px-6 py-2.5 bg-brand-red hover:bg-brand-darkRed text-white text-sm font-extrabold rounded-xl transition glow-red-sm">
+                            Apply Now &rarr;
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab Content 3: HOTELS & HOSTELS -->
+            <div id="content-hotels" class="tab-content hidden space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-3">
+                    <div class="bg-gray-900/90 border border-gray-700/80 p-3.5 rounded-2xl hover:border-brand-red transition">
+                        <span class="text-[11px] uppercase tracking-wider text-gray-400 font-bold block mb-1">City / Property / Neighborhood</span>
+                        <input type="text" value="Canggu, Bali, Indonesia" class="bg-transparent font-bold text-white text-lg w-full focus:outline-none" placeholder="Where are you staying?">
+                    </div>
+                    <div class="bg-gray-900/90 border border-gray-700/80 p-3.5 rounded-2xl hover:border-brand-red transition">
+                        <span class="text-[11px] uppercase tracking-wider text-gray-400 font-bold block mb-1">Check-In</span>
+                        <input type="date" value="2026-11-16" class="bg-transparent font-bold text-white text-base w-full focus:outline-none">
+                    </div>
+                    <div class="bg-gray-900/90 border border-gray-700/80 p-3.5 rounded-2xl hover:border-brand-red transition">
+                        <span class="text-[11px] uppercase tracking-wider text-gray-400 font-bold block mb-1">Check-Out</span>
+                        <input type="date" value="2026-11-22" class="bg-transparent font-bold text-white text-base w-full focus:outline-none">
+                    </div>
+                    <div class="bg-gray-900/90 border border-gray-700/80 p-3.5 rounded-2xl hover:border-brand-red transition">
+                        <span class="text-[11px] uppercase tracking-wider text-gray-400 font-bold block mb-1">Guests & Stay Type</span>
+                        <select class="bg-transparent font-bold text-white text-base w-full focus:outline-none">
+                            <option class="bg-gray-900">1 Guest (Youth Hostel Dorm)</option>
+                            <option class="bg-gray-900" selected>2 Guests (Private Boutique Room)</option>
+                            <option class="bg-gray-900">Group / Villa (4+ Guests)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap items-center justify-between gap-3 pt-2">
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs text-gray-400 font-semibold">Vibe:</span>
+                        <span class="bg-gray-800 hover:bg-brand-red/20 text-gray-300 hover:text-brand-red px-3 py-1 rounded-full text-xs font-semibold cursor-pointer border border-gray-700">🏄 Nomad Work-Spaces</span>
+                        <span class="bg-gray-800 hover:bg-brand-red/20 text-gray-300 hover:text-brand-red px-3 py-1 rounded-full text-xs font-semibold cursor-pointer border border-gray-700">🎉 Party Hostels</span>
+                        <span class="bg-gray-800 hover:bg-brand-red/20 text-gray-300 hover:text-brand-red px-3 py-1 rounded-full text-xs font-semibold cursor-pointer border border-gray-700">🌿 Eco Beach Stays</span>
+                    </div>
+                    <button onclick="simulateSearch('hotels')" class="px-8 py-3 bg-brand-red hover:bg-brand-darkRed text-white font-bold rounded-xl transition glow-red-sm">
+                        Find Stays
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tab Content 4: HOLIDAY PACKAGES -->
+            <div id="content-packages" class="tab-content hidden space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                    <div class="bg-gray-900/90 border border-gray-700/80 p-3.5 rounded-2xl hover:border-brand-red transition">
+                        <span class="text-[11px] uppercase tracking-wider text-gray-400 font-bold block mb-1">Destination</span>
+                        <input type="text" value="Thailand Island Hopping" class="bg-transparent font-bold text-white text-lg w-full focus:outline-none">
+                    </div>
+                    <div class="bg-gray-900/90 border border-gray-700/80 p-3.5 rounded-2xl hover:border-brand-red transition">
+                        <span class="text-[11px] uppercase tracking-wider text-gray-400 font-bold block mb-1">Trip Vibe</span>
+                        <select class="bg-transparent font-bold text-white text-base w-full focus:outline-none">
+                            <option class="bg-gray-900">🎒 Gen-Z Backpacking Group</option>
+                            <option class="bg-gray-900">⛰️ Extreme Adventure & Trekking</option>
+                            <option class="bg-gray-900">🏝️ Chill Beach & Nightlife</option>
+                            <option class="bg-gray-900">💻 Digital Nomad Co-Living</option>
+                        </select>
+                    </div>
+                    <div class="bg-gray-900/90 border border-gray-700/80 p-3.5 rounded-2xl hover:border-brand-red transition">
+                        <span class="text-[11px] uppercase tracking-wider text-gray-400 font-bold block mb-1">Travel Month</span>
+                        <input type="month" value="2026-12" class="bg-transparent font-bold text-white text-base w-full focus:outline-none">
+                    </div>
+                </div>
+
+                <div class="text-center pt-2">
+                    <button onclick="simulateSearch('packages')" class="px-10 py-3.5 bg-brand-red hover:bg-brand-darkRed text-white font-bold rounded-xl transition glow-red-sm">
+                        Explore Curated Trips &rarr;
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tab Content 5: TRAVEL INSURANCE -->
+            <div id="content-insurance" class="tab-content hidden space-y-6">
+                <div class="bg-purple-900/20 border border-purple-500/30 p-4 rounded-2xl flex items-center gap-3">
+                    <i class="fa-solid fa-shield-heart text-2xl text-purple-400"></i>
+                    <p class="text-xs text-gray-300">
+                        Coverage for Medical Emergencies, Passport Loss, Flight Delays, Extreme Sports & Gadget Protection for Digital Nomads.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                    <div class="bg-gray-900/90 border border-gray-700/80 p-3.5 rounded-2xl">
+                        <span class="text-[11px] uppercase tracking-wider text-gray-400 font-bold block mb-1">Traveling To</span>
+                        <select class="bg-transparent font-bold text-white text-base w-full focus:outline-none">
+                            <option class="bg-gray-900">Worldwide (Incl. USA & Canada)</option>
+                            <option class="bg-gray-900" selected>Southeast Asia / Bali / Thailand</option>
+                            <option class="bg-gray-900">Europe Schengen Region</option>
+                        </select>
+                    </div>
+
+                    <div class="bg-gray-900/90 border border-gray-700/80 p-3.5 rounded-2xl">
+                        <span class="text-[11px] uppercase tracking-wider text-gray-400 font-bold block mb-1">Duration</span>
+                        <select class="bg-transparent font-bold text-white text-base w-full focus:outline-none">
+                            <option class="bg-gray-900">Short Trip (1 - 7 Days)</option>
+                            <option class="bg-gray-900" selected>Vacation (14 Days)</option>
+                            <option class="bg-gray-900">Nomad Annual Multi-Trip (365 Days)</option>
+                        </select>
+                    </div>
+
+                    <div class="bg-gray-900/90 border border-gray-700/80 p-3.5 rounded-2xl">
+                        <span class="text-[11px] uppercase tracking-wider text-gray-400 font-bold block mb-1">Total Coverage Limit</span>
+                        <span class="font-extrabold text-brand-red text-lg">$50,000 USD (Comprehensive)</span>
+                    </div>
+                </div>
+
+                <div class="text-center pt-2">
+                    <button onclick="simulateSearch('insurance')" class="px-10 py-3.5 bg-brand-red hover:bg-brand-darkRed text-white font-bold rounded-xl transition glow-red-sm">
+                        Get Policy Quote (Starts ₹59/day)
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- Interactive Search Results Simulation Container -->
+    <section id="resultsSection" class="hidden max-w-6xl mx-auto px-4 py-8">
+        <div class="glass-card rounded-2xl p-6 border border-brand-red/30">
+            <div class="flex items-center justify-between mb-4 border-b border-gray-800 pb-3">
+                <h3 class="text-xl font-extrabold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-spinner animate-spin text-brand-red" id="searchSpinner"></i>
+                    <span id="resultsTitle">Searching best options...</span>
+                </h3>
+                <button onclick="closeResults()" class="text-xs bg-gray-800 hover:bg-gray-700 text-gray-300 px-3 py-1.5 rounded-lg">Close Results</button>
+            </div>
+            <div id="resultsList" class="space-y-3">
+                <!-- Dynamically Populated by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Discount Promo Codes Carousel -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div class="flex items-center justify-between mb-6">
+            <div>
+                <h2 class="text-2xl font-black text-white">Exclusive Youth Deals & Offers</h2>
+                <p class="text-xs text-gray-400">Apply promo codes at checkout for instant cashbacks</p>
+            </div>
+            <span class="text-xs text-brand-red font-bold cursor-pointer hover:underline">View All Offers &rarr;</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Promo 1 -->
+            <div class="glass-card p-5 rounded-2xl border border-dashed border-brand-red/40 relative overflow-hidden group hover:border-brand-red transition">
+                <div class="absolute -right-6 -bottom-6 w-24 h-24 bg-brand-red/10 rounded-full blur-xl group-hover:bg-brand-red/20 transition"></div>
+                <div class="flex justify-between items-start mb-3">
+                    <span class="bg-brand-red/20 text-brand-red text-xs font-bold px-2.5 py-1 rounded-lg">FLIGHTS</span>
+                    <button onclick="copyPromo('YOUTHFLY20')" class="text-xs bg-gray-800 hover:bg-brand-red text-white font-mono px-3 py-1 rounded-lg border border-gray-700 transition">
+                        YOUTHFLY20 <i class="fa-regular fa-copy ml-1"></i>
+                    </button>
+                </div>
+                <h3 class="font-bold text-white text-lg">Flat 20% Off International Flights</h3>
+                <p class="text-xs text-gray-400 mt-1">Valid for travelers aged 18 - 29 years on all Southeast Asia routes.</p>
+            </div>
+
+            <!-- Promo 2 -->
+            <div class="glass-card p-5 rounded-2xl border border-dashed border-amber-500/40 relative overflow-hidden group hover:border-amber-500 transition">
+                <div class="flex justify-between items-start mb-3">
+                    <span class="bg-amber-500/20 text-amber-400 text-xs font-bold px-2.5 py-1 rounded-lg">DU-VISA</span>
+                    <button onclick="copyPromo('FASTVISA')" class="text-xs bg-gray-800 hover:bg-amber-500 text-white font-mono px-3 py-1 rounded-lg border border-gray-700 transition">
+                        FASTVISA <i class="fa-regular fa-copy ml-1"></i>
+                    </button>
+                </div>
+                <h3 class="font-bold text-white text-lg">₹500 OFF Dubai & Vietnam Visas</h3>
+                <p class="text-xs text-gray-400 mt-1">Guaranteed processing within 24-48 hours or full service fee refund.</p>
+            </div>
+
+            <!-- Promo 3 -->
+            <div class="glass-card p-5 rounded-2xl border border-dashed border-emerald-500/40 relative overflow-hidden group hover:border-emerald-500 transition">
+                <div class="flex justify-between items-start mb-3">
+                    <span class="bg-emerald-500/20 text-emerald-400 text-xs font-bold px-2.5 py-1 rounded-lg">STAYS</span>
+                    <button onclick="copyPromo('NOMADSTAY')" class="text-xs bg-gray-800 hover:bg-emerald-500 text-white font-mono px-3 py-1 rounded-lg border border-gray-700 transition">
+                        NOMADSTAY <i class="fa-regular fa-copy ml-1"></i>
+                    </button>
+                </div>
+                <h3 class="font-bold text-white text-lg">Free Breakfast & Co-Working Pass</h3>
+                <p class="text-xs text-gray-400 mt-1">Book 5+ nights at any partner hostel in Bali or Phuket.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trending Gen-Z & Nomad Destinations -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div class="flex items-center justify-between mb-8">
+            <div>
+                <h2 class="text-2xl font-black text-white">Trending Destinations Right Now 🔥</h2>
+                <p class="text-xs text-gray-400">Popular among youth, digital nomads, & solo explorers</p>
+            </div>
+            <div class="flex gap-2">
+                <button class="bg-gray-800 hover:bg-gray-700 p-2.5 rounded-xl text-gray-300 text-xs"><i class="fa-solid fa-chevron-left"></i></button>
+                <button class="bg-gray-800 hover:bg-gray-700 p-2.5 rounded-xl text-gray-300 text-xs"><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Bali -->
+            <div class="glass-card rounded-2xl overflow-hidden group hover:translate-y-[-4px] transition duration-300 border border-gray-800 hover:border-brand-red">
+                <div class="relative h-48 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=600&q=80" alt="Bali" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <span class="absolute top-3 left-3 bg-brand-red text-white text-[10px] font-extrabold px-2.5 py-1 rounded-full uppercase">Visa On Arrival</span>
+                    <span class="absolute bottom-3 right-3 bg-gray-900/80 backdrop-blur-md text-white text-xs font-bold px-2 py-1 rounded-lg">From ₹18,499</span>
+                </div>
+                <div class="p-4 space-y-2">
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-extrabold text-white text-lg">Bali, Indonesia</h3>
+                        <span class="text-xs text-amber-400 font-bold"><i class="fa-solid fa-star"></i> 4.9</span>
+                    </div>
+                    <p class="text-xs text-gray-400">Beaches, surf spots, co-working cafes & night clubs.</p>
+                    <div class="pt-2 border-t border-gray-800 flex items-center justify-between text-xs text-gray-300">
+                        <span><i class="fa-solid fa-plane text-brand-red mr-1"></i> Direct Flights</span>
+                        <button onclick="quickBook('Bali')" class="text-brand-red font-bold hover:underline">Book Package &rarr;</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vietnam -->
+            <div class="glass-card rounded-2xl overflow-hidden group hover:translate-y-[-4px] transition duration-300 border border-gray-800 hover:border-brand-red">
+                <div class="relative h-48 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=600&q=80" alt="Vietnam" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <span class="absolute top-3 left-3 bg-emerald-500 text-white text-[10px] font-extrabold px-2.5 py-1 rounded-full uppercase">Express E-Visa</span>
+                    <span class="absolute bottom-3 right-3 bg-gray-900/80 backdrop-blur-md text-white text-xs font-bold px-2 py-1 rounded-lg">From ₹12,999</span>
+                </div>
+                <div class="p-4 space-y-2">
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-extrabold text-white text-lg">Ha Long & Hanoi, Vietnam</h3>
+                        <span class="text-xs text-amber-400 font-bold"><i class="fa-solid fa-star"></i> 4.8</span>
+                    </div>
+                    <p class="text-xs text-gray-400">Budget friendly street food, cruise bays & nightlife.</p>
+                    <div class="pt-2 border-t border-gray-800 flex items-center justify-between text-xs text-gray-300">
+                        <span><i class="fa-solid fa-bolt text-amber-400 mr-1"></i> 3-Day Visa</span>
+                        <button onclick="quickBook('Vietnam')" class="text-brand-red font-bold hover:underline">Book Package &rarr;</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Japan -->
+            <div class="glass-card rounded-2xl overflow-hidden group hover:translate-y-[-4px] transition duration-300 border border-gray-800 hover:border-brand-red">
+                <div class="relative h-48 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=600&q=80" alt="Tokyo" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <span class="absolute top-3 left-3 bg-purple-500 text-white text-[10px] font-extrabold px-2.5 py-1 rounded-full uppercase">Nomad Hotspot</span>
+                    <span class="absolute bottom-3 right-3 bg-gray-900/80 backdrop-blur-md text-white text-xs font-bold px-2 py-1 rounded-lg">From ₹44,999</span>
+                </div>
+                <div class="p-4 space-y-2">
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-extrabold text-white text-lg">Tokyo & Kyoto, Japan</h3>
+                        <span class="text-xs text-amber-400 font-bold"><i class="fa-solid fa-star"></i> 4.95</span>
+                    </div>
+                    <p class="text-xs text-gray-400">Anime culture, bullet trains, food alleys & neon lights.</p>
+                    <div class="pt-2 border-t border-gray-800 flex items-center justify-between text-xs text-gray-300">
+                        <span><i class="fa-solid fa-passport text-cyan-400 mr-1"></i> Easy Visa Assitance</span>
+                        <button onclick="quickBook('Japan')" class="text-brand-red font-bold hover:underline">Book Package &rarr;</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dubai -->
+            <div class="glass-card rounded-2xl overflow-hidden group hover:translate-y-[-4px] transition duration-300 border border-gray-800 hover:border-brand-red">
+                <div class="relative h-48 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=600&q=80" alt="Dubai" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <span class="absolute top-3 left-3 bg-amber-500 text-white text-[10px] font-extrabold px-2.5 py-1 rounded-full uppercase">24-Hr Visa Guarantee</span>
+                    <span class="absolute bottom-3 right-3 bg-gray-900/80 backdrop-blur-md text-white text-xs font-bold px-2 py-1 rounded-lg">From ₹21,500</span>
+                </div>
+                <div class="p-4 space-y-2">
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-extrabold text-white text-lg">Dubai, UAE</h3>
+                        <span class="text-xs text-amber-400 font-bold"><i class="fa-solid fa-star"></i> 4.85</span>
+                    </div>
+                    <p class="text-xs text-gray-400">Desert safaris, futuristic skylines & luxury beach clubs.</p>
+                    <div class="pt-2 border-t border-gray-800 flex items-center justify-between text-xs text-gray-300">
+                        <span><i class="fa-solid fa-shield text-emerald-400 mr-1"></i> 100% Approval</span>
+                        <button onclick="quickBook('Dubai')" class="text-brand-red font-bold hover:underline">Book Package &rarr;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose GoNFly Section -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="glass-card rounded-3xl p-8 sm:p-12 border border-gray-800 relative overflow-hidden">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <h2 class="text-3xl font-black text-white mb-2">Why Travel With <span class="text-brand-red">GoNFly</span>?</h2>
+                <p class="text-gray-400 text-sm">Built from the ground up for modern seamless travel experience.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="text-center space-y-3 p-4">
+                    <div class="w-14 h-14 bg-brand-red/10 text-brand-red rounded-2xl flex items-center justify-center text-2xl mx-auto border border-brand-red/20">
+                        <i class="fa-solid fa-passport"></i>
+                    </div>
+                    <h3 class="font-bold text-white text-base">DuVisas Powered</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed">Direct embassy linkage for instant e-visas with real-time tracking.</p>
+                </div>
+
+                <div class="text-center space-y-3 p-4">
+                    <div class="w-14 h-14 bg-amber-500/10 text-amber-400 rounded-2xl flex items-center justify-center text-2xl mx-auto border border-amber-500/20">
+                        <i class="fa-solid fa-piggy-bank"></i>
+                    </div>
+                    <h3 class="font-bold text-white text-base">Zero Hidden Fees</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed">What you see is what you pay. Transparent pricing with student discounts.</p>
+                </div>
+
+                <div class="text-center space-y-3 p-4">
+                    <div class="w-14 h-14 bg-cyan-500/10 text-cyan-400 rounded-2xl flex items-center justify-center text-2xl mx-auto border border-cyan-500/20">
+                        <i class="fa-solid fa-robot"></i>
+                    </div>
+                    <h3 class="font-bold text-white text-base">24/7 AI Nomad Support</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed">Instant assistance over WhatsApp or in-app chat anywhere in the world.</p>
+                </div>
+
+                <div class="text-center space-y-3 p-4">
+                    <div class="w-14 h-14 bg-emerald-500/10 text-emerald-400 rounded-2xl flex items-center justify-center text-2xl mx-auto border border-emerald-500/20">
+                        <i class="fa-solid fa-umbrella-beach"></i>
+                    </div>
+                    <h3 class="font-bold text-white text-base">Curated Youth Tripping</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed">Handpicked solo traveler group packages, co-living, and adventure itineraries.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials / Social Proof -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 mb-12">
+        <h2 class="text-2xl font-black text-white text-center mb-8">Loved By 100,000+ Young Travelers</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="glass-card p-6 rounded-2xl border border-gray-800 space-y-4">
+                <div class="flex items-center gap-1 text-amber-400 text-sm">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="text-xs text-gray-300 leading-relaxed font-light">"Got my Vietnam E-Visa in less than 36 hours through GoNFly! Saved me so much anxiety before my solo trip. Smooth process!"</p>
+                <div class="flex items-center gap-3 pt-2">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" class="w-9 h-9 rounded-full object-cover">
+                    <div>
+                        <h4 class="text-xs font-bold text-white">Ananya Sharma</h4>
+                        <span class="text-[10px] text-gray-500">Solo Explorer • Delhi</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card p-6 rounded-2xl border border-gray-800 space-y-4">
+                <div class="flex items-center gap-1 text-amber-400 text-sm">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="text-xs text-gray-300 leading-relaxed font-light">"The student flight fares are unreal. Saved almost ₹6,000 on my flight to Bali plus got extra luggage allowance. GoNFly is my main travel app now."</p>
+                <div class="flex items-center gap-3 pt-2">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" class="w-9 h-9 rounded-full object-cover">
+                    <div>
+                        <h4 class="text-xs font-bold text-white">Rohan Mehta</h4>
+                        <span class="text-[10px] text-gray-500">Digital Nomad • Bangalore</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card p-6 rounded-2xl border border-gray-800 space-y-4">
+                <div class="flex items-center gap-1 text-amber-400 text-sm">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="text-xs text-gray-300 leading-relaxed font-light">"Booked the Bali Youth Backpacking group package. Made lifelong friends and the stay hostings were super trendy! 10/10 recommendation."</p>
+                <div class="flex items-center gap-3 pt-2">
+                    <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=100&q=80" class="w-9 h-9 rounded-full object-cover">
+                    <div>
+                        <h4 class="text-xs font-bold text-white">Priya Patel</h4>
+                        <span class="text-[10px] text-gray-500">Travel Content Creator</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-950 border-t border-gray-800 pt-12 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-8 mb-12">
+                <!-- Brand Info -->
+                <div class="md:col-span-2 space-y-4">
+                    <div class="flex items-center gap-2">
+                        <span class="text-2xl font-black text-white">Go<span class="text-gray-400 font-normal">n</span>Fly</span>
+                        <i class="fa-solid fa-paper-plane text-brand-red text-lg"></i>
+                    </div>
+                    <p class="text-xs text-gray-400 max-w-sm leading-relaxed">
+                        GoNFly is a next-gen online travel booking platform bringing together cheap flights, fast-track visa processing, curated youth packages, and digital nomad stays.
+                    </p>
+                    <div class="flex items-center space-x-3 text-gray-400 pt-2">
+                        <a href="#" class="w-8 h-8 rounded-full bg-gray-900 border border-gray-800 flex items-center justify-center hover:text-brand-red transition"><i class="fa-brands fa-instagram text-xs"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-gray-900 border border-gray-800 flex items-center justify-center hover:text-brand-red transition"><i class="fa-brands fa-tiktok text-xs"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-gray-900 border border-gray-800 flex items-center justify-center hover:text-brand-red transition"><i class="fa-brands fa-youtube text-xs"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-gray-900 border border-gray-800 flex items-center justify-center hover:text-brand-red transition"><i class="fa-brands fa-x-twitter text-xs"></i></a>
+                    </div>
+                </div>
+
+                <!-- Column 1 -->
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-white mb-3">Our Services</h4>
+                    <ul class="space-y-2 text-xs text-gray-400">
+                        <li><a href="#" onclick="switchTab('flights')" class="hover:text-brand-red transition">Flight Bookings</a></li>
+                        <li><a href="#" onclick="switchTab('visas')" class="hover:text-brand-red transition">Express Tourist Visas</a></li>
+                        <li><a href="#" onclick="switchTab('hotels')" class="hover:text-brand-red transition">Boutique Stays & Hostels</a></li>
+                        <li><a href="#" onclick="switchTab('packages')" class="hover:text-brand-red transition">Group Backpacking Trips</a></li>
+                        <li><a href="#" onclick="switchTab('insurance')" class="hover:text-brand-red transition">Nomad Travel Cover</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 2 -->
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-white mb-3">Visa Portals</h4>
+                    <ul class="space-y-2 text-xs text-gray-400">
+                        <li><a href="#" class="hover:text-brand-red transition">Dubai 30-Day Visa</a></li>
+                        <li><a href="#" class="hover:text-brand-red transition">Vietnam E-Visa Assistance</a></li>
+                        <li><a href="#" class="hover:text-brand-red transition">Thailand Visa On Arrival</a></li>
+                        <li><a href="#" class="hover:text-brand-red transition">Schengen Europe Checklist</a></li>
+                        <li><a href="#" class="hover:text-brand-red transition">Track Application Status</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3 -->
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-white mb-3">Support & Legal</h4>
+                    <ul class="space-y-2 text-xs text-gray-400">
+                        <li><a href="#" class="hover:text-brand-red transition">24/7 Help Center</a></li>
+                        <li><a href="#" class="hover:text-brand-red transition">Cancellation & Refund Policy</a></li>
+                        <li><a href="#" class="hover:text-brand-red transition">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-brand-red transition">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-brand-red transition">Partner With GoNFly</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-900 pt-6 flex flex-col sm:flex-row items-center justify-between text-[11px] text-gray-500 gap-4">
+                <p>&copy; 2026 GoNFly Technologies Inc. All rights reserved. Express Visa Services powered by DuVisas API.</p>
+                <div class="flex items-center gap-4">
+                    <span class="flex items-center gap-1"><i class="fa-solid fa-lock text-emerald-400"></i> 256-Bit SSL Encrypted</span>
+                    <span class="flex items-center gap-1"><i class="fa-solid fa-shield-halved text-brand-red"></i> IATA Accredited</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL 1: Login / Register -->
+    <div id="authModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="glass-card rounded-3xl p-6 sm:p-8 max-w-md w-full border border-gray-700 relative">
+            <button onclick="closeModal('authModal')" class="absolute top-4 right-4 text-gray-400 hover:text-white"><i class="fa-solid fa-xmark text-xl"></i></button>
+            
+            <div class="text-center mb-6">
+                <h3 class="text-2xl font-black text-white">Welcome to <span class="text-brand-red">GoNFly</span></h3>
+                <p class="text-xs text-gray-400 mt-1">Unlock Gen-Z discounts & instant visa tracking</p>
+            </div>
+
+            <form onsubmit="event.preventDefault(); closeModal('authModal'); showToast('Signed in successfully!');" class="space-y-4">
+                <div>
+                    <label class="text-xs font-bold text-gray-300 block mb-1">Email or Mobile Number</label>
+                    <input type="text" placeholder="alex@gmail.com" required class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-red">
+                </div>
+                <div>
+                    <label class="text-xs font-bold text-gray-300 block mb-1">Password</label>
+                    <input type="password" placeholder="••••••••" required class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-red">
+                </div>
+                <button type="submit" class="w-full bg-brand-red hover:bg-brand-darkRed text-white py-3.5 rounded-xl font-bold transition glow-red">
+                    Continue &rarr;
+                </button>
+            </form>
+
+            <div class="mt-4 text-center">
+                <span class="text-xs text-gray-500">Or continue with</span>
+                <div class="flex justify-center gap-3 mt-3">
+                    <button class="bg-gray-800 hover:bg-gray-700 text-white p-2.5 rounded-xl text-xs flex items-center gap-2 border border-gray-700 w-full justify-center">
+                        <i class="fa-brands fa-google text-red-400"></i> Google
+                    </button>
+                    <button class="bg-gray-800 hover:bg-gray-700 text-white p-2.5 rounded-xl text-xs flex items-center gap-2 border border-gray-700 w-full justify-center">
+                        <i class="fa-brands fa-apple text-white"></i> Apple
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 2: Visa Document Checklist (DuVisas Feature) -->
+    <div id="visaChecklistModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="glass-card rounded-3xl p-6 max-w-lg w-full border border-gray-700 relative">
+            <button onclick="closeModal('visaChecklistModal')" class="absolute top-4 right-4 text-gray-400 hover:text-white"><i class="fa-solid fa-xmark text-xl"></i></button>
+
+            <div class="flex items-center gap-3 mb-4">
+                <i class="fa-solid fa-file-shield text-3xl text-amber-400"></i>
+                <div>
+                    <h3 class="text-lg font-bold text-white">Required Visa Documents</h3>
+                    <p class="text-xs text-gray-400">Vietnam / Tourist E-Visa Checklist</p>
+                </div>
+            </div>
+
+            <div class="space-y-3 my-4 text-xs">
+                <div class="p-3 bg-gray-900 rounded-xl flex items-center gap-3 border border-gray-800">
+                    <i class="fa-solid fa-check-circle text-emerald-400 text-base"></i>
+                    <div>
+                        <strong class="text-white block">Passport Bio-Page Scan</strong>
+                        <span class="text-gray-400">Must be valid for at least 6 months from travel date.</span>
+                    </div>
+                </div>
+                <div class="p-3 bg-gray-900 rounded-xl flex items-center gap-3 border border-gray-800">
+                    <i class="fa-solid fa-check-circle text-emerald-400 text-base"></i>
+                    <div>
+                        <strong class="text-white block">Recent Passport Size Photo</strong>
+                        <span class="text-gray-400">White background, clear face view (4x6 cm).</span>
+                    </div>
+                </div>
+                <div class="p-3 bg-gray-900 rounded-xl flex items-center gap-3 border border-gray-800">
+                    <i class="fa-solid fa-check-circle text-emerald-400 text-base"></i>
+                    <div>
+                        <strong class="text-white block">Flight Ticket Reservation</strong>
+                        <span class="text-gray-400">Dummy flight ticket provided free by GoNFly if required.</span>
+                    </div>
+                </div>
+            </div>
+
+            <button onclick="closeModal('visaChecklistModal'); switchTab('visas')" class="w-full bg-brand-red text-white py-3 rounded-xl font-bold">
+                Proceed to Online Visa Application
+            </button>
+        </div>
+    </div>
+
+    <!-- MODAL 3: Visa Application Tracker -->
+    <div id="trackVisaModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="glass-card rounded-3xl p-6 max-w-md w-full border border-gray-700 relative">
+            <button onclick="closeModal('trackVisaModal')" class="absolute top-4 right-4 text-gray-400 hover:text-white"><i class="fa-solid fa-xmark text-xl"></i></button>
+
+            <h3 class="text-xl font-bold text-white mb-1"><i class="fa-solid fa-passport text-amber-400 mr-2"></i>Track Visa Status</h3>
+            <p class="text-xs text-gray-400 mb-4">Enter your GoNFly Visa Application Reference Code</p>
+
+            <div class="space-y-3">
+                <input type="text" id="trackInput" placeholder="e.g. GNF-VISA-98231" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-red uppercase">
+                <button onclick="trackVisaStatus()" class="w-full bg-brand-red text-white py-3 rounded-xl font-bold">Track Now &rarr;</button>
+            </div>
+
+            <div id="trackResult" class="hidden mt-4 p-4 bg-gray-900 rounded-2xl border border-gray-800 text-xs space-y-2">
+                <div class="flex justify-between items-center">
+                    <span class="text-gray-400">Applicant:</span>
+                    <strong class="text-white">Aniket Roy</strong>
+                </div>
+                <div class="flex justify-between items-center">
+                    <span class="text-gray-400">Destination:</span>
+                    <strong class="text-white">Dubai (UAE 30-Day)</strong>
+                </div>
+                <div class="flex justify-between items-center">
+                    <span class="text-gray-400">Current Status:</span>
+                    <span class="bg-emerald-500/20 text-emerald-400 font-bold px-2 py-0.5 rounded">APPROVED & READY</span>
+                </div>
+                <button onclick="showToast('Downloading Visa Document PDF...')" class="w-full mt-2 bg-emerald-600 hover:bg-emerald-500 text-white py-2 rounded-lg font-bold flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-download"></i> Download E-Visa PDF
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-6 right-6 bg-gray-900 border border-brand-red text-white text-xs px-5 py-3 rounded-2xl shadow-2xl z-50 transform translate-y-20 opacity-0 transition-all duration-300 flex items-center gap-3">
+        <i class="fa-solid fa-circle-check text-brand-red text-lg"></i>
+        <span id="toastMsg">Action completed successfully!</span>
+    </div>
+
+    <!-- Javascript Logic -->
+    <script>
+        // Switch between 5 Core Services Tabs
+        function switchTab(tabKey) {
+            const tabs = ['flights', 'visas', 'hotels', 'packages', 'insurance'];
+            
+            tabs.forEach(t => {
+                const btn = document.getElementById(`tab-${t}`);
+                const content = document.getElementById(`content-${t}`);
+                if (btn && content) {
+                    if (t === tabKey) {
+                        btn.classList.add('active');
+                        content.classList.remove('hidden');
+                    } else {
+                        btn.classList.remove('active');
+                        content.classList.add('hidden');
+                    }
+                }
+            });
+
+            // Smooth scroll up to widget if required
+            window.scrollTo({ top: 100, behavior: 'smooth' });
+        }
+
+        // Toggle return date enable/disable
+        function toggleReturnDate(isRoundTrip) {
+            const returnBox = document.getElementById('returnDateBox');
+            const returnInput = document.getElementById('returnInput');
+            if (isRoundTrip) {
+                returnBox.classList.remove('opacity-50');
+                returnInput.removeAttribute('disabled');
+                returnInput.value = '2026-11-22';
+            } else {
+                returnBox.classList.add('opacity-50');
+                returnInput.setAttribute('disabled', 'true');
+                returnInput.value = '';
+            }
+        }
+
+        // Mobile Menu Drawer Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+
+        function toggleMobileMenu() {
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        // Copy Promo Code function
+        function copyPromo(code) {
+            const tempInput = document.createElement('input');
+            tempInput.value = code;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+            showToast(`Promo code '${code}' copied to clipboard!`);
+        }
+
+        // Modal Open/Close handlers
+        function openModal(id) {
+            document.getElementById(id).classList.remove('hidden');
+        }
+        function closeModal(id) {
+            document.getElementById(id).classList.add('hidden');
+        }
+
+        // Show Custom Toast
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toastMsg');
+            toastMsg.textContent = message;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+
+        // Visa details dynamic update simulation
+        function updateVisaDetails() {
+            const country = document.getElementById('visaCountrySelect').value;
+            const visaCard = document.getElementById('visaInfoCard');
+            
+            const visaData = {
+                'dubai': { price: '₹6,499', speed: '⚡ 24 Hours Express' },
+                'thailand': { price: '₹2,100', speed: '⚡ Instant E-Visa / On Arrival' },
+                'singapore': { price: '₹3,200', speed: '⚡ 3-4 Business Days' },
+                'vietnam': { price: '₹2,499', speed: '⚡ 3 Business Days' },
+                'shengen': { price: '₹8,900', speed: '⚡ Appointment Slot Guarantee' },
+                'japan': { price: '₹1,800', speed: '⚡ 4 Business Days' }
+            };
+
+            const data = visaData[country] || visaData['vietnam'];
+            visaCard.querySelector('.text-brand-red').innerHTML = `${data.price} <span class="text-xs font-normal text-gray-400">/ person</span>`;
+            visaCard.querySelector('.text-emerald-400').innerHTML = data.speed;
+        }
+
+        // Search Simulator Function
+        function simulateSearch(type) {
+            const resultsSection = document.getElementById('resultsSection');
+            const resultsTitle = document.getElementById('resultsTitle');
+            const resultsList = document.getElementById('resultsList');
+            
+            resultsSection.classList.remove('hidden');
+            resultsSection.scrollIntoView({ behavior: 'smooth' });
+            resultsTitle.textContent = `Searching available ${type}...`;
+            resultsList.innerHTML = `<p class="text-xs text-gray-400 text-center py-6">Connecting with airline & embassy databases...</p>`;
+
+            setTimeout(() => {
+                resultsTitle.textContent = `Found Top Matches for Your Travel`;
+                
+                if (type === 'flights') {
+                    resultsList.innerHTML = `
+                        <div class="bg-gray-900 p-4 rounded-xl border border-gray-800 flex flex-wrap items-center justify-between gap-4 hover:border-brand-red transition">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 bg-red-600/20 text-red-500 rounded-lg flex items-center justify-center font-bold text-xs">AirAsia</div>
+                                <div>
+                                    <div class="font-bold text-white text-sm">08:30 AM → 03:45 PM <span class="text-xs text-gray-400 font-normal">(Non-stop, 5h 45m)</span></div>
+                                    <span class="text-xs text-gray-400">DEL (New Delhi) to DPS (Bali) • Includes 20kg Student Baggage</span>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-xl font-black text-white">₹18,450</div>
+                                <button onclick="showToast('Redirecting to Flight Booking Engine...')" class="mt-1 bg-brand-red text-white text-xs px-4 py-2 rounded-lg font-bold">Book Flight</button>
+                            </div>
+                        </div>
+                        <div class="bg-gray-900 p-4 rounded-xl border border-gray-800 flex flex-wrap items-center justify-between gap-4 hover:border-brand-red transition">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 bg-indigo-600/20 text-indigo-400 rounded-lg flex items-center justify-center font-bold text-xs">IndiGo</div>
+                                <div>
+                                    <div class="font-bold text-white text-sm">11:15 AM → 07:10 PM <span class="text-xs text-gray-400 font-normal">(1 Stop, 6h 25m)</span></div>
+                                    <span class="text-xs text-gray-400">DEL (New Delhi) to DPS (Bali) • Free Seat Selection</span>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-xl font-black text-white">₹19,200</div>
+                                <button onclick="showToast('Redirecting to Flight Booking Engine...')" class="mt-1 bg-brand-red text-white text-xs px-4 py-2 rounded-lg font-bold">Book Flight</button>
+                            </div>
+                        </div>
+                    `;
+                } else if (type === 'visas') {
+                    resultsList.innerHTML = `
+                        <div class="bg-gray-900 p-4 rounded-xl border border-gray-800 flex flex-wrap items-center justify-between gap-4">
+                            <div>
+                                <h4 class="font-bold text-white text-base">Vietnam Tourist E-Visa (Single Entry - 30 Days)</h4>
+                                <p class="text-xs text-gray-400 mt-1">✓ Express processing within 3 business days • 99.8% Approval Guarantee</p>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-xl font-black text-brand-red">₹2,499</span>
+                                <button onclick="openModal('visaChecklistModal')" class="block mt-1 bg-brand-red text-white text-xs px-5 py-2 rounded-lg font-bold">Start Express Application</button>
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    resultsList.innerHTML = `
+                        <div class="bg-gray-900 p-4 rounded-xl border border-gray-800 flex justify-between items-center">
+                            <div>
+                                <h4 class="font-bold text-white">Tribal Nomad Beach Hostel & Coworking</h4>
+                                <span class="text-xs text-gray-400">Canggu, Bali • Free High-Speed WiFi & Breakfast</span>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-lg font-bold text-emerald-400">₹1,200 / night</div>
+                                <button onclick="showToast('Reserved Stay Slot!')" class="text-xs bg-brand-red text-white px-3 py-1.5 rounded-lg font-bold mt-1">Reserve Now</button>
+                            </div>
+                        </div>
+                    `;
+                }
+            }, 800);
+        }
+
+        function closeResults() {
+            document.getElementById('resultsSection').classList.add('hidden');
+        }
+
+        function quickBook(destination) {
+            showToast(`Loading package itineraries for ${destination}...`);
+            switchTab('packages');
+        }
+
+        function trackVisaStatus() {
+            const trackResult = document.getElementById('trackResult');
+            trackResult.classList.remove('hidden');
+        }
+    </script>
 </body>
-</html>   
+</html>
