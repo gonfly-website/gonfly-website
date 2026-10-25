@@ -80,6 +80,13 @@ footer .logo{--s:.2;margin-bottom:10px}.cp{text-align:center;margin-top:26px;fon
 .wa-button:hover{background:#159447}
 @media(max-width:600px){.whatsapp-float{right:14px;bottom:14px;padding:12px 15px}.wa-contact{align-items:flex-start;flex-direction:column;padding:20px}.wa-button{white-space:normal}}
 
+
+/* Footer social icons: retain GoNfly black/red theme */
+.gf-socials{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:14px;padding:18px 20px 4px}
+.gf-social{display:flex!important;align-items:center;justify-content:center;width:48px;height:48px;padding:0!important;border:1px solid #b99548;border-radius:50%;color:#fff!important;background:transparent;transition:background .2s,border-color .2s,transform .2s}
+.gf-social svg{width:22px;height:22px;display:block;fill:currentColor}
+.gf-social:hover{background:#e11d2e;border-color:#e11d2e;transform:translateY(-2px)}
+@media(max-width:600px){.gf-socials{gap:10px}.gf-social{width:44px;height:44px}}
 </style>
 <style>
 /* Gonfly upgrade: booking, enquiry and tracking UI */
@@ -109,6 +116,23 @@ footer .logo{--s:.2;margin-bottom:10px}.cp{text-align:center;margin-top:26px;fon
 .gf-check{display:flex;align-items:flex-start;gap:9px;font-size:13px;color:var(--mu)}
 .gf-check input{margin-top:4px}
 @media(max-width:620px){.gf-form-grid{grid-template-columns:1fr}.gf-field.full{grid-column:auto}.gf-status-steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+</style>
+
+
+<style id="gonfly-original-branding-restore">
+/* Restore GoNfly's original black / red branding without changing page content. */
+:root{color-scheme:light;--red:#e11d2e;--bg:#fff;--bg2:#f5f5f8;--card:#fff;--tx:#14141c;--mu:#5f5f72;--bd:#e6e6ee}
+header, header .w, header nav{background-color:#000 !important}
+header{border-bottom:1px solid rgba(225,29,46,.55) !important}
+header nav a{color:#f2f2f5 !important}
+header nav a:hover, header nav a:focus{color:#ff4b5c !important}
+.hero{position:relative;overflow:hidden;color:#fff !important;background:linear-gradient(110deg,rgba(0,0,0,.97) 0%,rgba(18,5,9,.90) 55%,rgba(100,8,22,.50) 100%),url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1800&q=85') center/cover no-repeat !important}
+.hero h1 span{color:#ff4b5c !important}
+.card-photo{display:block;width:calc(100% + 36px);height:165px;object-fit:cover;object-position:center;margin:-18px -18px 12px;border-radius:15px 15px 0 0;background:#17131a}
+.c:has(.card-photo){overflow:hidden;padding-top:18px}
+.c.photo-fallback{padding-top:0 !important;background:linear-gradient(135deg,#080808 0%,#241016 58%,#e11d2e 160%) !important;overflow:hidden}
+.photo-fallback-art{height:165px;margin:-18px -18px 12px;display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse at 70% 25%,rgba(225,29,46,.55),transparent 50%),linear-gradient(135deg,#080808,#241016 62%,#5b0b18);font-size:54px;color:#fff;border-radius:15px 15px 0 0}
+.c.photo-fallback h3,.c.photo-fallback p{color:var(--tx)}
 </style>
 
 </head><body>
@@ -201,16 +225,24 @@ footer .logo{--s:.2;margin-bottom:10px}.cp{text-align:center;margin-top:26px;fon
 <div><h4>Quick Links</h4><a href="#visa">Visa</a><a href="#flights">Flights</a><a href="#help">Application support</a><a href="#help">Help &amp; Support</a><a href="#help">About Gonfly</a><a href="/privacy.html">Privacy Policy</a><a href="/terms.html">Terms &amp; Conditions</a></div>
 <div><h4>Office</h4><p>Rohini, New Delhi, India</p></div></div>
 
-<div style="display:flex;justify-content:center;flex-wrap:wrap;gap:18px;padding:18px 0;">
-  <a href="https://www.instagram.com/info.gonfly/" target="_blank" rel="noopener noreferrer">Instagram</a>
-  <a href="https://www.facebook.com/profile.php?id=61578031461586" target="_blank" rel="noopener noreferrer">Facebook</a>
-  <a href="https://www.linkedin.com/company/gonfly/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-  <a href="https://wa.me/919999962722" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+<div class="gf-socials" aria-label="Follow Gonfly on social media">
+  <a class="gf-social" href="https://www.instagram.com/info.gonfly/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg>
+  </a>
+  <a class="gf-social" href="https://www.facebook.com/profile.php?id=61578031461586" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13.4 21v-8h2.7l.4-3.1h-3.1v-2c0-.9.3-1.5 1.6-1.5h1.7V3.6c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.1H7.2V13H10v8z"/></svg>
+  </a>
+  <a class="gf-social" href="https://www.linkedin.com/company/gonfly/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M5.2 8.6a1.8 1.8 0 1 0 0-3.6 1.8 1.8 0 0 0 0 3.6M3.7 10h3v10h-3zM9 10h2.9v1.4h.1a3.2 3.2 0 0 1 2.9-1.6c3.1 0 3.7 2 3.7 4.6V20h-3v-5c0-1.2 0-2.7-1.7-2.7s-2 1.3-2 2.6V20H9z"/></svg>
+  </a>
+  <a class="gf-social" href="https://wa.me/919999962722" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" title="WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.6 0 .3 5.3.3 11.8c0 2.1.6 4.1 1.6 5.9L.2 24l6.5-1.7a11.8 11.8 0 0 0 5.4 1.3h.1c6.5 0 11.8-5.3 11.8-11.8 0-3.1-1.2-6-3.5-8.3M12.2 21.6h-.1a9.8 9.8 0 0 1-5-1.4l-.4-.2-3.8 1 1-3.7-.3-.4a9.7 9.7 0 0 1-1.5-5.1C2.1 6.4 6.6 2 12.1 2a9.7 9.7 0 0 1 9.8 9.8c0 5.4-4.4 9.8-9.7 9.8m5.4-7.3c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.2l-.9 1.1c-.2.2-.3.2-.6.1-1.7-.8-2.8-1.5-3.9-3.4-.3-.5.3-.5.8-1.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.2 5.1 4.5 1.9.8 2.7.9 3.7.8.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.1-1.4-.1-.2-.3-.3-.6-.4"/></svg>
+  </a>
 </div>
 <p class="cp">© 2026 Gonfly. All rights reserved. · Terms and Conditions · Privacy Policy</p></footer>
 
 <script>
-function cards(id,items,cta){document.getElementById(id).innerHTML=items.map(x=>`<article class="c">${x[4]?`<img class="card-photo" src="${x[4]}" alt="${x[1]}" loading="lazy" decoding="async">`:`<div class="f" aria-hidden="true">${x[0]}</div>`}<h3>${x[1]}</h3><p>${x[2]}</p>${x[3]?`<span class="tag">${x[3]}</span>`:''}<a href="#booking-tools" data-gf-destination="${String(x[1]).replace(/&/g,'&amp;').replace(/"/g,'&quot;')}" data-gf-service="${id==='g-visa'?'Visa assistance':id==='g-flights'?'Flight booking':id==='g-hotels'?'Hotel booking':id==='g-holidays'?'Holiday package':id==='g-ins'?'Travel insurance':'Other travel service'}">${cta}</a></article>`).join('')}
+function cards(id,items,cta){document.getElementById(id).innerHTML=items.map(x=>`<article class="c">${x[4]?`<img class="card-photo" src="${x[4]}" alt="${x[1]}" loading="lazy" decoding="async" onerror="this.onerror=null;this.style.display='none';this.parentElement.classList.add('photo-fallback');this.insertAdjacentHTML('afterbegin','<div class=\"photo-fallback-art\" aria-hidden=\"true\">${x[0]}</div>')">`:`<div class="f" aria-hidden="true">${x[0]}</div>`}<h3>${x[1]}</h3><p>${x[2]}</p>${x[3]?`<span class="tag">${x[3]}</span>`:''}<a href="#booking-tools" data-gf-destination="${String(x[1]).replace(/&/g,'&amp;').replace(/"/g,'&quot;')}" data-gf-service="${id==='g-visa'?'Visa assistance':id==='g-flights'?'Flight booking':id==='g-hotels'?'Hotel booking':id==='g-holidays'?'Holiday package':id==='g-ins'?'Travel insurance':'Other travel service'}">${cta}</a></article>`).join('')}
 cards('g-visa',[['🇦🇪','UAE','Visa assistance for travel to the United Arab Emirates.','Visa help','https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=900&q=80'],['🇹🇭','Thailand','Plan your trip to temples, cities and tropical beaches.','Visa help','https://images.unsplash.com/photo-1508009603885-50cf7c579365?auto=format&fit=crop&w=900&q=80'],['🇻🇳','Vietnam','Prepare for a journey through vibrant cities and landscapes.','Visa help','https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=900&q=80'],['🇹🇷','Türkiye','Explore a destination bridging Europe and Asia.','Visa help','https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=900&q=80'],['🇬🇪','Georgia','Mountains, culture and historic old towns.','Visa help','https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&w=900&q=80'],['🇮🇩','Indonesia','Discover island landscapes and rich local culture.','Visa help','https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=900&q=80'],['🇱🇰','Sri Lanka','Coastlines, tea country and historic sites.','Visa help','https://images.unsplash.com/photo-1586613835341-4a8b6b3f7f3f?auto=format&fit=crop&w=900&q=80'],['🇺🇿','Uzbekistan','Explore Silk Road cities and remarkable architecture.','Visa help','https://images.unsplash.com/photo-1596402184320-417e7178b2cd?auto=format&fit=crop&w=900&q=80']],'Apply');
 cards('g-flights',[['✈️','Flight routes','Explore domestic and international journeys.','','https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=900&q=80'],['✈️','City breaks','Find inspiration for your next city escape.','','https://images.unsplash.com/photo-1508009603885-50cf7c579365?auto=format&fit=crop&w=900&q=80'],['✈️','International travel','Explore routes to destinations worldwide.','','https://images.unsplash.com/photo-1525625293386-3f8f99389edd?auto=format&fit=crop&w=900&q=80'],['✈️','Weekend escapes','Turn a few days off into a memorable trip.','','https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=900&q=80']],'Book Now');
 cards('g-hotels',[['🏨','Beach stays','Wake up close to the sea.','','https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=900&q=80'],['🏨','City hotels','Stay close to city sights and experiences.','','https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=900&q=80'],['🏨','Island villas','Find a peaceful base for island adventures.','','https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=900&q=80'],['🏨','Mountain stays','Comfortable stays with scenic views.','','https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=900&q=80']],'View Hotels');
