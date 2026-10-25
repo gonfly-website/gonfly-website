@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,follow">
+<title>Visa Details | GoNfly</title>
+<style>
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:24px;background:#f4f5f8;color:#15182f;font:16px/1.55 Arial,sans-serif}.card{max-width:620px;width:100%;background:white;border:1px solid #e5e7eb;border-radius:22px;padding:34px;text-align:center;box-shadow:0 12px 35px #12172a0d}.logo{background:#050507;border-radius:10px;padding:8px 14px;display:inline-flex;align-items:center;margin-bottom:20px}.logo img{width:150px;height:58px;object-fit:contain}.eyebrow{color:#ed1b2f;text-transform:uppercase;letter-spacing:1.5px;font-size:12px;font-weight:bold}h1{font-size:30px;margin:8px 0}p{color:#667085}.btn{display:inline-block;background:#ed1b2f;color:white;text-decoration:none;padding:13px 22px;border-radius:28px;font-weight:bold;margin:8px}.secondary{background:#15182f}
+</style>
+<script>
+(function(){
+  var country = new URLSearchParams(window.location.search).get('country') || '';
+  var key = country.trim().toLowerCase().replace(/[^a-z]/g,'');
+  var routes = {
+    georgia: 'visa/georgia.html',
+    vietnam: 'visa/vietnam.html',
+    uzbekistan: 'visa/uzbekistan.html',
+    uae: 'visa/uae.html',
+    unitedarabemirates: 'visa/uae.html'
+  };
+  if (routes[key]) {
+    window.location.replace(routes[key]);
+  } else {
+    window.addEventListener('DOMContentLoaded', function(){
+      var name = country.trim() || 'this destination';
+      document.getElementById('country').textContent = name;
+      document.getElementById('title').textContent = 'Visa details for ' + name;
+      document.getElementById('message').textContent = 'We’re preparing this destination’s visa information. Please return to GoNfly to explore currently available visa services.';
+    });
+  }
+})();
+</script>
+</head>
+<body>
+<section class="card">
+<a class="logo" href="index.html"><img src="logo.png" alt="GoNfly logo"></a>
+<div class="eyebrow">GoNfly Visa Assistance</div>
+<h1 id="title">Opening visa details…</h1>
+<p id="message">Please wait while we open the requested destination.</p>
+<p><strong id="country"></strong></p>
+<a class="btn" href="index.html">Back to GoNfly Home</a>
+<a class="btn secondary" href="mailto:info@gonflytravel.com?subject=Visa%20Enquiry">Contact GoNfly</a>
+</section>
+</body>
+</html>
