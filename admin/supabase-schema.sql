@@ -85,3 +85,24 @@ for delete to authenticated using (
 );
 
 -- No anonymous policies are created. Never place the Supabase service-role key in browser code.
+
+-- Append-only audit trail for mission changes and administrative backup/restore events.
+create table if not exists public.admin_audit_log (
+  id bigint generated always as identity primary key,
+  actor_id uuid not null references auth.users(id) on delete restrict,
+  action text not null check (action in ('mission_created','mission_updated','backup_exported','backup_restored','status_changed')),
+  entity_id uuid,
+  entity_label text not null default '',
+  details jsonb not null default '{}'::jsonb,
+  created_at timestamptz not null default now()
+);
+create index if not exists admin_audit_log_created_at_idx on public.admin_audit_log(created_at desc);
+alter table public.admin_audit_log enable row level security;
+drop policy if exists "Staff read audit log" on public.admin_audit_log;
+create policy "Staff read audit log" on public.admin_audit_log for select to authenticated using (
+ exists (select 1 from public.admin_profiles p where p.user_id=auth.uid() and p.role in ('admin','editor','reviewer'))
+);
+drop policy if exists "Staff append audit log" on public.admin_audit_log;
+create policy "Staff append audit log" on public.admin_audit_log for insert to authenticated with check (
+ actor_id=auth.uid() and exists (select 1 from public.admin_profiles p where p.user_id=auth.uid() and p.role in ('admin','editor','reviewer'))
+);
