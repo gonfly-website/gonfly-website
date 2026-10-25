@@ -42,3 +42,12 @@ A separate admin workspace for the existing GoNfly static website. This is on th
 ## Open locally
 
 Serve the repository root using any static file server and open `/admin/`. A browser opened directly with `file://` may block some resources. GitHub Pages does not protect static admin files; actual data access relies on Supabase Auth and RLS, so never put secrets in the front end.
+
+
+## Backups, validation and audit trail
+
+- The dashboard includes a JSON export backup and a restore flow. Restore validates the file shape, required fields, URL slugs, status values, non-negative whole-number pricing and duplicate slugs before writing.
+- Export a fresh JSON backup before major batch edits and keep copies in an approved, access-controlled location. A browser download is an application-level backup, not a replacement for Supabase's managed database backups / point-in-time recovery. Configure the appropriate database backup retention in the Supabase project and test restore procedures periodically.
+- The schema includes an append-only-style audit log for staff actions. RLS permits staff to append events and read the log; do not grant update/delete policies to ordinary users.
+- The client validates prices as non-negative whole INR amounts and requires the component total to be explicit in preview. Always verify official fee sources before marking a mission approved.
+- Secure access is enforced by Supabase Auth and RLS, not by hiding UI buttons. Provision only named users in `admin_profiles`; do not enable public sign-up.
