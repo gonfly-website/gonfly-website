@@ -106,3 +106,13 @@ drop policy if exists "Staff append audit log" on public.admin_audit_log;
 create policy "Staff append audit log" on public.admin_audit_log for insert to authenticated with check (
  actor_id=auth.uid() and exists (select 1 from public.admin_profiles p where p.user_id=auth.uid() and p.role in ('admin','editor','reviewer'))
 );
+
+-- Database-level pricing checks protect data even if client-side validation is bypassed.
+alter table public.visa_missions drop constraint if exists visa_missions_pricing_nonnegative_integer;
+alter table public.visa_missions add constraint visa_missions_pricing_nonnegative_integer check (
+  coalesce((pricing->>'visa_fee')::numeric, 0) >= 0 and coalesce((pricing->>'visa_fee')::numeric, 0) = trunc(coalesce((pricing->>'visa_fee')::numeric, 0)) and
+  coalesce((pricing->>'service_fee')::numeric, 0) >= 0 and coalesce((pricing->>'service_fee')::numeric, 0) = trunc(coalesce((pricing->>'service_fee')::numeric, 0)) and
+  coalesce((pricing->>'verification_fee')::numeric, 0) >= 0 and coalesce((pricing->>'verification_fee')::numeric, 0) = trunc(coalesce((pricing->>'verification_fee')::numeric, 0)) and
+  coalesce((pricing->>'convenience_fee')::numeric, 0) >= 0 and coalesce((pricing->>'convenience_fee')::numeric, 0) = trunc(coalesce((pricing->>'convenience_fee')::numeric, 0)) and
+  coalesce((pricing->>'other_fee')::numeric, 0) >= 0 and coalesce((pricing->>'other_fee')::numeric, 0) = trunc(coalesce((pricing->>'other_fee')::numeric, 0))
+);
