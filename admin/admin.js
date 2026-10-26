@@ -33,6 +33,37 @@
   function preview(){const d=formData(),image=d.image_url;const modal=$("previewModal");$("previewTitle").textContent=d.country||"Mission preview";$("previewContent").innerHTML='<div class="preview-hero" '+(image?'style="background-image:url(\''+escapeHtml(image)+'\')"':'')+'><div class="eyebrow">GONFLY VISA SERVICES</div><h3>'+escapeHtml(d.country||"Destination")+' Visa</h3><p>'+escapeHtml(d.description||d.visa_type||"Visa assistance for your journey.")+'</p></div><div class="preview-body"><div class="preview-tags"><span>'+escapeHtml(d.visa_type||"Visa type")+'</span><span>'+escapeHtml(d.processing_time||"Processing time TBC")+'</span><span>'+escapeHtml(d.entry_type)+'</span><span>Validity: '+escapeHtml(d.validity||"TBC")+'</span></div><div class="preview-price">'+currency(total(d.pricing))+'</div><div class="muted">Indicative total · Confirm fees before publishing</div><h4>Pricing breakdown</h4><ul>'+[['Visa fee',d.pricing.visa_fee],['Service fee',d.pricing.service_fee],['Verification fee',d.pricing.verification_fee],['Convenience fee',d.pricing.convenience_fee],['Other fee / tax',d.pricing.other_fee]].filter(x=>x[1]>0).map(x=>'<li>'+escapeHtml(x[0])+': '+currency(x[1])+'</li>').join("")+'</ul><h4>Required documents</h4><ul>'+(d.documents.length?d.documents.map(x=>'<li>'+escapeHtml(x)+'</li>').join(""):'<li>Requirements not entered yet.</li>')+'</ul>'+(d.notes?'<h4>Important notes</h4><p>'+escapeHtml(d.notes)+'</p>':'')+'</div>';$("previewModal").classList.remove("hidden");}
   function renderWorkflow(){const rows=missions.filter(m=>m.status==="approved");$("workflowRows").innerHTML=rows.length?rows.map(m=>'<tr><td><strong>'+escapeHtml(m.country)+'</strong></td><td>'+escapeHtml(m.visa_type)+'</td><td>'+currency(total(m.pricing))+'</td><td><span class="status approved">Approved</span></td><td><button class="row-action" data-edit="'+escapeHtml(m.id)+'">Review ↗</button></td></tr>').join(""):'<tr><td colspan="5" class="empty">No approved missions yet.</td></tr>'; $("workflowRows").querySelectorAll("[data-edit]").forEach(b=>b.addEventListener("click",()=>editMission(b.dataset.edit)));}
   async function login(e){e.preventDefault();if(!configured||!client){showMessage("loginMessage","Setup required: add your Supabase project URL and anon/publishable key in admin.js, then apply supabase-schema.sql.");return;}showMessage("loginMessage","Signing in…");const {error}=await client.auth.signInWithPassword({email:$("email").value,password:$("password").value});if(error){showMessage("loginMessage","Sign-in failed. Check your credentials or account access.");return;}await showApp();}
+  function showLoginPanel(panel){
+    $("loginForm").classList.toggle("hidden",panel!=="login");
+    $("forgotPasswordBtn").classList.toggle("hidden",panel!=="login");
+    $("resetRequestForm").classList.toggle("hidden",panel!=="request");
+    $("newPasswordForm").classList.toggle("hidden",panel!=="newPassword");
+    $("loginFootnote").classList.toggle("hidden",panel!=="login");
+    if(panel!=="login") $("loginView").classList.remove("hidden");
+    $("appView").classList.add("hidden");
+  }
+  async function requestPasswordReset(e){
+    e.preventDefault();
+    if(!client){showMessage("resetRequestMessage","Authentication is not configured.");return;}
+    const email=$("resetEmail").value.trim();
+    showMessage("resetRequestMessage","Sending recovery email…");
+    const {error}=await client.auth.resetPasswordForEmail(email,{redirectTo:window.location.origin+window.location.pathname});
+    if(error){showMessage("resetRequestMessage","Could not send the reset email. Please try again or contact the administrator.");return;}
+    showMessage("resetRequestMessage","If an account exists for this email, a password-reset link has been sent. Check your inbox and spam folder.",true);
+  }
+  async function saveNewPassword(e){
+    e.preventDefault();
+    const password=$("newPassword").value, confirm=$("confirmPassword").value;
+    if(password.length<8){showMessage("newPasswordMessage","Use at least 8 characters.");return;}
+    if(password!==confirm){showMessage("newPasswordMessage","The passwords do not match.");return;}
+    showMessage("newPasswordMessage","Updating password…");
+    const {data,error}=await client.auth.updateUser({password});
+    if(error){showMessage("newPasswordMessage","The reset session is invalid or expired. Request a new reset email and use the newest link.");return;}
+    await client.auth.signOut();
+    $("newPasswordForm").reset();
+    showLoginPanel("login");
+    showMessage("loginMessage","Password updated successfully. Sign in with your new password.",true);
+  }
   async function showApp(){const {data}=await client.auth.getSession();if(!data.session){$("loginView").classList.remove("hidden");$("appView").classList.add("hidden");return;}if(!(await assertProvisionedRole())){$("loginView").classList.remove("hidden");$("appView").classList.add("hidden");return;} $("loginView").classList.add("hidden");$("appView").classList.remove("hidden");await loadMissions();}
   async function logout(){if(client)await client.auth.signOut();$("appView").classList.add("hidden");$("loginView").classList.remove("hidden");}
 
@@ -108,5 +139,14 @@
     }catch(e){alert("Unable to read backup: "+e.message);}
   }
 
-  document.addEventListener("DOMContentLoaded",()=>{initClient();if(!configured){$("configNotice").classList.remove("hidden");}else{$("configNotice").classList.add("hidden");} $("loginForm").addEventListener("submit",login);$("logoutBtn").addEventListener("click",logout);$("newMissionBtn").addEventListener("click",openNew);$("backBtn").addEventListener("click",()=>setView("missions"));$("goMissionsBtn").addEventListener("click",()=>setView("missions"));document.querySelectorAll(".nav").forEach(b=>b.addEventListener("click",()=>b.dataset.view==="editor"?openNew():setView(b.dataset.view)));$("missionForm").addEventListener("submit",saveMission);$("backupBtn")?.addEventListener("click",exportBackup);$("restoreBtn")?.addEventListener("click",()=>$("restoreFile")?.click());$("restoreFile")?.addEventListener("change",e=>importBackup(e.target.files&&e.target.files[0]));["visaFee","serviceFee","verifyFee","convenienceFee","otherFee"].forEach(id=>$(id).addEventListener("input",updateTotals));$("imageUrl").addEventListener("input",showImage);$("previewBtn").addEventListener("click",preview);$("closePreview").addEventListener("click",()=>$("previewModal").classList.add("hidden"));$("closePreview2").addEventListener("click",()=>$("previewModal").classList.add("hidden"));$("searchInput").addEventListener("input",renderRows);$("statusFilter").addEventListener("change",renderRows);if(client){client.auth.getSession().then(showApp);client.auth.onAuthStateChange((event,session)=>{if(session)showApp();else if(event==="SIGNED_OUT"){ $("appView").classList.add("hidden");$("loginView").classList.remove("hidden");}});}});
+  document.addEventListener("DOMContentLoaded",()=>{initClient();if(!configured){$("configNotice").classList.remove("hidden");}else{$("configNotice").classList.add("hidden");} $("loginForm").addEventListener("submit",login);$("forgotPasswordBtn").addEventListener("click",()=>{ $("resetEmail").value=$("email").value;showLoginPanel("request");});$("backToLoginBtn").addEventListener("click",()=>showLoginPanel("login"));$("resetRequestForm").addEventListener("submit",requestPasswordReset);$("newPasswordForm").addEventListener("submit",saveNewPassword);$("logoutBtn").addEventListener("click",logout);$("newMissionBtn").addEventListener("click",openNew);$("backBtn").addEventListener("click",()=>setView("missions"));$("goMissionsBtn").addEventListener("click",()=>setView("missions"));document.querySelectorAll(".nav").forEach(b=>b.addEventListener("click",()=>b.dataset.view==="editor"?openNew():setView(b.dataset.view)));$("missionForm").addEventListener("submit",saveMission);$("backupBtn")?.addEventListener("click",exportBackup);$("restoreBtn")?.addEventListener("click",()=>$("restoreFile")?.click());$("restoreFile")?.addEventListener("change",e=>importBackup(e.target.files&&e.target.files[0]));["visaFee","serviceFee","verifyFee","convenienceFee","otherFee"].forEach(id=>$(id).addEventListener("input",updateTotals));$("imageUrl").addEventListener("input",showImage);$("previewBtn").addEventListener("click",preview);$("closePreview").addEventListener("click",()=>$("previewModal").classList.add("hidden"));$("closePreview2").addEventListener("click",()=>$("previewModal").classList.add("hidden"));$("searchInput").addEventListener("input",renderRows);$("statusFilter").addEventListener("change",renderRows);if(client){
+      const recoveryHash=window.location.hash.includes("type=recovery");
+      if(recoveryHash)showLoginPanel("newPassword");
+      client.auth.getSession().then(({data})=>{if(window.location.hash.includes("type=recovery"))showLoginPanel("newPassword");else if(data.session)showApp();});
+      client.auth.onAuthStateChange((event,session)=>{
+        if(event==="PASSWORD_RECOVERY"){showLoginPanel("newPassword");}
+        else if(session && event!=="SIGNED_OUT"){showApp();}
+        else if(event==="SIGNED_OUT"){ $("appView").classList.add("hidden");$("loginView").classList.remove("hidden");}
+      });
+    }}});
 })();
