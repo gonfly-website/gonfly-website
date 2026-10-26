@@ -6,7 +6,8 @@ on:
       - feature/gonfly-admin-portal
     paths:
       - 'admin/**'
-      - 'wrangler.jsonc'
+      - 'wrangler.admin-preview.jsonc'
+      - 'admin-preview-worker.js'
       - '.github/workflows/deploy-admin-preview.yml'
   workflow_dispatch:
 
@@ -28,4 +29,4 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: deploy --name feature-gonfly-admin-portal-gonfly-website
+          command: deploy --config wrangler.admin-preview.jsonc
