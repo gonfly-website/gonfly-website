@@ -22,7 +22,22 @@
       <button class="btn primary full" type="submit">Sign in securely <span>↗</span></button>
       <div id="loginMessage" class="form-message" role="status"></div>
     </form>
-    <p class="tiny">Access is provided through Supabase Authentication. No public sign-up is available.</p>
+    <p style="text-align:right;margin:12px 0 0"><button type="button" id="forgotPasswordBtn" class="text-btn">Forgot password?</button></p>
+    <form id="resetRequestForm" class="hidden">
+      <label for="resetEmail">Admin email</label><input id="resetEmail" type="email" autocomplete="email" placeholder="you@company.com" required>
+      <button class="btn primary full" type="submit">Send reset link ↗</button>
+      <button class="text-btn" type="button" id="backToLoginBtn">← Back to sign in</button>
+      <div id="resetRequestMessage" class="form-message" role="status"></div>
+    </form>
+    <form id="newPasswordForm" class="hidden">
+      <h2 style="font:700 22px Manrope,sans-serif;margin:24px 0 12px">Set a new password</h2>
+      <p class="muted">Choose a new password for your GoNfly admin account.</p>
+      <label for="newPassword">New password</label><input id="newPassword" type="password" autocomplete="new-password" minlength="8" placeholder="At least 8 characters" required>
+      <label for="confirmPassword">Confirm new password</label><input id="confirmPassword" type="password" autocomplete="new-password" minlength="8" placeholder="Enter it again" required>
+      <button class="btn primary full" type="submit">Save new password ↗</button>
+      <div id="newPasswordMessage" class="form-message" role="status"></div>
+    </form>
+    <p class="tiny" id="loginFootnote">Access is provided through Supabase Authentication. No public sign-up is available.</p>
   </div>
   <div class="login-side"><div class="orb orb-one"></div><div class="orb orb-two"></div><div class="side-copy"><span class="pill">YOUR VISA OPERATIONS, SIMPLIFIED</span><h2>One mission.<br>One source of truth.</h2><p>Update destination details and pricing with a review step before anything is approved for publishing.</p><div class="side-foot">GONFLY · VISA SERVICES</div></div></div>
 </div>
