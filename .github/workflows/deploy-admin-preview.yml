@@ -1,0 +1,31 @@
+name: Deploy GoNfly admin preview
+
+on:
+  push:
+    branches:
+      - feature/gonfly-admin-portal
+    paths:
+      - 'admin/**'
+      - 'wrangler.jsonc'
+      - '.github/workflows/deploy-admin-preview.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deploy-preview:
+    name: Deploy isolated admin preview
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out feature branch
+        uses: actions/checkout@v4
+        with:
+          ref: feature/gonfly-admin-portal
+
+      - name: Deploy only to the feature-preview Worker
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy --name feature-gonfly-admin-portal-gonfly-website
