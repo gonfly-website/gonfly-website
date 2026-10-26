@@ -3,8 +3,8 @@
  * Only the Supabase anon/publishable key belongs in browser code; never put a service-role key here.
  */
 (() => {
-  const SUPABASE_URL = "YOUR_SUPABASE_PROJECT_URL";
-  const SUPABASE_ANON_KEY = "YOUR_SUPABASE_ANON_OR_PUBLISHABLE_KEY";
+  const SUPABASE_URL = "https://jhyykuecimynewkhvkzi.supabase.co";
+  const SUPABASE_ANON_KEY = "sb_publishable_S19JBZII2pLGUXVBPRxVhg_YQzqvbVM";
   const configured = /^https:\/\//.test(SUPABASE_URL) && !SUPABASE_URL.includes("YOUR_") && !SUPABASE_ANON_KEY.includes("YOUR_");
   const $ = id => document.getElementById(id);
   let client = null, missions = [], currentView = "missions";
@@ -36,7 +36,6 @@
   async function showApp(){const {data}=await client.auth.getSession();if(!data.session){$("loginView").classList.remove("hidden");$("appView").classList.add("hidden");return;}if(!(await assertProvisionedRole())){$("loginView").classList.remove("hidden");$("appView").classList.add("hidden");return;} $("loginView").classList.add("hidden");$("appView").classList.remove("hidden");await loadMissions();}
   async function logout(){if(client)await client.auth.signOut();$("appView").classList.add("hidden");$("loginView").classList.remove("hidden");}
 
-  // Additional production-safety controls: validate amounts, provisioned roles, JSON backup/restore, audit events.
   async function assertProvisionedRole(){
     const {data:{user}}=await client.auth.getUser();
     if(!user) return false;
