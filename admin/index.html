@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>GoNfly Admin | Visa Mission Manager</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./admin.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script defer src="./admin.js?v=20261026-password-reset-2"></script>
+</head>
+<body>
+<div class="login-wrap" id="loginView">
+  <div class="login-card">
+    <div class="brand"><span class="brand-mark">↗</span><span>GoNfly<span class="brand-sub">ADMIN STUDIO</span></span></div>
+    <div class="eyebrow">CONTROL CENTRE</div><h1>Manage every<br>visa mission.</h1>
+    <p class="muted">A single workspace for destination content, pricing and document requirements.</p>
+    <div id="configNotice" class="notice">Setup required: connect your Supabase project in <code>admin.js</code> and apply <code>supabase-schema.sql</code>.</div>
+    <form id="loginForm">
+      <label for="email">Admin email</label><input id="email" type="email" autocomplete="username" placeholder="you@company.com" required>
+      <label for="password">Password</label><input id="password" type="password" autocomplete="current-password" placeholder="Enter your password" required>
+      <button class="btn primary full" type="submit">Sign in securely <span>↗</span></button>
+      <div id="loginMessage" class="form-message" role="status"></div>
+    </form>
+    <p style="text-align:right;margin:12px 0 0"><button type="button" id="forgotPasswordBtn" class="text-btn">Forgot password?</button></p>
+    <form id="resetRequestForm" class="hidden">
+      <label for="resetEmail">Admin email</label><input id="resetEmail" type="email" autocomplete="email" placeholder="you@company.com" required>
+      <button class="btn primary full" type="submit">Send reset link ↗</button>
+      <button class="text-btn" type="button" id="backToLoginBtn">← Back to sign in</button>
+      <div id="resetRequestMessage" class="form-message" role="status"></div>
+    </form>
+    <form id="newPasswordForm" class="hidden">
+      <h2 style="font:700 22px Manrope,sans-serif;margin:24px 0 12px">Set a new password</h2>
+      <p class="muted">Choose a new password for your GoNfly admin account.</p>
+      <label for="newPassword">New password</label><input id="newPassword" type="password" autocomplete="new-password" minlength="8" placeholder="At least 8 characters" required>
+      <label for="confirmPassword">Confirm new password</label><input id="confirmPassword" type="password" autocomplete="new-password" minlength="8" placeholder="Enter it again" required>
+      <button class="btn primary full" type="submit">Save new password ↗</button>
+      <div id="newPasswordMessage" class="form-message" role="status"></div>
+    </form>
+    <p class="tiny" id="loginFootnote">Access is provided through Supabase Authentication. No public sign-up is available.</p>
+  </div>
+  <div class="login-side"><div class="orb orb-one"></div><div class="orb orb-two"></div><div class="side-copy"><span class="pill">YOUR VISA OPERATIONS, SIMPLIFIED</span><h2>One mission.<br>One source of truth.</h2><p>Update destination details and pricing with a review step before anything is approved for publishing.</p><div class="side-foot">GONFLY · VISA SERVICES</div></div></div>
+</div>
+<div class="app hidden" id="appView">
+  <aside class="sidebar">
+    <div class="brand"><span class="brand-mark">↗</span><span>GoNfly<span class="brand-sub">ADMIN STUDIO</span></span></div>
+    <div class="side-label">WORKSPACE</div>
+    <button class="nav active" data-view="missions"><span>▦</span> Visa missions</button>
+    <button class="nav" data-view="editor"><span>＋</span> Mission editor</button>
+    <button class="nav" data-view="workflow"><span>◷</span> Review & publish</button>
+    <div class="sidebar-bottom"><div class="secure-dot"></div><span>Authenticated session</span><button id="logoutBtn" class="logout">Sign out ↗</button></div>
+  </aside>
+  <main class="main">
+    <header class="topbar"><div><div class="eyebrow">GONFLY / CONTENT MANAGEMENT</div><h1 id="pageTitle">Visa missions</h1></div><div class="top-actions"><span class="live-status"><i></i> Live site unchanged</span><button id="backupBtn" class="btn secondary">↓ Backup</button><button id="restoreBtn" class="btn secondary">↑ Restore</button><input id="restoreFile" type="file" accept="application/json,.json" hidden><button id="newMissionBtn" class="btn primary">＋ New mission</button></div></header>
+    <section class="view" id="missionsView">
+      <div class="welcome-row"><div><h2>Destination catalogue</h2><p class="muted">Manage countries, visa types, fees and traveller requirements.</p></div><div class="searchbox">⌕ <input id="searchInput" placeholder="Search missions…"></div></div>
+      <div class="stats"><div class="stat"><span>Total missions</span><strong id="totalStat">—</strong><small>Saved in your workspace</small></div><div class="stat"><span>Drafts</span><strong id="draftStat">—</strong><small>Need review</small></div><div class="stat"><span>Approved</span><strong id="approvedStat">—</strong><small>Ready for integration</small></div></div>
+      <div class="table-card"><div class="table-head"><div><h3>All missions</h3><p class="muted">Country pages and visa products</p></div><select id="statusFilter"><option value="all">All statuses</option><option value="draft">Draft</option><option value="review">In review</option><option value="approved">Approved</option></select></div><div class="table-scroll"><table><thead><tr><th>DESTINATION</th><th>VISA TYPE</th><th>PROCESSING</th><th>STARTING PRICE</th><th>STATUS</th><th></th></tr></thead><tbody id="missionRows"><tr><td colspan="6" class="empty">Connect Supabase to load your missions.</td></tr></tbody></table></div></div>
+      <div class="footer-note"><span class="red-dot"></span> Changes here are saved as drafts. They do not alter the public website until a separate publishing integration is approved.</div>
+    </section>
+    <section class="view hidden" id="editorView">
+      <div class="editor-toolbar"><button class="text-btn" id="backBtn">← All missions</button><span class="draft-pill" id="editorStatus">NEW DRAFT</span></div>
+      <form id="missionForm">
+        <input type="hidden" id="missionId">
+        <div class="editor-grid">
+          <div class="editor-main">
+            <div class="panel"><div class="panel-heading"><span class="step">01</span><div><h3>Mission overview</h3><p>Basic destination and visa information</p></div></div>
+              <div class="form-grid"><div class="field"><label>Country / destination name *</label><input id="country" required placeholder="e.g. Vietnam"></div><div class="field"><label>URL slug *</label><input id="slug" required placeholder="vietnam"></div><div class="field span2"><label>Visa product / mission name *</label><input id="visaType" required placeholder="30 Days Tourist Visa"></div><div class="field"><label>Processing time</label><input id="processing" placeholder="e.g. 5 working days"></div><div class="field"><label>Entry type</label><select id="entryType"><option>Single Entry</option><option>Multiple Entry</option><option>Transit</option><option>Varies by applicant</option></select></div><div class="field"><label>Visa validity</label><input id="validity" placeholder="e.g. 90 days"></div><div class="field"><label>Permitted stay</label><input id="stay" placeholder="e.g. 30 days"></div><div class="field span2"><label>Short description</label><textarea id="description" rows="3" placeholder="Concise customer-facing summary…"></textarea></div></div>
+            </div>
+            <div class="panel"><div class="panel-heading"><span class="step">02</span><div><h3>Pricing breakdown</h3><p>Amounts in INR. Total is calculated automatically.</p></div></div>
+              <div id="priceValidation" class="notice subtle hidden" role="status"></div><div class="price-grid"><div class="field"><label>Visa fee (₹)</label><input type="number" min="0" step="1" id="visaFee" value="0"></div><div class="field"><label>Service fee (₹)</label><input type="number" min="0" step="1" id="serviceFee" value="0"></div><div class="field"><label>Verification fee (₹)</label><input type="number" min="0" step="1" id="verifyFee" value="0"></div><div class="field"><label>Convenience fee (₹)</label><input type="number" min="0" step="1" id="convenienceFee" value="0"></div><div class="field"><label>Other fee / tax (₹)</label><input type="number" min="0" step="1" id="otherFee" value="0"></div><div class="total-preview"><span>Calculated total</span><strong id="totalPrice">₹0</strong><small>Review taxes and rounding before approval.</small></div></div>
+            </div>
+            <div class="panel"><div class="panel-heading"><span class="step">03</span><div><h3>Documents & requirements</h3><p>One requirement per line. Keep wording clear for applicants.</p></div></div><div class="field"><label>Required documents</label><textarea id="documents" rows="6" placeholder="Passport valid for at least 6 months&#10;Recent passport-size photograph&#10;Proof of accommodation"></textarea></div><div class="field"><label>Additional notes / eligibility</label><textarea id="notes" rows="3" placeholder="Important eligibility rules, exceptions or notes…"></textarea></div></div>
+            <div class="panel"><div class="panel-heading"><span class="step">04</span><div><h3>Destination imagery</h3><p>Use an image URL you have permission to publish.</p></div></div><div class="field"><label>Hero image URL</label><input id="imageUrl" type="url" placeholder="https://…"><div class="image-preview" id="imagePreview"><span>Image preview will appear here</span></div></div></div>
+          </div>
+          <div class="editor-rail"><div class="panel sticky"><h3>Workflow</h3><p class="muted">Save safely, then review the preview before approval.</p><div class="field"><label>Content status</label><select id="missionStatus"><option value="draft">Draft</option><option value="review">In review</option><option value="approved">Approved for integration</option></select></div><div class="rail-total"><span>Customer price</span><strong id="railPrice">₹0</strong></div><button class="btn primary full" type="submit">Save mission</button><button class="btn secondary full" type="button" id="previewBtn">Preview content</button><div class="notice subtle">Approval here does not deploy the website. Publishing integration is a separate, reviewable step.</div><div id="saveMessage" class="form-message"></div></div></div>
+        </div>
+      </form>
+    </section>
+    <section class="view hidden" id="workflowView"><div class="welcome-row"><div><h2>Review & publish</h2><p class="muted">A safe approval queue. Nothing on the public site changes from this screen.</p></div></div><div class="workflow-card"><div class="workflow-icon">◷</div><h3>Publishing is intentionally gated</h3><p>Review mission details, verify the calculated fee total, check official visa requirements and preview the customer-facing content. Approved records will be ready for the next integration phase, where the existing static pages can be updated through a separate branch and explicit approval.</p><ol><li>Save the mission as a draft.</li><li>Move it to In review and verify fees, validity, documents and image rights.</li><li>Set Approved for integration after review.</li><li>Approve a separate deployment/publishing change before anything goes live.</li></ol><button class="btn secondary" id="goMissionsBtn">Return to missions</button></div><div class="table-card"><div class="table-head"><div><h3>Approval queue</h3><p class="muted">Missions marked approved</p></div></div><div class="table-scroll"><table><thead><tr><th>DESTINATION</th><th>VISA TYPE</th><th>TOTAL PRICE</th><th>STATUS</th><th></th></tr></thead><tbody id="workflowRows"><tr><td colspan="5" class="empty">Connect Supabase to load approvals.</td></tr></tbody></table></div></div></section>
+  </main>
+</div>
+<div class="modal hidden" id="previewModal" role="dialog" aria-modal="true" aria-labelledby="previewTitle"><div class="modal-card"><div class="modal-head"><div><div class="eyebrow">CUSTOMER PAGE PREVIEW</div><h2 id="previewTitle">Mission preview</h2></div><button class="icon-btn" id="closePreview" aria-label="Close preview">×</button></div><div id="previewContent" class="preview-content"></div><div class="modal-foot"><span class="muted">Preview only · not published</span><button class="btn secondary" id="closePreview2">Close preview</button></div></div></div>
+</body></html>
