@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /enquiry.html
+Disallow: /privacy.html
+Disallow: /terms.html
+
+Sitemap: https://gonflytravel.com/sitemap.xml
