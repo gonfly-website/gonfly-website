@@ -254,7 +254,7 @@ header nav a:hover, header nav a:focus{color:#ff4b5c !important}
     <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.6 0 .3 5.3.3 11.8c0 2.1.6 4.1 1.6 5.9L.2 24l6.5-1.7a11.8 11.8 0 0 0 5.4 1.3h.1c6.5 0 11.8-5.3 11.8-11.8 0-3.1-1.2-6-3.5-8.3M12.2 21.6h-.1a9.8 9.8 0 0 1-5-1.4l-.4-.2-3.8 1 1-3.7-.3-.4a9.7 9.7 0 0 1-1.5-5.1C2.1 6.4 6.6 2 12.1 2a9.7 9.7 0 0 1 9.8 9.8c0 5.4-4.4 9.8-9.7 9.8m5.4-7.3c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.2l-.9 1.1c-.2.2-.3.2-.6.1-1.7-.8-2.8-1.5-3.9-3.4-.3-.5.3-.5.8-1.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.2 5.1 4.5 1.9.8 2.7.9 3.7.8.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.1-1.4-.1-.2-.3-.3-.6-.4"/></svg>
   </a>
 </div>
-<p class="cp">© 2026 Gonfly. All rights reserved. · Terms and Conditions · Privacy Policy</p></footer>
+<p class="cp">© 2026 Gonfly. All rights reserved. · <a href="/terms.html">Terms and Conditions</a> · <a href="/privacy.html">Privacy Policy</a></p></footer>
 
 <script>
 function handleCardImageError(img){
@@ -284,11 +284,10 @@ function cards(id,items,cta){
     const heading=document.createElement('h3');heading.textContent=name;card.appendChild(heading);
     const para=document.createElement('p');para.textContent=description||'';card.appendChild(para);
     if(id==='g-visa'){
-      const chips=document.createElement('div');chips.className='gf-doc-chips';
-      ['Passport copy','Photograph','Supporting documents'].forEach(t=>{const chip=document.createElement('span');chip.className='gf-doc-chip';chip.textContent=t;chips.appendChild(chip)});card.appendChild(chips);
+      if(tag){const badge=document.createElement('span');badge.className='tag';badge.textContent=tag;card.appendChild(badge);}
       const priceRow=document.createElement('div');priceRow.className='gf-price-row';
-      const amount=document.createElement('strong');amount.className='gf-price';amount.textContent='₹'+Number(price).toLocaleString('en-IN');priceRow.appendChild(amount);
-      const link=document.createElement('a');link.className='gf-apply-link';link.href=missionSlug?'visa-details.html?mission='+encodeURIComponent(missionSlug):((name.toLowerCase()==='uae')?'visa/uae.html':'visa-details.html?country='+encodeURIComponent(name));link.textContent='Apply →';link.setAttribute('aria-label','View '+name+' visa details and apply');priceRow.appendChild(link);card.appendChild(priceRow);
+      const amount=document.createElement('strong');amount.className='gf-price';amount.textContent=Number(price)>0?'₹'+Number(price).toLocaleString('en-IN'):'Price on request';priceRow.appendChild(amount);
+      const link=document.createElement('a');link.className='gf-apply-link';link.href='visa-details.html?mission='+encodeURIComponent(missionSlug);link.textContent='View details →';link.setAttribute('aria-label','View '+name+' visa details and confirm price');priceRow.appendChild(link);card.appendChild(priceRow);
     }else{
       if(tag){const badge=document.createElement('span');badge.className='tag';badge.textContent=tag;card.appendChild(badge)}
       const link=document.createElement('a');link.href='enquiry.html?destination='+encodeURIComponent(name)+'&service='+encodeURIComponent(service);link.dataset.gfDestination=name;link.dataset.gfService=service;link.textContent=cta||'Learn more';card.appendChild(link);
@@ -296,23 +295,31 @@ function cards(id,items,cta){
     fragment.appendChild(card);
   }); container.replaceChildren(fragment);
 }
-const staticVisaCards=[["🇬🇪","Georgia","Mountains, culture and historic old towns.","E-Visa","https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&w=900&q=80",6138],["🇦🇪","UAE","One visa journey to explore the Emirates.","E-Visa","https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=900&q=80",7978],["🇻🇳","Vietnam","Vibrant cities, dramatic landscapes and coastal escapes.","E-Visa","https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=900&q=80",3233],["🇺🇿","Uzbekistan","Silk Road cities and remarkable architecture.","E-Visa","https://images.unsplash.com/photo-1596402184320-417e7178b2cd?auto=format&fit=crop&w=900&q=80",2990],["🇦🇿","Azerbaijan","Modern architecture, historic streets and Caspian views.","E-Visa","https://images.unsplash.com/photo-1597040663342-45b6af3d91a5?auto=format&fit=crop&w=900&q=80",4037],["🇮🇩","Indonesia","Island landscapes, temples and rich local culture.","E-Visa","https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=900&q=80",3750],["🇰🇭","Cambodia","Ancient temples, lively markets and rich heritage.","E-Visa","https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Angkor_Wat%2C_Siem_Reap%2C_Cambodge.jpg/800px-Angkor_Wat%2C_Siem_Reap%2C_Cambodge.jpg",3987],["🇵🇭","Philippines","A tropical escape of islands, beaches and clear waters.","E-Visa","https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=900&q=80",6988],["🇭🇰","Hong Kong","A dynamic blend of skyline views and local culture.","E-Visa","https://images.unsplash.com/photo-1536599018102-9f803c140fc1?auto=format&fit=crop&w=900&q=80",642],["🇦🇲","Armenia","Ancient monasteries, mountain landscapes and culture.","E-Visa","https://images.unsplash.com/photo-1603565816030-6b389eeb23cb?auto=format&fit=crop&w=900&q=80",2000],["🇷🇺","Russia","Grand architecture, history and world-famous cities.","E-Visa","https://images.unsplash.com/photo-1513326738677-b964603b136d?auto=format&fit=crop&w=900&q=80",7019],["🇹🇷","Turkey","A rich blend of history, culture and landscapes.","E-Visa","https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=900&q=80",6915],["🇹🇭","Thailand","Temples, bustling cities and tropical beaches.","E-Visa","https://images.unsplash.com/photo-1508009603885-50cf7c579365?auto=format&fit=crop&w=900&q=80",826],["🇱🇰","Sri Lanka","Golden beaches, tea country and historic sites.","E-Visa","https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80",1051],["🇲🇦","Morocco","Colourful souks, desert scenery and historic medinas.","E-Visa","https://images.unsplash.com/photo-1489749798305-4axe7b6a0a8?auto=format&fit=crop&w=900&q=80",9930],["🇪🇬","Egypt","Ancient wonders, golden deserts and the Nile.","E-Visa","https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?auto=format&fit=crop&w=900&q=80",3996],["🇮🇱","Israel","A destination of deep history and varied landscapes.","E-Visa","https://images.unsplash.com/photo-1544986581-efac024faf62?auto=format&fit=crop&w=900&q=80",8000],["🇯🇴","Jordan","Extraordinary history and dramatic desert landscapes.","E-Visa","https://images.unsplash.com/photo-1548786811-dd6e453ccca7?auto=format&fit=crop&w=900&q=80",6989],["🇰🇪","Kenya","Wildlife, open savannahs and memorable adventures.","E-Visa","https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=900&q=80",4895],["🇧🇭","Bahrain","Discover island culture, modern skylines and heritage.","E-Visa","https://images.unsplash.com/photo-1512632578888-169bbbc64f33?auto=format&fit=crop&w=900&q=80",4494],["🇴🇲","Oman","Mountain scenery, coastal towns and desert journeys.","E-Visa","https://images.unsplash.com/photo-1512632578888-169bbbc64f33?auto=format&fit=crop&w=900&q=80",2815],["🇹🇿","Tanzania","Wildlife, coastlines and iconic natural landscapes.","E-Visa","https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=900&q=80",5945]];
+const staticVisaCards=[];
 cards('g-visa',staticVisaCards,'Apply');
-loadApprovedVisaMissions(staticVisaCards);
+loadApprovedVisaMissions();
 
-async function loadApprovedVisaMissions(staticCards){
- const endpoint='https://jhyykuecimynewkhvkzi.supabase.co/rest/v1/visa_missions',key='sb_publishable_S19JBZII2pLGUXVBPRxVhg_YQzqvbVM';
+async function loadApprovedVisaMissions(){
+ const container=document.getElementById('g-visa');
+ if(container)container.innerHTML='<p class="gf-note">Loading approved visa missions…</p>';
+ const endpoint='https://jhyykuecimynewkhvkzi.supabase.co/rest/v1/visa_missions';
+ const key='sb_publishable_S19JBZII2pLGUXVBPRxVhg_YQzqvbVM';
  const q=new URLSearchParams({select:'country,slug,visa_type,description,pricing,image_url,status',status:'eq.approved',order:'country.asc'});
- const total=p=>['visa_fee','service_fee','verification_fee','convenience_fee','other_fee'].reduce((s,k)=>s+Math.max(0,Number((p||{})[k])||0),0);
- const flags={azerbaijan:'🇦🇿',indonesia:'🇮🇩',georgia:'🇬🇪',vietnam:'🇻🇳',uzbekistan:'🇺🇿',uae:'🇦🇪',thailand:'🇹🇭',china:'🇨🇳',japan:'🇯🇵',armenia:'🇦🇲',italy:'🇮🇹',france:'🇫🇷',spain:'🇪🇸',germany:'🇩🇪',bangladesh:'🇧🇩'};
+ const total=p=>['visa_fee','service_fee','verification_fee','convenience_fee','other_fee'].reduce((sum,k)=>sum+Math.max(0,Number((p||{})[k])||0),0);
+ const flags={azerbaijan:'🇦🇿',indonesia:'🇮🇩',georgia:'🇬🇪',vietnam:'🇻🇳',uzbekistan:'🇺🇿',uae:'🇦🇪','united arab emirates':'🇦🇪',thailand:'🇹🇭',china:'🇨🇳',japan:'🇯🇵',armenia:'🇦🇲',italy:'🇮🇹',france:'🇫🇷',spain:'🇪🇸',germany:'🇩🇪',bangladesh:'🇧🇩',egypt:'🇪🇬','hong kong':'🇭🇰',philippines:'🇵🇭'};
  try{
-  const r=await fetch(endpoint+'?'+q,{headers:{apikey:key,Authorization:'Bearer '+key}});if(!r.ok)throw Error('Supabase request failed: '+r.status);
-  const rows=await r.json();if(!Array.isArray(rows))return;
-  const byCountry=new Map(rows.map(x=>[(x.country||'').trim().toLowerCase(),x])),seen=new Set();
-  const updated=staticCards.map(item=>{const row=byCountry.get(String(item[1]||'').trim().toLowerCase());if(!row)return item;seen.add(row.slug);return [flags[(row.country||'').toLowerCase()]||item[0]||'✈️',row.country,row.description||row.visa_type||item[2],row.visa_type||'Visa',row.image_url||item[4],total(row.pricing),row.slug];});
-  rows.forEach(row=>{if(!seen.has(row.slug))updated.push([flags[(row.country||'').toLowerCase()]||'✈️',row.country,row.description||row.visa_type||'Visa assistance for your journey.',row.visa_type||'Visa',row.image_url||'',total(row.pricing),row.slug]);});
-  cards('g-visa',updated,'Apply');
- }catch(e){console.warn('Could not refresh approved visa missions; cached cards remain visible.',e);}
+  const r=await fetch(endpoint+'?'+q,{headers:{apikey:key,Authorization:'Bearer '+key}});
+  if(!r.ok)throw Error('Mission lookup failed: '+r.status);
+  const rows=await r.json();
+  if(!Array.isArray(rows))throw Error('Unexpected mission data');
+  const approved=rows.filter(row=>row&&row.status==='approved'&&row.slug&&row.country);
+  const items=approved.map(row=>[flags[(row.country||'').trim().toLowerCase()]||'✈️',row.country,row.description||row.visa_type||'Visa assistance; contact GoNfly to confirm details.',row.visa_type||'Visa assistance',row.image_url||'',total(row.pricing),row.slug]);
+  cards('g-visa',items,'Apply');
+  if(!items.length&&container)container.innerHTML='<p class="gf-note">No visa missions are currently published. Please contact GoNfly to confirm availability.</p>';
+ }catch(e){
+  console.warn('Could not load approved visa missions.',e);
+  if(container)container.innerHTML='<p class="gf-note">Visa listings are temporarily unavailable. Please contact GoNfly to confirm current services and prices.</p>';
+ }
 }
 
 cards('g-flights',[['✈️','Flight routes','Explore domestic and international journeys.','','https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=900&q=80'],['✈️','City breaks','Find inspiration for your next city escape.','','https://images.unsplash.com/photo-1508009603885-50cf7c579365?auto=format&fit=crop&w=900&q=80'],['✈️','International travel','Explore routes to destinations worldwide.','','https://images.unsplash.com/photo-1525625293386-3f8f99389edd?auto=format&fit=crop&w=900&q=80'],['✈️','Weekend escapes','Turn a few days off into a memorable trip.','','https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=900&q=80']],'Book Now');
@@ -320,7 +327,7 @@ cards('g-hotels',[['🏨','Beach stays','Wake up close to the sea.','','https://
 cards('g-holidays',[['🏝️','Bali Escape','Example itinerary: 5 nights / 6 days.','Couples','https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=900&q=80'],['🛕','Thailand Vibes','Example itinerary: 4 nights / 5 days.','Friends','https://images.unsplash.com/photo-1528181304800-259b08848526?auto=format&fit=crop&w=900&q=80'],['🏜️','Dubai Dazzle','Example itinerary: 4 nights / 5 days.','Family','https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=900&q=80'],['🏔️','Kashmir Magic','Example itinerary: 5 nights / 6 days.','Scenic','https://images.unsplash.com/photo-1595815771614-ade9d652a65d?auto=format&fit=crop&w=900&q=80']],'Enquire');
 cards('g-ins',[['🛡️','Essential cover','Explore travel insurance options for your journey.','','https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80'],['🛡️','Travel protection','Compare benefits and policy conditions before buying.','Compare options','https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=900&q=80'],['🛡️','Adventure trips','Ask about suitable cover for your planned activities.','','https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=80']],'Get Quote');
 cards('g-why',[['01','Simple Online Application','Apply online and submit your details and documents with ease.',''],['02','Trusted &amp; Experienced','Travel and visa assistance from the Gonfly team.',''],['03','Transparent Support','Ask about service fees, processing steps and available support.','']],'Know more');
-document.getElementById('g-steps').innerHTML=[['Choose Your Destination','Select where you’re travelling.'],['Upload Your Documents','Complete a simple online form.'],['Pay Securely','Pay online through a secure process.'],['Track &amp; Receive','Track status and get your confirmation.']].map((s,i)=>`<div class="c"><div class="num">${i+1}</div><h3>${s[0]}</h3><p>${s[1]}</p></div>`).join('');
+document.getElementById('g-steps').innerHTML=[['Choose Your Destination','Select where you’re travelling.'],['Upload Your Documents','Complete a simple online form.'],['Confirm your quote','Review the final amount and approved payment method with GoNfly.'],['Track &amp; Receive','Track status and get your confirmation.']].map((s,i)=>`<div class="c"><div class="num">${i+1}</div><h3>${s[0]}</h3><p>${s[1]}</p></div>`).join('');
 document.querySelectorAll('#g-why .c a').forEach(a=>a.remove());
 </script>
 <a class="whatsapp-float" href="https://wa.me/919999962722?text=Hello%20Gonfly%2C%20I%20need%20help%20with%20visa%20and%20travel%20services." target="_blank" rel="noopener noreferrer" aria-label="Chat with Gonfly on WhatsApp">
@@ -345,11 +352,9 @@ document.querySelectorAll('#g-why .c a').forEach(a=>a.remove());
   Gonfly frontend configuration:
   Set API_BASE to your deployed Cloudflare Worker URL before publishing.
   Example: https://gonfly-api.YOUR-SUBDOMAIN.workers.dev
-  Never put Razorpay secret keys in this HTML.
 */
 window.GONFLY_CONFIG = window.GONFLY_CONFIG || {
   API_BASE: "https://gonfly-api.ravinayar72.workers.dev",
-  RAZORPAY_KEY_ID: ""
 };
 (function(){
   const $ = (s) => document.querySelector(s);
@@ -411,49 +416,6 @@ window.GONFLY_CONFIG = window.GONFLY_CONFIG || {
   });
 
 
-  async function loadRazorpay(){
-    if(window.Razorpay)return true;
-    await new Promise((resolve,reject)=>{
-      const s=document.createElement("script");
-      s.src="https://checkout.razorpay.com/v1/checkout.js";
-      s.onload=resolve;s.onerror=()=>reject(new Error("Could not load the payment window."));
-      document.head.appendChild(s);
-    });
-    return !!window.Razorpay;
-  }
-  async function startPayment(reference,contact){
-    if(!apiBase){alert("Payments are not connected in this preview. Please contact Gonfly.");return;}
-    try{
-      const orderResponse=await fetch(apiBase+"/api/payments/order",{
-        method:"POST",headers:{"Content-Type":"application/json"},
-        body:JSON.stringify({reference,contact})
-      });
-      const order=await orderResponse.json();
-      if(!orderResponse.ok)throw new Error(order.error||"Unable to start payment.");
-      await loadRazorpay();
-      const checkout=new window.Razorpay({
-        key:order.keyId,order_id:order.orderId,amount:order.amount,currency:order.currency,
-        name:"Gonfly",description:"Payment for Gonfly service",prefill:{email:contact.includes("@")?contact:"",contact:contact.includes("@")?"":contact},
-        notes:{gonfly_reference:reference},
-        theme:{color:"#e11d2e"},
-        handler:async function(payment){
-          const verifyResponse=await fetch(apiBase+"/api/payments/verify",{
-            method:"POST",headers:{"Content-Type":"application/json"},
-            body:JSON.stringify({...payment,reference})
-          });
-          const verified=await verifyResponse.json();
-          if(!verifyResponse.ok)throw new Error(verified.error||"Payment verification failed.");
-          show(trackResult,`<strong>Payment verified.</strong><p>Reference: <strong>${esc(reference)}</strong></p><p>Your payment was verified by Gonfly's server. Save your reference for tracking.</p><button type="button" class="gf-submit" id="gf-refresh-status">Refresh status</button>`);
-          $("#gf-refresh-status").addEventListener("click",()=>trackForm.requestSubmit());
-        },
-        modal:{ondismiss:function(){show(trackResult,`<strong>Payment window closed.</strong><p>Your request remains available under reference ${esc(reference)}. You can try again when ready.</p>`);}}
-      });
-      checkout.open();
-    }catch(err){
-      show(trackResult,`<strong>Payment could not be started.</strong><p>${esc(err.message||"Please contact Gonfly for assistance.")}</p>`);
-    }
-  }
-
   const trackForm=$("#gf-track-form"), trackResult=$("#gf-track-result"), trackSubmit=$("#gf-track-submit");
   trackForm.addEventListener("submit",async function(e){
     e.preventDefault();if(!trackForm.reportValidity())return;
@@ -466,10 +428,8 @@ window.GONFLY_CONFIG = window.GONFLY_CONFIG || {
       const statuses=["Enquiry received","Under review","Awaiting customer","Payment pending","Payment received","In progress","Completed"];
       const current=statuses.indexOf(data.statusLabel);
       const steps=statuses.map((s,i)=>`<div class="gf-status-step ${i<=current?"active":""}">${esc(s)}</div>`).join("");
-      show(trackResult,`<strong>Request status: ${esc(data.statusLabel)}</strong><p>Reference: <strong>${esc(data.reference)}</strong></p><div class="gf-status-steps">${steps}</div><p>${esc(data.customerMessage||"Please contact Gonfly if you need further assistance.")}</p>${data.paymentDue?`<p><strong>Quoted amount: ₹${(data.amountPaise/100).toLocaleString("en-IN",{minimumFractionDigits:2,maximumFractionDigits:2})}</strong></p><button type="button" class="gf-submit" id="gf-pay-now">Pay securely with Razorpay</button><p class="gf-small">Only pay after Gonfly has confirmed the quote and service terms.</p>`:""}`);
-      if(data.paymentDue){
-        $("#gf-pay-now").addEventListener("click",()=>startPayment(data.reference,contact));
-      }
+      show(trackResult,`<strong>Request status: ${esc(data.statusLabel)}</strong><p>Reference: <strong>${esc(data.reference)}</strong></p><div class="gf-status-steps">${steps}</div><p>${esc(data.customerMessage||"Please contact Gonfly if you need further assistance.")}</p>${data.paymentDue?`<p><strong>Quoted amount: ₹${(data.amountPaise/100).toLocaleString("en-IN",{minimumFractionDigits:2,maximumFractionDigits:2})}</strong></p><span class="gf-small">Online payment is not enabled. Contact GoNfly to confirm an approved payment method.</span><p class="gf-small">Only pay after Gonfly has confirmed the quote and service terms.</p>`:""}`);
+      if(data.paymentDue){const paymentNotice=document.createElement('p');paymentNotice.className='gf-small';paymentNotice.textContent='Online payment is not enabled on this page. Please contact GoNfly to confirm the quote and an approved payment method before paying.';trackResult.appendChild(paymentNotice);}
     }catch(err){show(trackResult,`<strong>Could not retrieve status.</strong><p>${esc(err.message||"Check the reference and contact detail, then try again.")}</p>`);}
     finally{trackSubmit.disabled=false;trackSubmit.textContent="Check status";}
   });
