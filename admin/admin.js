@@ -158,5 +158,5 @@
         else if(session && event!=="SIGNED_OUT"){showApp();}
         else if(event==="SIGNED_OUT"){ $("appView").classList.add("hidden");$("loginView").classList.remove("hidden");}
       });
-    }}});
+    }});
 })();
