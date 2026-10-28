@@ -166,7 +166,7 @@ header nav a:hover, header nav a:focus{color:#ff4b5c !important}
 <section class="alt"><div class="w"><h2>Why Choose Gonfly?</h2><p class="sub">Trusted support for your travel journey.</p><div class="grid" id="g-why"></div></div></section>
 <section><div class="w"><h2>Your Journey, Made Simple</h2><p class="sub">Four easy steps from idea to takeoff.</p><div class="grid" id="g-steps"></div></div></section>
 
-<div class="cta" id="help"><h2>Let’s plan your next journey.</h2><p>Tell us where you want to go and what help you need. Our team can guide you through the next steps.</p><a class="btn" href="#booking-tools">Start an enquiry</a> <a class="btn" href="#whatsapp-support">Chat on WhatsApp</a></div>
+<div class="cta" id="help"><h2>Let’s plan your next journey.</h2><p>Tell us where you want to go and what help you need. Our team can guide you through the next steps.</p><a class="btn" href="enquiry.html">Start an enquiry</a> <a class="btn" href="#whatsapp-support">Chat on WhatsApp</a></div>
 
 
 <section id="whatsapp-support" class="alt">
@@ -284,7 +284,7 @@ function cards(id,items,cta){
       const link=document.createElement('a');link.className='gf-apply-link';link.href=missionSlug?'visa-details.html?mission='+encodeURIComponent(missionSlug):((name.toLowerCase()==='uae')?'visa/uae.html':'visa-details.html?country='+encodeURIComponent(name));link.textContent='Apply →';link.setAttribute('aria-label','View '+name+' visa details and apply');priceRow.appendChild(link);card.appendChild(priceRow);
     }else{
       if(tag){const badge=document.createElement('span');badge.className='tag';badge.textContent=tag;card.appendChild(badge)}
-      const link=document.createElement('a');link.href='#booking-tools';link.dataset.gfDestination=name;link.dataset.gfService=service;link.textContent=cta||'Learn more';card.appendChild(link);
+      const link=document.createElement('a');link.href='enquiry.html?destination='+encodeURIComponent(name)+'&service='+encodeURIComponent(service);link.dataset.gfDestination=name;link.dataset.gfService=service;link.textContent=cta||'Learn more';card.appendChild(link);
     }
     fragment.appendChild(card);
   }); container.replaceChildren(fragment);
