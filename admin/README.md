@@ -13,22 +13,19 @@ A separate admin workspace for the existing GoNfly static website. This is on th
 - Supabase Row Level Security (RLS) schema
 - A separate review workflow; no deployment or live publishing action is wired up
 
-## Setup required before login/data can work
+## Current connected setup and safe verification
 
-1. Create a Supabase project.
-2. Open **Project Settings → API** and copy the Project URL and anon/publishable key.
-3. In `admin/admin.js`, replace `YOUR_SUPABASE_PROJECT_URL` and `YOUR_SUPABASE_ANON_OR_PUBLISHABLE_KEY`. Only use the anon/publishable key in browser code. **Never use the service-role key in this file.**
-4. In Supabase SQL Editor, run `admin/supabase-schema.sql`.
-5. In Supabase Authentication, create the first user yourself. Keep public sign-ups disabled.
-6. Provision that user as an admin by running the following SQL with their actual Auth user UUID:
+The repository's feature branch is already configured to use the connected Supabase project. The browser uses only the Supabase publishable key; never add a service-role key to client-side files. The database schema and RLS policies have been applied, and one Auth user has a provisioned admin profile.
 
-   ```sql
-   insert into public.admin_profiles (user_id, role)
-   values ('YOUR_AUTH_USER_UUID', 'admin');
-   ```
+Before production use:
+1. Open the isolated admin preview and sign in with the provisioned account. Do not share the password in chat.
+2. Confirm the mission list loads, then create or edit a clearly labelled test draft only if you are comfortable writing to the connected database. The current project contains an existing mission and audit history, so do not reset or overwrite existing data.
+3. Confirm password recovery works and check the Supabase Auth redirect URL / SMTP configuration.
+4. Keep public sign-ups disabled. Provision staff only by inserting their actual Auth user UUID into `public.admin_profiles` from a trusted SQL editor.
+5. Test a separate reviewer account to confirm it can read but cannot insert, update, or delete mission records.
+6. Enable Supabase leaked-password protection before production use: https://supabase.com/docs/guides/auth/password-security#password-strength-and-leaked-password-protection
 
-7. Enable email confirmation and configure password reset / SMTP settings before production use.
-8. Test with an admin account and a separate non-admin account. RLS should deny access to users without an `admin_profiles` row.
+Do not rerun setup instructions intended for a brand-new database.
 
 ## Important architecture notes
 
