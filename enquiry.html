@@ -301,6 +301,7 @@ loadApprovedVisaMissions();
 
 async function loadApprovedVisaMissions(){
  const container=document.getElementById('g-visa');
+ if(container)container.innerHTML='<p class="gf-note">Loading approved visa missions…</p>';
  const endpoint='https://jhyykuecimynewkhvkzi.supabase.co/rest/v1/visa_missions';
  const key='sb_publishable_S19JBZII2pLGUXVBPRxVhg_YQzqvbVM';
  const q=new URLSearchParams({select:'country,slug,visa_type,description,pricing,image_url,status',status:'eq.approved',order:'country.asc'});
@@ -326,7 +327,7 @@ cards('g-hotels',[['🏨','Beach stays','Wake up close to the sea.','','https://
 cards('g-holidays',[['🏝️','Bali Escape','Example itinerary: 5 nights / 6 days.','Couples','https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=900&q=80'],['🛕','Thailand Vibes','Example itinerary: 4 nights / 5 days.','Friends','https://images.unsplash.com/photo-1528181304800-259b08848526?auto=format&fit=crop&w=900&q=80'],['🏜️','Dubai Dazzle','Example itinerary: 4 nights / 5 days.','Family','https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=900&q=80'],['🏔️','Kashmir Magic','Example itinerary: 5 nights / 6 days.','Scenic','https://images.unsplash.com/photo-1595815771614-ade9d652a65d?auto=format&fit=crop&w=900&q=80']],'Enquire');
 cards('g-ins',[['🛡️','Essential cover','Explore travel insurance options for your journey.','','https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80'],['🛡️','Travel protection','Compare benefits and policy conditions before buying.','Compare options','https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=900&q=80'],['🛡️','Adventure trips','Ask about suitable cover for your planned activities.','','https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=80']],'Get Quote');
 cards('g-why',[['01','Simple Online Application','Apply online and submit your details and documents with ease.',''],['02','Trusted &amp; Experienced','Travel and visa assistance from the Gonfly team.',''],['03','Transparent Support','Ask about service fees, processing steps and available support.','']],'Know more');
-document.getElementById('g-steps').innerHTML=[['Choose Your Destination','Select where you’re travelling.'],['Upload Your Documents','Complete a simple online form.'],['Pay Securely','Pay online through a secure process.'],['Track &amp; Receive','Track status and get your confirmation.']].map((s,i)=>`<div class="c"><div class="num">${i+1}</div><h3>${s[0]}</h3><p>${s[1]}</p></div>`).join('');
+document.getElementById('g-steps').innerHTML=[['Choose Your Destination','Select where you’re travelling.'],['Upload Your Documents','Complete a simple online form.'],['Confirm your quote','Review the final amount and approved payment method with GoNfly.'],['Track &amp; Receive','Track status and get your confirmation.']].map((s,i)=>`<div class="c"><div class="num">${i+1}</div><h3>${s[0]}</h3><p>${s[1]}</p></div>`).join('');
 document.querySelectorAll('#g-why .c a').forEach(a=>a.remove());
 </script>
 <a class="whatsapp-float" href="https://wa.me/919999962722?text=Hello%20Gonfly%2C%20I%20need%20help%20with%20visa%20and%20travel%20services." target="_blank" rel="noopener noreferrer" aria-label="Chat with Gonfly on WhatsApp">
