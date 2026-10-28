@@ -347,11 +347,9 @@ document.querySelectorAll('#g-why .c a').forEach(a=>a.remove());
   Gonfly frontend configuration:
   Set API_BASE to your deployed Cloudflare Worker URL before publishing.
   Example: https://gonfly-api.YOUR-SUBDOMAIN.workers.dev
-  Never put Razorpay secret keys in this HTML.
 */
 window.GONFLY_CONFIG = window.GONFLY_CONFIG || {
   API_BASE: "https://gonfly-api.ravinayar72.workers.dev",
-  RAZORPAY_KEY_ID: ""
 };
 (function(){
   const $ = (s) => document.querySelector(s);
