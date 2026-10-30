@@ -397,6 +397,19 @@ footer{background:#050506!important}
 @media(max-width:650px){.hero.gf-premium-hero{min-height:unset;padding:70px 0 90px}.hero-content{min-height:unset!important}.hero h1{font-size:clamp(40px,11vw,56px)!important}.hero-points{gap:12px!important;flex-direction:column}.gf-readiness-section{padding:64px 0!important}.gf-studio-grid{grid-template-columns:1fr!important}.gf-studio-wide{grid-column:auto!important}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 </style>
+<style>
+/* Readiness Studio layout and initial-state correction */
+#visa-readiness{scroll-margin-top:88px;padding-top:56px!important;padding-bottom:72px!important}
+#visa-readiness .gf-readiness-layout{align-items:start!important;grid-template-columns:minmax(0,.88fr) minmax(0,1.12fr)!important;gap:clamp(28px,5vw,64px)!important}
+#visa-readiness .gf-readiness-intro{align-self:center;max-width:520px}
+#visa-readiness .gf-readiness-intro h2{max-width:500px;font-size:clamp(34px,4vw,49px)!important;line-height:1.12!important}
+#visa-readiness .gf-studio-card{align-self:start;min-width:0}
+#visa-readiness .gf-studio-result[hidden]{display:none!important}
+#visa-readiness .gf-studio-result:not([hidden]){display:block}
+#visa-readiness .gf-studio-status{min-height:18px}
+@media(max-width:900px){#visa-readiness .gf-readiness-layout{grid-template-columns:1fr!important}#visa-readiness .gf-readiness-intro{align-self:auto}}
+@media(max-width:650px){#visa-readiness{scroll-margin-top:72px;padding-top:42px!important}#visa-readiness .gf-readiness-layout{gap:28px!important}#visa-readiness .gf-readiness-intro h2{font-size:clamp(34px,9vw,44px)!important}}
+</style>
 </head><body>
 <header><div class="w"><a href="#top" class="logo" aria-label="Gonfly"></a>
 <nav><a href="#top">Home</a><a href="#flights">Flights</a><a href="#visa">Visa</a><a href="#visa-readiness">Readiness Studio</a><a href="visa-assessment.html">Visa Checklist</a><a href="#hotels">Hotels</a><a href="#holidays">Holidays</a><a href="#insurance">Insurance</a><a href="#help">Help &amp; Support</a></nav>
@@ -700,6 +713,8 @@ window.GONFLY_CONFIG = window.GONFLY_CONFIG || {
 (function(){
  const form=document.getElementById('gf-readiness-form');if(!form)return;
  const $=id=>document.getElementById(id),select=$('gf-r-destination'),status=$('gf-r-status'),result=$('gf-r-result');
+ // Always start with a clean, unsubmitted profile; never show a sample checklist as if it were generated.
+ result.hidden=true;result.innerHTML='';select.selectedIndex=0;
  const endpoint='https://jhyykuecimynewkhvkzi.supabase.co/rest/v1/visa_missions';
  const key='sb_publishable_S19JBZII2pLGUXVBPRxVhg_YQzqvbVM';let approved=[];
  const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -718,7 +733,7 @@ window.GONFLY_CONFIG = window.GONFLY_CONFIG || {
    approved=Array.isArray(rows)?rows.filter(m=>m&&m.status==='approved'&&m.country&&m.slug):[];
    select.innerHTML='<option value="">Choose a destination</option>'+approved.map(m=>'<option value="'+esc(m.slug)+'">'+esc(m.country)+'</option>').join('');
    if(!approved.length){select.disabled=true;status.textContent='No approved visa missions are currently available. Please contact GoNfly for confirmation.';}
-   else status.textContent='Ready when you are. Your checklist will use the approved mission record shown in GoNfly.';
+   else {select.value='';select.disabled=false;status.textContent='Choose a destination to begin. Your checklist will use GoNfly’s approved mission information.';}
   }catch(error){select.innerHTML='<option value="">Destinations temporarily unavailable</option>';select.disabled=true;status.textContent='We could not load approved mission records. Please try again later or contact GoNfly.';}
  }
  form.addEventListener('submit',event=>{
