@@ -252,6 +252,87 @@ footer{background:#000!important;border-top:1px solid #e11d2e55!important}
 .photo-fallback-art{background:linear-gradient(135deg,#080808,#241016 62%,#5b0b18)!important}
 @media(max-width:600px){.hero-backdrop{background-image:linear-gradient(90deg,rgba(0,0,0,.97),rgba(0,0,0,.72)),url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&q=82')!important}}
 </style>
+<style>
+/* GoNfly Hybrid Cinematic + interactive globe + Visa Readiness Studio */
+:root{--gf-navy:#050d17;--gf-ink:#f4f1e9;--gf-paper:#0a111b;--gf-muted:#aeb8c6;--gf-gold:#d9ad55;--gf-gold-light:#f1d58f;--gf-line:rgba(217,173,85,.22);color-scheme:dark}
+body{background:#080e17;color:#f4f1e9}
+header{background:rgba(4,10,17,.92)!important;border-bottom:1px solid rgba(217,173,85,.22)}
+.hero.gf-premium-hero{min-height:620px;padding:62px 0 100px;background:#071321}
+.hero-backdrop{background:linear-gradient(90deg,rgba(3,9,16,.97) 0%,rgba(4,13,23,.88) 42%,rgba(5,15,26,.28) 100%),linear-gradient(0deg,#080e17 0%,transparent 42%),url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=2000&q=88') center/cover no-repeat;animation:gf-hero-drift 28s ease-in-out infinite alternate}
+.hero-content{position:relative;min-height:440px}
+.hero-copy{position:relative;z-index:2;max-width:620px}
+.hero h1{font-size:clamp(44px,5.4vw,72px)}
+.hero h1 span{color:#f1d58f}
+.hero-side-note{display:none}
+.gf-globe-stage{position:relative;flex:0 0 min(42%,470px);height:440px;display:grid;place-items:center;margin-right:12px;isolation:isolate}
+.gf-globe-halo{position:absolute;width:88%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(52,107,151,.22),rgba(217,173,85,.04) 52%,transparent 70%);filter:blur(10px);animation:gf-halo-pulse 5s ease-in-out infinite}
+.gf-globe{position:relative;width:min(100%,410px);aspect-ratio:1;filter:drop-shadow(0 25px 50px rgba(0,0,0,.42));animation:gf-globe-float 7s ease-in-out infinite}
+.gf-globe svg{width:100%;height:100%;overflow:visible}
+.gf-globe-routes{stroke-dasharray:8 8;animation:gf-route-flow 8s linear infinite}
+.gf-orbit{position:absolute;width:104%;height:34%;border:1px solid rgba(217,173,85,.3);border-radius:50%;transform:rotate(-23deg);pointer-events:none}
+.gf-orbit-one{animation:gf-orbit-spin 18s linear infinite}
+.gf-orbit-two{width:92%;height:50%;transform:rotate(62deg);border-color:rgba(237,53,69,.24);animation:gf-orbit-spin 25s linear infinite reverse}
+.gf-globe-caption{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);white-space:nowrap;font-size:9px;letter-spacing:.17em;color:#dce5ed;background:rgba(5,14,24,.75);border:1px solid rgba(217,173,85,.24);border-radius:99px;padding:10px 14px;backdrop-filter:blur(10px)}
+.gf-live-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#ef4554;margin-right:8px;box-shadow:0 0 12px #ef4554}
+.gf-finder-wrap{margin-top:-55px}
+.gf-finder{background:#101b29!important;color:#f4f1e9!important;border-color:rgba(217,173,85,.24)!important;box-shadow:0 24px 70px #0007!important}
+.finder-heading p,.finder-footnote{color:#aeb8c6!important}
+.finder-fields label{color:#e7eaf0!important}
+.finder-fields select,.finder-fields input{background:#08111d!important;color:#fff!important;border-color:#354354!important}
+.gf-readiness-section{position:relative;padding:92px 0 100px;background:radial-gradient(ellipse at 5% 35%,rgba(28,65,94,.34),transparent 45%),linear-gradient(180deg,#080e17,#0b1420 55%,#080e17);overflow:hidden}
+.gf-readiness-layout{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(28px,6vw,76px);align-items:center}
+.gf-readiness-intro h2{font:600 clamp(34px,4.5vw,54px)/1.08 Georgia,serif;letter-spacing:-.035em;margin:0 0 20px}
+.gf-readiness-intro h2 span{color:#f1d58f}
+.gf-readiness-intro>p:not(.eyebrow){color:#b7c2d0;line-height:1.8;font-size:15px;max-width:490px}
+.gf-readiness-points{display:grid;gap:13px;margin:27px 0;color:#e7eaf0;font-size:13px}
+.gf-readiness-points span:before{content:"✦";color:#e2b95f;margin-right:10px}
+.gf-readiness-intro .gf-readiness-disclaimer{font-size:11px;line-height:1.65;color:#8794a5;border-left:2px solid #d9ad55;padding-left:13px;margin-top:28px}
+.gf-studio-card{background:linear-gradient(145deg,rgba(24,39,56,.97),rgba(10,19,30,.98));border:1px solid rgba(217,173,85,.32);border-radius:24px;padding:clamp(20px,3vw,32px);box-shadow:0 30px 90px #0005;position:relative;overflow:hidden}
+.gf-studio-card:before{content:"";position:absolute;inset:0 0 auto;height:2px;background:linear-gradient(90deg,transparent,#d9ad55,#ed3545,transparent)}
+.gf-studio-top{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:24px}
+.gf-studio-step,.gf-studio-secure{font-size:9px;letter-spacing:.16em;font-weight:800;color:#e8d5a9}
+.gf-studio-step i{display:inline-block;width:7px;height:7px;border-radius:50%;background:#ed3545;margin-right:8px;box-shadow:0 0 12px #ed3545}
+.gf-studio-secure{color:#8f9cac}
+.gf-studio-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.gf-studio-grid label{display:flex;flex-direction:column;gap:7px;color:#e7eaf0;font-size:12px;font-weight:700}
+.gf-studio-grid label span{font-weight:400;color:#8f9cac}
+.gf-studio-grid input,.gf-studio-grid select{width:100%;min-height:47px;background:#08111d;border:1px solid #354354;border-radius:10px;color:#fff;padding:11px 12px;font:500 14px system-ui}
+.gf-studio-wide{grid-column:1/-1}
+.gf-studio-submit{width:100%;margin-top:20px;min-height:49px;display:flex;align-items:center;justify-content:center;gap:12px}
+.gf-studio-status{font-size:11px;color:#9caaba;margin-top:13px;line-height:1.6}
+.gf-studio-result{margin-top:22px;border-top:1px solid rgba(217,173,85,.24);padding-top:20px;animation:gf-result-in .45s ease both}
+.gf-studio-result h3{font:600 24px Georgia,serif;margin:6px 0 8px;color:#f1d58f}
+.gf-studio-result p{font-size:12px;line-height:1.7;color:#b8c3d0}
+.gf-result-meta{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 16px}
+.gf-result-meta span{font-size:10px;padding:6px 9px;border:1px solid #354354;border-radius:99px;color:#c6d0dc}
+.gf-checklist{list-style:none;padding:0;margin:14px 0 18px;display:grid;gap:9px}
+.gf-checklist li{font-size:13px;color:#e8edf3;display:flex;gap:10px;align-items:flex-start}
+.gf-checklist li:before{content:"✓";color:#e6bd69;font-weight:900}
+.gf-result-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:17px}
+.gf-result-actions a{font-size:12px;font-weight:800;border-radius:99px;padding:11px 16px;background:#d9ad55;color:#101a27}
+.gf-result-actions a.secondary{background:transparent;color:#f1d58f;border:1px solid rgba(217,173,85,.5)}
+.gf-destinations,.gf-destinations .c,.gf-destinations .section-heading{color:#f4f1e9}
+.gf-destinations{background:#080e17}
+.gf-destinations .sub{color:#aeb8c6}
+.gf-destinations .c{background:#101b29;border-color:#28384a;box-shadow:0 12px 30px #0003}
+.gf-destinations .c p{color:#aeb8c6}
+section.alt{background:#0c1521}
+#flights,#hotels,#holidays,#insurance{background:#0c1521;color:#f4f1e9}
+#flights .c,#hotels .c,#holidays .c,#insurance .c,.alt .c{background:#101b29;color:#f4f1e9;border-color:#28384a}
+#flights .sub,#hotels .sub,#holidays .sub,#insurance .sub,.alt .sub{color:#aeb8c6}
+.cta{background:radial-gradient(ellipse at center,#18324a,#050a11);border-top:1px solid rgba(217,173,85,.22)}
+footer{background:#03070c;border-top:1px solid rgba(217,173,85,.22)}
+.wa-contact{background:#101b29;border-color:#28384a}.wa-contact h2{color:#f4f1e9}.wa-contact p{color:#b7c2d0}
+@keyframes gf-globe-float{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-12px) rotate(2deg)}}
+@keyframes gf-halo-pulse{0%,100%{opacity:.6;transform:scale(.94)}50%{opacity:1;transform:scale(1.06)}}
+@keyframes gf-route-flow{to{stroke-dashoffset:-128}}
+@keyframes gf-orbit-spin{to{transform:rotate(337deg)}}
+@keyframes gf-hero-drift{from{background-position:50% 48%}to{background-position:54% 52%}}
+@keyframes gf-result-in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:900px){.hero-content{gap:0}.gf-globe-stage{flex-basis:38%;height:350px}.gf-readiness-layout{grid-template-columns:1fr}.gf-readiness-intro{max-width:720px}}
+@media(max-width:650px){.hero.gf-premium-hero{padding:42px 0 82px;min-height:unset}.hero-content{flex-direction:column;align-items:flex-start;min-height:unset}.hero-copy{max-width:100%}.gf-globe-stage{width:100%;height:300px;flex-basis:auto;margin:12px 0 0}.gf-globe{width:280px}.gf-globe-caption{bottom:0}.gf-finder-wrap{margin-top:-35px}.gf-readiness-section{padding:64px 0}.gf-studio-grid{grid-template-columns:1fr}.gf-studio-wide{grid-column:auto}.gf-studio-top{align-items:flex-start;flex-direction:column}.section-heading{align-items:flex-start;flex-direction:column}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+</style>
 </head><body>
 <header><div class="w"><a href="#top" class="logo" aria-label="Gonfly"></a>
 <nav><a href="#top">Home</a><a href="#flights">Flights</a><a href="#visa">Visa</a><a href="visa-assessment.html">Visa Checklist</a><a href="#hotels">Hotels</a><a href="#holidays">Holidays</a><a href="#insurance">Insurance</a><a href="#help">Help &amp; Support</a></nav>
@@ -263,7 +344,11 @@ footer{background:#000!important;border-top:1px solid #e11d2e55!important}
 <p class="hero-lede">Explore the world with clear guidance, thoughtful support and a simpler visa application journey.</p>
 <div class="btns"><a class="btn gf-gold-btn" href="#visa">Explore visa services <span aria-hidden="true">→</span></a><a class="btn o" href="enquiry.html?service=Visa%20assistance">Talk to our team</a></div>
 <div class="hero-points"><span><b>01</b> Destination guidance</span><span><b>02</b> Document support</span><span><b>03</b> Enquiry assistance</span></div></div>
-<div class="hero-side-note"><span class="note-kicker">PLAN WITH CONFIDENCE</span><strong>More places.<br>More possibilities.</strong><span>Start with your destination.</span></div>
+<div class="hero-side-note"><span class="note-kicker">PLAN WITH CONFIDENCE</span><strong>More places.<br>More possibilities.</strong><span>Start with your destination.</span></div><div class="gf-globe-stage" aria-label="Animated globe with connected travel routes">
+  <div class="gf-globe-halo"></div><div class="gf-globe">
+    <svg viewBox="0 0 420 420" role="img" aria-label="Stylised globe"><defs><clipPath id="gf-globe-clip"><circle cx="210" cy="210" r="174"/></clipPath><radialGradient id="gf-globe-fill" cx="35%" cy="28%"><stop offset="0" stop-color="#456b91"/><stop offset=".58" stop-color="#173451"/><stop offset="1" stop-color="#071827"/></radialGradient></defs><circle cx="210" cy="210" r="174" fill="url(#gf-globe-fill)" stroke="#d9ad55" stroke-opacity=".65" stroke-width="1.5"/><g clip-path="url(#gf-globe-clip)" fill="none" stroke="#d9e9f5" stroke-opacity=".3"><ellipse cx="210" cy="210" rx="174" ry="62"/><ellipse cx="210" cy="210" rx="174" ry="118"/><ellipse cx="210" cy="210" rx="70" ry="174"/><ellipse cx="210" cy="210" rx="130" ry="174"/><path d="M36 210h348M210 36v348"/></g><g clip-path="url(#gf-globe-clip)" fill="#89a9bc" fill-opacity=".38" stroke="#c4d9e6" stroke-opacity=".22"><path d="M102 92l35-22 38 8 20 28-18 21-5 32-28 12-18 34-26-9-15-34-24-12 7-29zM225 84l38-17 42 16 13 30-23 20-7 33-25 7-14 30-26-8-11-32-26-22 14-32zM241 224l37 9 24 31-12 38-29 33-25-17-14-44zM108 245l27-10 24 23-7 42-26 25-22-32z"/></g><g class="gf-globe-routes" fill="none" stroke="#ed3545" stroke-width="2.5"><path d="M112 170Q205 45 300 150"/><path d="M112 170Q180 300 280 260"/><path d="M300 150Q330 205 280 260"/></g><g fill="#ff5865" stroke="#fff" stroke-width="2"><circle cx="112" cy="170" r="6"/><circle cx="300" cy="150" r="6"/><circle cx="280" cy="260" r="6"/></g></svg>
+  </div><span class="gf-orbit gf-orbit-one"></span><span class="gf-orbit gf-orbit-two"></span><div class="gf-globe-caption"><span class="gf-live-dot"></span> YOUR NEXT DESTINATION IS CLOSER</div>
+</div>
 </div></div>
 <section class="gf-finder-wrap" id="visa-finder"><div class="w"><form class="gf-finder" id="gf-visa-finder">
 <div class="finder-heading"><span class="eyebrow">VISA FINDER</span><h2>Find the right visa for your trip</h2><p>Choose a destination and tell us a little about your plans.</p></div>
@@ -274,6 +359,18 @@ footer{background:#000!important;border-top:1px solid #e11d2e55!important}
 <p class="finder-footnote" id="gf-finder-note">Options are shown from GoNfly’s currently approved mission listings. Final eligibility and requirements must be confirmed.</p>
 </form></div></section>
 
+<section class="gf-readiness-section" id="visa-readiness"><div class="w gf-readiness-layout">
+ <div class="gf-readiness-intro"><p class="eyebrow">GO NFLY VISA READINESS STUDIO</p><h2>Know what to prepare.<br><span>Travel with clarity.</span></h2><p>Build a starting checklist from GoNfly’s currently approved visa missions. Tell us about your trip and we’ll show the published documents and the next step.</p><div class="gf-readiness-points"><span>01&nbsp; Destination-based checklist</span><span>02&nbsp; Clear preparation steps</span><span>03&nbsp; Personalised enquiry hand-off</span></div><p class="gf-readiness-disclaimer">Preparation guidance only — not an eligibility score, approval prediction or guarantee. Always confirm current requirements with the relevant embassy or immigration authority.</p></div>
+ <div class="gf-studio-card"><div class="gf-studio-top"><span class="gf-studio-step"><i></i> YOUR TRIP PROFILE</span><span class="gf-studio-secure">PRIVATE ENQUIRY</span></div>
+ <form id="gf-readiness-form"><div class="gf-studio-grid">
+ <label>Passport nationality<select id="gf-r-nationality" required><option value="Indian">Indian</option><option value="Other">Other</option></select></label>
+ <label>Country of residence<input id="gf-r-residence" value="India" maxlength="80" required></label>
+ <label>Destination<select id="gf-r-destination" required><option value="">Loading approved destinations…</option></select></label>
+ <label>Purpose of travel<select id="gf-r-purpose"><option>Tourism</option><option>Business</option><option>Family visit</option><option>Other</option></select></label>
+ <label class="gf-studio-wide">Expected travel date <span>(optional)</span><input id="gf-r-date" type="date"></label>
+ </div><button class="btn gf-gold-btn gf-studio-submit" type="submit">Build my preparation checklist <span>↗</span></button><p id="gf-r-status" class="gf-studio-status" role="status" aria-live="polite">Choose a destination to begin. Only approved mission listings are available here.</p></form>
+ <div id="gf-r-result" class="gf-studio-result" hidden aria-live="polite"></div></div>
+ </div></section>
 <section id="visa" class="gf-destinations"><div class="w"><div class="section-heading"><div><p class="eyebrow">START EXPLORING</p><h2>Popular visa destinations</h2><p class="sub">Explore currently approved GoNfly visa services. Draft missions are not displayed here.</p></div><a class="gf-text-link" href="#visa-finder">Find your visa <span aria-hidden="true">→</span></a></div><div class="grid" id="g-visa"></div></div></section>
 <section class="alt" id="flights"><div class="w"><h2>Flights</h2><p class="sub">Domestic and international flights at great fares.</p><div class="grid" id="g-flights"></div></div></section>
 <section id="hotels"><div class="w"><h2>Hotels</h2><p class="sub">Comfortable stays for every budget.</p><div class="grid" id="g-hotels"></div></div></section>
@@ -569,4 +666,42 @@ window.GONFLY_CONFIG = window.GONFLY_CONFIG || {
 })();
 </script>
 
+<script>
+/* Visa Readiness Studio: source data is limited to approved GoNfly mission records. */
+(function(){
+ const form=document.getElementById('gf-readiness-form');if(!form)return;
+ const $=id=>document.getElementById(id),select=$('gf-r-destination'),status=$('gf-r-status'),result=$('gf-r-result');
+ const endpoint='https://jhyykuecimynewkhvkzi.supabase.co/rest/v1/visa_missions';
+ const key='sb_publishable_S19JBZII2pLGUXVBPRxVhg_YQzqvbVM';let approved=[];
+ const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ function docsFor(value){
+  if(Array.isArray(value))return value.map(v=>typeof v==='string'?v:(v&&typeof v==='object'?(v.name||v.title||v.document||''):String(v))).filter(Boolean);
+  if(typeof value==='string'){try{const parsed=JSON.parse(value);if(Array.isArray(parsed))return docsFor(parsed);}catch(_){}return value.split(/\r?\n|\s*;\s*/).map(v=>v.trim()).filter(Boolean);}
+  if(value&&typeof value==='object')return Object.entries(value).map(([k,v])=>typeof v==='string'?v:k+': '+String(v)).filter(Boolean);
+  return [];
+ }
+ async function load(){
+  try{
+   const q=new URLSearchParams({select:'country,slug,visa_type,documents,description,status',status:'eq.approved',order:'country.asc'});
+   const response=await fetch(endpoint+'?'+q,{headers:{apikey:key,Authorization:'Bearer '+key}});
+   if(!response.ok)throw Error('HTTP '+response.status);
+   const rows=await response.json();
+   approved=Array.isArray(rows)?rows.filter(m=>m&&m.status==='approved'&&m.country&&m.slug):[];
+   select.innerHTML='<option value="">Choose a destination</option>'+approved.map(m=>'<option value="'+esc(m.slug)+'">'+esc(m.country)+'</option>').join('');
+   if(!approved.length){select.disabled=true;status.textContent='No approved visa missions are currently available. Please contact GoNfly for confirmation.';}
+   else status.textContent='Ready when you are. Your checklist will use the approved mission record shown in GoNfly.';
+  }catch(error){select.innerHTML='<option value="">Destinations temporarily unavailable</option>';select.disabled=true;status.textContent='We could not load approved mission records. Please try again later or contact GoNfly.';}
+ }
+ form.addEventListener('submit',event=>{
+  event.preventDefault();const mission=approved.find(m=>m.slug===select.value);if(!mission){status.textContent='Please choose an available destination.';return;}
+  const docs=docsFor(mission.documents),nationality=$('gf-r-nationality').value,residence=$('gf-r-residence').value.trim(),purpose=$('gf-r-purpose').value,date=$('gf-r-date').value;
+  const params=new URLSearchParams({destination:mission.country,service:'Visa assistance',nationality,residence,purpose});
+  if(date)params.set('travel_date',date);
+  const checklist=docs.length?'<ul class="gf-checklist">'+docs.map(d=>'<li>'+esc(d)+'</li>').join('')+'</ul>':'<p>No document checklist has been published for this mission yet. Request confirmation from the GoNfly team before preparing documents.</p>';
+  result.innerHTML='<p class="eyebrow">YOUR PREPARATION SNAPSHOT</p><h3>'+esc(mission.country)+' · '+esc(mission.visa_type||'Visa assistance')+'</h3><p>'+esc(mission.description||'Start with the published mission information and ask GoNfly to confirm the requirements for your circumstances.')+'</p><div class="gf-result-meta"><span>'+esc(nationality)+' passport</span><span>'+esc(residence)+' residence</span><span>'+esc(purpose)+'</span>'+(date?'<span>Travel: '+esc(date)+'</span>':'')+'</div><h4>Published document checklist</h4>'+checklist+'<p>These details are a preparation starting point, not a personalised eligibility decision. Requirements can vary by applicant and may change. GoNfly will confirm the applicable checklist before you proceed.</p><div class="gf-result-actions"><a href="enquiry.html?'+params.toString()+'#booking-tools">Continue with GoNfly →</a><a class="secondary" href="visa-assessment.html">Open full checklist page</a></div>';
+  result.hidden=false;status.textContent='Your preparation snapshot is ready. Review it and ask GoNfly to confirm the latest requirements.';result.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'nearest'});
+ });
+ load();
+})();
+</script>
 </body></html>
