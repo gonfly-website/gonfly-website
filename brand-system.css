@@ -144,23 +144,24 @@
 @media(max-width:680px){.gf-inner-page .gf-site-header{padding:8px 14px!important}.gf-inner-page .gf-site-header-inner{min-height:58px;flex-wrap:wrap;gap:4px 12px}.gf-inner-page .gf-site-header .logo{flex:0 0 112px!important;width:112px!important;height:52px!important}.gf-inner-page .gf-site-header nav{order:3;width:100%;justify-content:flex-start;overflow-x:auto;padding:2px 0 8px;gap:18px!important}.gf-inner-page .gf-site-header nav a{font-size:12px;min-height:32px}.gf-inner-page .gf-site-header .gf-site-contact{min-height:40px;padding:8px 15px;font-size:12px}}
 
 
-/* Consistent, larger GoNfly logo across every inner page header */
+/* Refined GoNfly logo sizing — balanced header proportions across inner pages */
 .gf-inner-page .gf-site-header .logo,
 .gf-inner-page header.gf-site-header .logo,
 .gf-inner-page .top .logo{
- display:block!important;flex:0 0 176px!important;width:176px!important;height:82px!important;
+ display:block!important;flex:0 0 132px!important;width:132px!important;height:60px!important;
  min-width:0!important;margin:0!important;padding:0!important;--s:initial!important;
  background:url('/gonfly-logo.svg') center/contain no-repeat!important;filter:none!important;
 }
-.gf-inner-page .gf-site-header-inner{min-height:88px!important}
-.gf-inner-page .gf-site-header{min-height:88px!important}
+.gf-inner-page .gf-site-header-inner{min-height:72px!important}
+.gf-inner-page .gf-site-header{min-height:72px!important}
 @media(max-width:900px){
- .gf-inner-page .gf-site-header .logo,.gf-inner-page header.gf-site-header .logo,.gf-inner-page .top .logo{flex-basis:148px!important;width:148px!important;height:69px!important}
- .gf-inner-page .gf-site-header-inner{min-height:78px!important}
+ .gf-inner-page .gf-site-header .logo,.gf-inner-page header.gf-site-header .logo,.gf-inner-page .top .logo{flex-basis:116px!important;width:116px!important;height:53px!important}
+ .gf-inner-page .gf-site-header-inner{min-height:64px!important}
 }
 @media(max-width:680px){
- .gf-inner-page .gf-site-header .logo,.gf-inner-page header.gf-site-header .logo,.gf-inner-page .top .logo{flex-basis:136px!important;width:136px!important;height:63px!important}
+ .gf-inner-page .gf-site-header .logo,.gf-inner-page header.gf-site-header .logo,.gf-inner-page .top .logo{flex-basis:108px!important;width:108px!important;height:50px!important}
+ .gf-inner-page .gf-site-header-inner{min-height:58px!important}
 }
 @media(max-width:420px){
- .gf-inner-page .gf-site-header .logo,.gf-inner-page header.gf-site-header .logo,.gf-inner-page .top .logo{flex-basis:122px!important;width:122px!important;height:57px!important}
+ .gf-inner-page .gf-site-header .logo,.gf-inner-page header.gf-site-header .logo,.gf-inner-page .top .logo{flex-basis:100px!important;width:100px!important;height:46px!important}
 }
