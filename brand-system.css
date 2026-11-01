@@ -166,15 +166,9 @@
  .gf-inner-page .gf-site-header .logo,.gf-inner-page header.gf-site-header .logo,.gf-inner-page .top .logo{flex-basis:100px!important;width:100px!important;height:46px!important}
 }
 
-/* Hard cap for inner-page GoNfly header logo; overrides legacy --s scaling. */
-html body.gf-inner-page header.gf-site-header .logo,
-html body.gf-inner-page .gf-site-header .logo,
-html body.gf-inner-page .top a.logo{
- box-sizing:border-box!important;flex:0 0 128px!important;width:128px!important;min-width:128px!important;max-width:128px!important;
- height:56px!important;min-height:56px!important;max-height:56px!important;
- background-image:url('/gonfly-logo.svg')!important;background-repeat:no-repeat!important;background-position:center!important;background-size:128px 56px!important;
- --s:.092!important;overflow:hidden!important;
-}
-@media(max-width:900px){html body.gf-inner-page header.gf-site-header .logo,html body.gf-inner-page .gf-site-header .logo,html body.gf-inner-page .top a.logo{flex-basis:116px!important;width:116px!important;min-width:116px!important;max-width:116px!important;height:52px!important;min-height:52px!important;max-height:52px!important;background-size:116px 52px!important}}
-@media(max-width:680px){html body.gf-inner-page header.gf-site-header .logo,html body.gf-inner-page .gf-site-header .logo,html body.gf-inner-page .top a.logo{flex-basis:108px!important;width:108px!important;min-width:108px!important;max-width:108px!important;height:48px!important;min-height:48px!important;max-height:48px!important;background-size:108px 48px!important}}
-@media(max-width:420px){html body.gf-inner-page header.gf-site-header .logo,html body.gf-inner-page .gf-site-header .logo,html body.gf-inner-page .top a.logo{flex-basis:98px!important;width:98px!important;min-width:98px!important;max-width:98px!important;height:44px!important;min-height:44px!important;max-height:44px!important;background-size:98px 44px!important}}
+/* Compact header branding to match homepage */
+html body.gf-inner-page header.gf-site-header .logo,html body.gf-inner-page .gf-site-header .logo,html body.gf-inner-page .top a.logo{box-sizing:border-box!important;display:block!important;flex:0 0 100px!important;width:100px!important;min-width:100px!important;max-width:100px!important;height:44px!important;min-height:44px!important;max-height:44px!important;background:url('/gonfly-logo.svg') center/100px 44px no-repeat!important;--s:initial!important;overflow:hidden!important}
+html body.gf-inner-page header.gf-site-header,html body.gf-inner-page .gf-site-header-inner{min-height:72px!important}
+@media(max-width:900px){html body.gf-inner-page header.gf-site-header .logo,html body.gf-inner-page .gf-site-header .logo,html body.gf-inner-page .top a.logo{flex-basis:94px!important;width:94px!important;min-width:94px!important;max-width:94px!important;height:42px!important;min-height:42px!important;max-height:42px!important;background-size:94px 42px!important}}
+@media(max-width:680px){html body.gf-inner-page header.gf-site-header .logo,html body.gf-inner-page .gf-site-header .logo,html body.gf-inner-page .top a.logo{flex-basis:88px!important;width:88px!important;min-width:88px!important;max-width:88px!important;height:39px!important;min-height:39px!important;max-height:39px!important;background-size:88px 39px!important}}
+@media(max-width:420px){html body.gf-inner-page header.gf-site-header .logo,html body.gf-inner-page .gf-site-header .logo,html body.gf-inner-page .top a.logo{flex-basis:82px!important;width:82px!important;min-width:82px!important;max-width:82px!important;height:36px!important;min-height:36px!important;max-height:36px!important;background-size:82px 36px!important}}
