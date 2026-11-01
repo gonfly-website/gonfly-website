@@ -8,7 +8,7 @@
 <title>Enquire or Track a Request | GoNfly</title>
 <link rel="canonical" href="https://gonflytravel.com/enquiry.html">
 <meta name="robots" content="noindex,follow">
-<meta name="theme-color" content="#0b0b10">
+<meta name="theme-color" content="#07172d">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Gonfly">
 <meta property="og:title" content="Enquire or Track a Request | GoNfly">
@@ -153,6 +153,63 @@ header nav a:hover, header nav a:focus{color:#ff4b5c !important}
 .gf-doc-chips{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 14px}.gf-doc-chip{font-size:11px;line-height:1.3;padding:6px 9px;border-radius:999px;background:rgba(128,128,140,.12);color:var(--tx);border:1px solid rgba(128,128,140,.12)}.gf-price-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px}.gf-price{font-size:22px;color:var(--tx);font-weight:800}.gf-apply-link{display:inline-flex!important;align-items:center;justify-content:center;padding:10px 17px;border-radius:999px;background:#3978e5;color:white!important;text-decoration:none;font-weight:700;white-space:nowrap}.gf-apply-link:hover{filter:brightness(1.05)}#g-visa .c{display:flex;flex-direction:column}#g-visa .c .gf-price-row{margin-top:auto;padding-top:8px}
 </style>
 <link rel="stylesheet" href="/brand-system.css">
+
+<style id="gf-enquiry-header-final">
+/* Final header override: keep Enquiry / Book / Track identical to the approved navy + ivory + champagne homepage. */
+html body.form-page header.gf-site-header,
+html body.form-page header.gf-site-header .w,
+html body.form-page header.gf-site-header nav{
+  background:#07172d!important;
+  background-color:#07172d!important;
+}
+html body.form-page header.gf-site-header{
+  position:sticky!important;top:0!important;z-index:1000!important;
+  width:100%!important;min-height:76px!important;height:auto!important;
+  padding:0 24px!important;border:0!important;
+  border-bottom:1px solid rgba(217,173,85,.32)!important;
+  box-shadow:0 8px 26px rgba(7,23,45,.12)!important;
+  backdrop-filter:blur(14px);
+}
+html body.form-page header.gf-site-header .w{
+  width:min(1360px,100%)!important;max-width:1360px!important;
+  min-height:76px!important;height:76px!important;margin:0 auto!important;padding:0 12px!important;
+  display:flex!important;align-items:center!important;justify-content:space-between!important;gap:24px!important;
+}
+html body.form-page header.gf-site-header .logo{
+  display:block!important;flex:0 0 151px!important;width:151px!important;height:70px!important;
+  margin:0!important;padding:0!important;--s:initial!important;
+  background:url('/gonfly-logo.svg') center/contain no-repeat!important;
+  filter:none!important;
+}
+html body.form-page header.gf-site-header nav{
+  display:flex!important;flex:1 1 auto!important;align-items:center!important;justify-content:center!important;
+  gap:clamp(12px,1.8vw,26px)!important;min-width:0!important;
+  padding:0!important;margin:0!important;border:0!important;
+  color:#f3f5f8!important;font-size:14px!important;font-weight:650!important;white-space:nowrap!important;
+}
+html body.form-page header.gf-site-header nav a{
+  display:inline-flex!important;align-items:center!important;min-height:44px!important;
+  padding:0!important;color:#f3f5f8!important;text-decoration:none!important;background:transparent!important;
+}
+html body.form-page header.gf-site-header nav a:hover,
+html body.form-page header.gf-site-header nav a:focus-visible{color:#f0d89b!important}
+html body.form-page header.gf-site-header .gf-site-contact{
+  display:inline-flex!important;align-items:center!important;justify-content:center!important;flex:0 0 auto!important;
+  min-height:48px!important;padding:10px 24px!important;border:1px solid #d9ad55!important;
+  border-radius:999px!important;color:#f0d89b!important;background:transparent!important;
+  text-decoration:none!important;font-size:14px!important;font-weight:750!important;white-space:nowrap!important;
+}
+html body.form-page header.gf-site-header .gf-site-contact:hover{background:#d9ad55!important;color:#10213b!important}
+@media(max-width:860px){
+ html body.form-page header.gf-site-header{padding:8px 14px!important}
+ html body.form-page header.gf-site-header .w{height:auto!important;min-height:58px!important;flex-wrap:wrap!important;gap:4px 12px!important;padding:0!important}
+ html body.form-page header.gf-site-header .logo{flex:0 0 112px!important;width:112px!important;height:52px!important}
+ html body.form-page header.gf-site-header nav{display:flex!important;order:3!important;width:100%!important;flex:1 0 100%!important;justify-content:flex-start!important;overflow-x:auto!important;gap:18px!important;padding:2px 0 8px!important}
+ html body.form-page header.gf-site-header nav a{font-size:12px!important;min-height:32px!important}
+ html body.form-page header.gf-site-header .gf-site-contact{min-height:40px!important;padding:8px 15px!important;font-size:12px!important}
+}
+</style>
+
 </head><body class="form-page gf-inner-page">
 <header class="gf-site-header"><div class="w"><a href="/#top" class="logo" aria-label="GoNfly home"></a><nav aria-label="Main navigation"><a href="/#top">Home</a><a href="/#flights">Flights</a><a href="/#visa">Visa</a><a href="/#hotels">Hotels</a><a href="/#holidays">Holidays</a><a href="/#insurance">Insurance</a><a href="/#help">Help &amp; Support</a></nav><a class="gf-site-contact" href="/enquiry.html#help">Contact us</a></div></header>
 
