@@ -30,7 +30,7 @@
 .gf-inner-page .btn,.gf-inner-page button.btn,.gf-inner-page .gf-submit{
  display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:11px 20px!important;
  border-radius:999px!important;border:1px solid var(--gf-navy)!important;background:var(--gf-navy)!important;
- color:#fff!important;font:700 14px/1.2 inherit!important;text-decoration:none!important;cursor:pointer;box-shadow:none!important;
+ color:#fff!important;font-family:inherit!important;font-size:14px!important;font-weight:700!important;line-height:1.2!important;text-decoration:none!important;cursor:pointer;box-shadow:none!important;
 }
 .gf-inner-page .btn:hover,.gf-inner-page button.btn:hover,.gf-inner-page .gf-submit:hover{background:var(--gf-gold)!important;color:var(--gf-navy)!important;border-color:var(--gf-gold)!important;transform:translateY(-1px)}
 .gf-inner-page .btn.secondary,.gf-inner-page .btn.o{background:#fff!important;color:var(--gf-navy)!important;border-color:#cbd2dc!important}
@@ -45,6 +45,10 @@
 .gf-inner-page .field,.gf-inner-page .gf-field{min-width:0;margin:0 0 16px}
 .gf-inner-page .grid,.gf-inner-page .gf-form-grid{gap:16px!important}
 .gf-inner-page .hidden{display:none!important}
+.gf-inner-page .pill{display:inline-flex;align-items:center;gap:6px;padding:5px 10px!important;border-radius:999px!important;background:#f4efe5!important;color:#765a2f!important;font-size:11px!important;font-weight:750!important}
+.gf-inner-page .steps span{background:#f5f0e7!important;border:1px solid #e8dcc5!important;border-radius:9px!important;color:#594a33!important}
+.gf-inner-page .quote-line{border-color:var(--gf-border)!important;color:var(--gf-ink)!important}
+.gf-inner-page .status{font-size:13px!important}
 .gf-inner-page footer,.gf-inner-page .footer{background:#061326!important;color:#c3ccd7!important;border-top:1px solid rgba(197,164,109,.3)!important;padding:24px 20px!important}
 .gf-inner-page footer a,.gf-inner-page .footer a{color:var(--gf-gold-light)!important}
 .gf-inner-page .hero{background:linear-gradient(120deg,#07172d,#153454)!important;color:#fff!important;border-radius:0!important}
