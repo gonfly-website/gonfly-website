@@ -102,3 +102,11 @@
  .gf-inner-page .btn,.gf-inner-page button.btn{min-height:44px}
 }
 @media(prefers-reduced-motion:reduce){.gf-inner-page *{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important}}
+
+
+/* Shared GoNfly identity on every inner-page header */
+.gf-inner-page .logo{display:block!important;flex:none!important;width:121px!important;height:56px!important;background:url('/gonfly-logo.svg') center/contain no-repeat!important;}
+.gf-inner-page .logo img{display:block;width:100%;height:100%;max-height:none!important;object-fit:contain}
+.gf-inner-page .brand img{display:block;width:121px;height:56px;max-width:42vw;object-fit:contain}
+.gf-inner-page .top .brand{display:flex;align-items:center;min-height:56px}
+.gf-inner-page header .brand img{display:block}
