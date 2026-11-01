@@ -7,8 +7,13 @@
   var loaded = false;
 
   function readChoice() {
-    try { return window.localStorage.getItem(STORAGE_KEY); }
-    catch (e) { return null; }
+    try {
+      var stored = window.localStorage.getItem(STORAGE_KEY);
+      if (stored === "accepted" || stored === "rejected") return stored;
+    } catch (e) {}
+    var match = document.cookie.match(new RegExp("(?:^|; )" + STORAGE_KEY + "=([^;]*)"));
+    var fallback = match ? decodeURIComponent(match[1]) : null;
+    return fallback === "accepted" || fallback === "rejected" ? fallback : null;
   }
 
   function loadAnalytics() {
@@ -27,9 +32,15 @@
 
   function saveChoice(choice) {
     try { window.localStorage.setItem(STORAGE_KEY, choice); } catch (e) {}
+    // Keep the choice across pages/reloads even when localStorage is unavailable.
+    try {
+      document.cookie = STORAGE_KEY + "=" + encodeURIComponent(choice) +
+        "; Max-Age=31536000; Path=/; SameSite=Lax" +
+        (window.location.protocol === "https:" ? "; Secure" : "");
+    } catch (e) {}
     closeBanner();
     if (choice === "accepted") loadAnalytics();
-    showSettingsButton();
+    updateSettingsButton(choice);
   }
 
   var style = document.createElement("style");
@@ -51,9 +62,11 @@
     var el = document.getElementById("gonfly-cookie-banner");
     if (el) el.hidden = true;
   }
-  function showSettingsButton() {
+  function updateSettingsButton(choice) {
     var el = document.getElementById("gonfly-cookie-settings");
-    if (el) el.hidden = false;
+    // Once analytics is accepted, remove the floating prompt from the page.
+    // Visitors who reject can still reopen preferences to change their choice.
+    if (el) el.hidden = choice !== "rejected";
   }
   function openBanner() {
     var el = document.getElementById("gonfly-cookie-banner");
@@ -81,7 +94,7 @@
     settings.type = "button";
     settings.textContent = "Cookie settings";
     settings.setAttribute("aria-label", "Open cookie and analytics settings");
-    settings.hidden = !choice;
+    settings.hidden = choice !== "rejected";
     settings.addEventListener("click", openBanner);
     document.body.appendChild(settings);
   }
