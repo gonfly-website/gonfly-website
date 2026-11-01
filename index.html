@@ -156,7 +156,7 @@ header .w{height:76px}
 nav{color:#e4e9f1;gap:clamp(12px,2vw,25px)}
 header .btn{background:transparent;border:1px solid var(--gf-gold);color:var(--gf-gold-light);border-radius:999px;padding:11px 19px}
 .hero.gf-premium-hero{isolation:isolate;min-height:510px;padding:70px 0 98px;background:var(--gf-navy);overflow:hidden}
-.hero-backdrop{position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(5,18,36,.98) 0%,rgba(5,18,36,.92) 38%,rgba(5,18,36,.42) 70%,rgba(5,18,36,.18) 100%),linear-gradient(0deg,rgba(5,18,36,.35),transparent 40%),url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=2000&q=88') center 48%/cover no-repeat}
+.hero-backdrop{position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(5,18,36,.98) 0%,rgba(5,18,36,.92) 38%,rgba(5,18,36,.42) 70%,rgba(5,18,36,.18) 100%),linear-gradient(0deg,rgba(5,18,36,.35),transparent 40%),url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1600&q=82') center 48%/cover no-repeat}
 .hero-content{display:flex;align-items:center;justify-content:space-between;gap:32px;min-height:320px}
 .hero-copy{max-width:700px}
 .eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:800;color:#bd8d34;margin:0 0 12px}
@@ -411,6 +411,13 @@ footer{background:#050506!important}
 #visa-readiness .gf-studio-status{min-height:18px}
 @media(max-width:900px){#visa-readiness .gf-readiness-layout{grid-template-columns:1fr!important}#visa-readiness .gf-readiness-intro{align-self:auto}}
 @media(max-width:650px){#visa-readiness{scroll-margin-top:72px;padding-top:42px!important}#visa-readiness .gf-readiness-layout{gap:28px!important}#visa-readiness .gf-readiness-intro h2{font-size:clamp(34px,9vw,44px)!important}}
+</style>
+<style>
+/* Compact homepage hero while preserving the approved visual composition */
+.hero.gf-premium-hero{min-height:410px!important;padding:44px 0 50px!important}
+.hero.gf-premium-hero .hero-content{min-height:280px!important}
+.hero.gf-premium-hero .hero-backdrop{background-size:cover!important}
+@media(max-width:760px){.hero.gf-premium-hero{min-height:360px!important;padding:42px 0 48px!important}.hero.gf-premium-hero .hero-content{min-height:260px!important}}
 </style>
 </head><body>
 <header><div class="w"><a href="#top" class="logo" aria-label="Gonfly"></a>
