@@ -110,3 +110,35 @@
 .gf-inner-page .brand img{display:block;width:121px;height:56px;max-width:42vw;object-fit:contain}
 .gf-inner-page .top .brand{display:flex;align-items:center;min-height:56px}
 .gf-inner-page header .brand img{display:block}
+
+
+/* Homepage-matched navigation for enquiry, booking, assessment and account pages */
+.gf-inner-page .gf-site-header{position:sticky!important;top:0!important;z-index:100!important;width:100%;min-height:78px!important;padding:0!important;background:#07172d!important;color:#fff!important;border-bottom:1px solid rgba(197,164,109,.34)!important;box-shadow:0 8px 26px rgba(7,23,45,.08)!important}
+.gf-inner-page .gf-site-header .w{width:min(1360px,calc(100% - 48px))!important;max-width:1360px!important;min-height:78px!important;margin:0 auto!important;padding:0!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:clamp(14px,2vw,30px)!important;flex-wrap:nowrap!important}
+.gf-inner-page .gf-site-header .logo{display:block!important;flex:0 0 121px!important;width:121px!important;height:57px!important;background:url('/gonfly-logo.svg') center/contain no-repeat!important}
+.gf-inner-page .gf-site-header nav{display:flex!important;align-items:center!important;justify-content:center!important;gap:clamp(13px,1.8vw,28px)!important;flex:1 1 auto!important;min-width:0!important;overflow:visible!important;white-space:nowrap!important;padding:0!important;color:#edf1f6!important;font-size:14px!important;font-weight:650!important}
+.gf-inner-page .gf-site-header nav a{color:#edf1f6!important;text-decoration:none!important;white-space:nowrap!important}
+.gf-inner-page .gf-site-header nav a:hover{color:#e3c995!important}
+.gf-inner-page .gf-site-header .gf-site-contact{display:inline-flex!important;align-items:center!important;justify-content:center!important;min-height:48px!important;padding:11px 24px!important;border:1px solid #c5a46d!important;border-radius:999px!important;background:transparent!important;color:#e3c995!important;font-size:14px!important;font-weight:750!important;white-space:nowrap!important;text-decoration:none!important}
+.gf-inner-page .gf-site-header .gf-site-contact:hover{background:#c5a46d!important;color:#07172d!important}
+@media(max-width:900px){.gf-inner-page .gf-site-header .w{width:calc(100% - 32px)!important;min-height:72px!important;flex-wrap:wrap!important;padding:8px 0!important;row-gap:4px!important}.gf-inner-page .gf-site-header nav{order:3!important;flex:0 0 100%!important;width:100%!important;justify-content:flex-start!important;overflow-x:auto!important;gap:20px!important;padding:7px 0 8px!important;scrollbar-width:thin!important}.gf-inner-page .gf-site-header nav a{font-size:12px!important}.gf-inner-page .gf-site-header .gf-site-contact{margin-left:auto!important;min-height:42px!important;padding:9px 16px!important}}
+@media(max-width:420px){.gf-inner-page .gf-site-header .logo{flex-basis:108px!important;width:108px!important;height:51px!important}.gf-inner-page .gf-site-header .gf-site-contact{font-size:12px!important;padding:8px 12px!important}}
+
+/* Shared homepage-style header for inner pages */
+.gf-inner-page .gf-site-header{position:sticky;top:0;z-index:1000;min-height:76px;padding:0 24px!important;background:rgba(5,18,36,.98)!important;color:#fff!important;border-bottom:1px solid rgba(217,173,85,.32)!important;box-shadow:0 8px 26px rgba(7,23,45,.1)!important;backdrop-filter:blur(14px)}
+.gf-inner-page .gf-site-header-inner{width:min(1360px,100%);min-height:76px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:28px}
+.gf-inner-page .gf-site-header .logo{display:block!important;flex:0 0 151px!important;width:151px!important;height:70px!important;background:url('/gonfly-logo.svg') center/contain no-repeat!important;background-size:contain!important;background-position:center!important;filter:none!important}
+.gf-inner-page .gf-site-header nav{display:flex!important;align-items:center;justify-content:center;gap:clamp(12px,1.8vw,26px)!important;min-width:0;background:transparent!important;font-size:14px!important;font-weight:650!important;white-space:nowrap}
+.gf-inner-page .gf-site-header nav a{display:inline-flex;align-items:center;min-height:44px;color:#f3f5f8!important;text-decoration:none!important}
+.gf-inner-page .gf-site-header nav a:hover{color:#f0d89b!important}
+.gf-inner-page .gf-site-header .gf-site-contact{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:10px 24px;border:1px solid #d9ad55;border-radius:999px;color:#f0d89b!important;background:transparent!important;text-decoration:none!important;font-weight:750!important;white-space:nowrap}
+.gf-inner-page .gf-site-header .gf-site-contact:hover{background:#d9ad55!important;color:#10213b!important}
+.gf-inner-page .muted,.gf-inner-page .meta{color:#687588!important;opacity:1!important}
+.gf-inner-page .panel,.gf-inner-page .panel *,.gf-inner-page .gf-panel,.gf-inner-page .gf-panel *{opacity:1}
+.gf-inner-page .panel .muted,.gf-inner-page .gf-panel .muted{color:#687588!important}
+.gf-inner-page .panel .status,.gf-inner-page .gf-panel .status{color:#765a2f!important;font-weight:650!important}
+.gf-inner-page .checklist li,.gf-inner-page .field label,.gf-inner-page label{color:#26364c!important}
+.gf-inner-page .field input,.gf-inner-page .field select,.gf-inner-page .field textarea{background:#fff!important;color:#14243a!important;border-color:#d8dee7!important}
+.gf-inner-page .notice{color:#55462e!important}
+@media(max-width:900px){.gf-inner-page .gf-site-header-inner{gap:16px}.gf-inner-page .gf-site-header nav{gap:12px!important;font-size:12px!important}.gf-inner-page .gf-site-header .logo{flex-basis:120px!important;width:120px!important;height:58px!important}.gf-inner-page .gf-site-header .gf-site-contact{padding:9px 16px}}
+@media(max-width:680px){.gf-inner-page .gf-site-header{padding:8px 14px!important}.gf-inner-page .gf-site-header-inner{min-height:58px;flex-wrap:wrap;gap:4px 12px}.gf-inner-page .gf-site-header .logo{flex:0 0 112px!important;width:112px!important;height:52px!important}.gf-inner-page .gf-site-header nav{order:3;width:100%;justify-content:flex-start;overflow-x:auto;padding:2px 0 8px;gap:18px!important}.gf-inner-page .gf-site-header nav a{font-size:12px;min-height:32px}.gf-inner-page .gf-site-header .gf-site-contact{min-height:40px;padding:8px 15px;font-size:12px}}
